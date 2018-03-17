@@ -35,12 +35,12 @@
     <Loggers>
         <Root level="trace">
             <AppenderRef ref="Console"/>
-            <AppenderRef ref="File" level="info"/>
+            <AppenderRef ref="File" level="trace"/>
         </Root>
 
         <Logger name="com.lele.test" level="trace" additivity="false">
             <AppenderRef ref="Console"/>
-            <AppenderRef ref="File" level="error"/>
+            <AppenderRef ref="File" level="trace"/>
         </Logger>
     </Loggers>
 </Configuration>
