@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lele.test.mybatis.generator.bean.mapper.QrsRouteInfoMapper">
+  <resultMap id="BaseResultMap" type="com.lele.test.mybatis.generator.bean.dto.QrsRouteInfo">
+    <id column="ROUTE_ID" jdbcType="VARCHAR" property="routeId" />
+    <result column="MCHT_ID" jdbcType="VARCHAR" property="mchtId" />
+    <result column="PROD_ID" jdbcType="VARCHAR" property="prodId" />
+    <result column="ACCT_TYPE" jdbcType="VARCHAR" property="acctType" />
+    <result column="PAGY_NO" jdbcType="CHAR" property="pagyNo" />
+    <result column="PRIORITY" jdbcType="INTEGER" property="priority" />
+    <result column="STATUS" jdbcType="CHAR" property="status" />
+    <result column="ROUTE_DESC" jdbcType="VARCHAR" property="routeDesc" />
+    <result column="CRT_TLR" jdbcType="VARCHAR" property="crtTlr" />
+    <result column="CRT_DATE_TIME" jdbcType="VARCHAR" property="crtDateTime" />
+    <result column="LAST_UPD_TLR" jdbcType="VARCHAR" property="lastUpdTlr" />
+    <result column="LAST_UPD_DATE_TIME" jdbcType="VARCHAR" property="lastUpdDateTime" />
+    <result column="REMARK1" jdbcType="VARCHAR" property="remark1" />
+    <result column="REMARK2" jdbcType="VARCHAR" property="remark2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ROUTE_ID, MCHT_ID, PROD_ID, ACCT_TYPE, PAGY_NO, PRIORITY, STATUS, ROUTE_DESC, CRT_TLR, 
+    CRT_DATE_TIME, LAST_UPD_TLR, LAST_UPD_DATE_TIME, REMARK1, REMARK2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from qrs_route_info
+    where ROUTE_ID = #{routeId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from qrs_route_info
+    where ROUTE_ID = #{routeId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lele.test.mybatis.generator.bean.dto.QrsRouteInfo">
+    insert into qrs_route_info (ROUTE_ID, MCHT_ID, PROD_ID, 
+      ACCT_TYPE, PAGY_NO, PRIORITY, 
+      STATUS, ROUTE_DESC, CRT_TLR, 
+      CRT_DATE_TIME, LAST_UPD_TLR, LAST_UPD_DATE_TIME, 
+      REMARK1, REMARK2)
+    values (#{routeId,jdbcType=VARCHAR}, #{mchtId,jdbcType=VARCHAR}, #{prodId,jdbcType=VARCHAR}, 
+      #{acctType,jdbcType=VARCHAR}, #{pagyNo,jdbcType=CHAR}, #{priority,jdbcType=INTEGER}, 
+      #{status,jdbcType=CHAR}, #{routeDesc,jdbcType=VARCHAR}, #{crtTlr,jdbcType=VARCHAR}, 
+      #{crtDateTime,jdbcType=VARCHAR}, #{lastUpdTlr,jdbcType=VARCHAR}, #{lastUpdDateTime,jdbcType=VARCHAR}, 
+      #{remark1,jdbcType=VARCHAR}, #{remark2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lele.test.mybatis.generator.bean.dto.QrsRouteInfo">
+    insert into qrs_route_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="routeId != null">
+        ROUTE_ID,
+      </if>
+      <if test="mchtId != null">
+        MCHT_ID,
+      </if>
+      <if test="prodId != null">
+        PROD_ID,
+      </if>
+      <if test="acctType != null">
+        ACCT_TYPE,
+      </if>
+      <if test="pagyNo != null">
+        PAGY_NO,
+      </if>
+      <if test="priority != null">
+        PRIORITY,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="routeDesc != null">
+        ROUTE_DESC,
+      </if>
+      <if test="crtTlr != null">
+        CRT_TLR,
+      </if>
+      <if test="crtDateTime != null">
+        CRT_DATE_TIME,
+      </if>
+      <if test="lastUpdTlr != null">
+        LAST_UPD_TLR,
+      </if>
+      <if test="lastUpdDateTime != null">
+        LAST_UPD_DATE_TIME,
+      </if>
+      <if test="remark1 != null">
+        REMARK1,
+      </if>
+      <if test="remark2 != null">
+        REMARK2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="routeId != null">
+        #{routeId,jdbcType=VARCHAR},
+      </if>
+      <if test="mchtId != null">
+        #{mchtId,jdbcType=VARCHAR},
+      </if>
+      <if test="prodId != null">
+        #{prodId,jdbcType=VARCHAR},
+      </if>
+      <if test="acctType != null">
+        #{acctType,jdbcType=VARCHAR},
+      </if>
+      <if test="pagyNo != null">
+        #{pagyNo,jdbcType=CHAR},
+      </if>
+      <if test="priority != null">
+        #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="routeDesc != null">
+        #{routeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="crtTlr != null">
+        #{crtTlr,jdbcType=VARCHAR},
+      </if>
+      <if test="crtDateTime != null">
+        #{crtDateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTlr != null">
+        #{lastUpdTlr,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdDateTime != null">
+        #{lastUpdDateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="remark1 != null">
+        #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null">
+        #{remark2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lele.test.mybatis.generator.bean.dto.QrsRouteInfo">
+    update qrs_route_info
+    <set>
+      <if test="mchtId != null">
+        MCHT_ID = #{mchtId,jdbcType=VARCHAR},
+      </if>
+      <if test="prodId != null">
+        PROD_ID = #{prodId,jdbcType=VARCHAR},
+      </if>
+      <if test="acctType != null">
+        ACCT_TYPE = #{acctType,jdbcType=VARCHAR},
+      </if>
+      <if test="pagyNo != null">
+        PAGY_NO = #{pagyNo,jdbcType=CHAR},
+      </if>
+      <if test="priority != null">
+        PRIORITY = #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=CHAR},
+      </if>
+      <if test="routeDesc != null">
+        ROUTE_DESC = #{routeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="crtTlr != null">
+        CRT_TLR = #{crtTlr,jdbcType=VARCHAR},
+      </if>
+      <if test="crtDateTime != null">
+        CRT_DATE_TIME = #{crtDateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTlr != null">
+        LAST_UPD_TLR = #{lastUpdTlr,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdDateTime != null">
+        LAST_UPD_DATE_TIME = #{lastUpdDateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="remark1 != null">
+        REMARK1 = #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null">
+        REMARK2 = #{remark2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ROUTE_ID = #{routeId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lele.test.mybatis.generator.bean.dto.QrsRouteInfo">
+    update qrs_route_info
+    set MCHT_ID = #{mchtId,jdbcType=VARCHAR},
+      PROD_ID = #{prodId,jdbcType=VARCHAR},
+      ACCT_TYPE = #{acctType,jdbcType=VARCHAR},
+      PAGY_NO = #{pagyNo,jdbcType=CHAR},
+      PRIORITY = #{priority,jdbcType=INTEGER},
+      STATUS = #{status,jdbcType=CHAR},
+      ROUTE_DESC = #{routeDesc,jdbcType=VARCHAR},
+      CRT_TLR = #{crtTlr,jdbcType=VARCHAR},
+      CRT_DATE_TIME = #{crtDateTime,jdbcType=VARCHAR},
+      LAST_UPD_TLR = #{lastUpdTlr,jdbcType=VARCHAR},
+      LAST_UPD_DATE_TIME = #{lastUpdDateTime,jdbcType=VARCHAR},
+      REMARK1 = #{remark1,jdbcType=VARCHAR},
+      REMARK2 = #{remark2,jdbcType=VARCHAR}
+    where ROUTE_ID = #{routeId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lele.test.mybatis.generator.bean.dto.QrsRouteInfo">
+    <id column="ROUTE_ID" jdbcType="VARCHAR" property="routeId" />
+    <result column="MCHT_ID" jdbcType="VARCHAR" property="mchtId" />
+    <result column="PROD_ID" jdbcType="VARCHAR" property="prodId" />
+    <result column="ACCT_TYPE" jdbcType="VARCHAR" property="acctType" />
+    <result column="PAGY_NO" jdbcType="CHAR" property="pagyNo" />
+    <result column="PRIORITY" jdbcType="INTEGER" property="priority" />
+    <result column="STATUS" jdbcType="CHAR" property="status" />
+    <result column="ROUTE_DESC" jdbcType="VARCHAR" property="routeDesc" />
+    <result column="CRT_TLR" jdbcType="VARCHAR" property="crtTlr" />
+    <result column="CRT_DATE_TIME" jdbcType="VARCHAR" property="crtDateTime" />
+    <result column="LAST_UPD_TLR" jdbcType="VARCHAR" property="lastUpdTlr" />
+    <result column="LAST_UPD_DATE_TIME" jdbcType="VARCHAR" property="lastUpdDateTime" />
+    <result column="REMARK1" jdbcType="VARCHAR" property="remark1" />
+    <result column="REMARK2" jdbcType="VARCHAR" property="remark2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ROUTE_ID, MCHT_ID, PROD_ID, ACCT_TYPE, PAGY_NO, PRIORITY, STATUS, ROUTE_DESC, CRT_TLR, 
+    CRT_DATE_TIME, LAST_UPD_TLR, LAST_UPD_DATE_TIME, REMARK1, REMARK2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from qrs_route_info
+    where ROUTE_ID = #{routeId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from qrs_route_info
+    where ROUTE_ID = #{routeId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lele.test.mybatis.generator.bean.dto.QrsRouteInfo">
+    insert into qrs_route_info (ROUTE_ID, MCHT_ID, PROD_ID, 
+      ACCT_TYPE, PAGY_NO, PRIORITY, 
+      STATUS, ROUTE_DESC, CRT_TLR, 
+      CRT_DATE_TIME, LAST_UPD_TLR, LAST_UPD_DATE_TIME, 
+      REMARK1, REMARK2)
+    values (#{routeId,jdbcType=VARCHAR}, #{mchtId,jdbcType=VARCHAR}, #{prodId,jdbcType=VARCHAR}, 
+      #{acctType,jdbcType=VARCHAR}, #{pagyNo,jdbcType=CHAR}, #{priority,jdbcType=INTEGER}, 
+      #{status,jdbcType=CHAR}, #{routeDesc,jdbcType=VARCHAR}, #{crtTlr,jdbcType=VARCHAR}, 
+      #{crtDateTime,jdbcType=VARCHAR}, #{lastUpdTlr,jdbcType=VARCHAR}, #{lastUpdDateTime,jdbcType=VARCHAR}, 
+      #{remark1,jdbcType=VARCHAR}, #{remark2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lele.test.mybatis.generator.bean.dto.QrsRouteInfo">
+    insert into qrs_route_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="routeId != null">
+        ROUTE_ID,
+      </if>
+      <if test="mchtId != null">
+        MCHT_ID,
+      </if>
+      <if test="prodId != null">
+        PROD_ID,
+      </if>
+      <if test="acctType != null">
+        ACCT_TYPE,
+      </if>
+      <if test="pagyNo != null">
+        PAGY_NO,
+      </if>
+      <if test="priority != null">
+        PRIORITY,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="routeDesc != null">
+        ROUTE_DESC,
+      </if>
+      <if test="crtTlr != null">
+        CRT_TLR,
+      </if>
+      <if test="crtDateTime != null">
+        CRT_DATE_TIME,
+      </if>
+      <if test="lastUpdTlr != null">
+        LAST_UPD_TLR,
+      </if>
+      <if test="lastUpdDateTime != null">
+        LAST_UPD_DATE_TIME,
+      </if>
+      <if test="remark1 != null">
+        REMARK1,
+      </if>
+      <if test="remark2 != null">
+        REMARK2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="routeId != null">
+        #{routeId,jdbcType=VARCHAR},
+      </if>
+      <if test="mchtId != null">
+        #{mchtId,jdbcType=VARCHAR},
+      </if>
+      <if test="prodId != null">
+        #{prodId,jdbcType=VARCHAR},
+      </if>
+      <if test="acctType != null">
+        #{acctType,jdbcType=VARCHAR},
+      </if>
+      <if test="pagyNo != null">
+        #{pagyNo,jdbcType=CHAR},
+      </if>
+      <if test="priority != null">
+        #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="routeDesc != null">
+        #{routeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="crtTlr != null">
+        #{crtTlr,jdbcType=VARCHAR},
+      </if>
+      <if test="crtDateTime != null">
+        #{crtDateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTlr != null">
+        #{lastUpdTlr,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdDateTime != null">
+        #{lastUpdDateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="remark1 != null">
+        #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null">
+        #{remark2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lele.test.mybatis.generator.bean.dto.QrsRouteInfo">
+    update qrs_route_info
+    <set>
+      <if test="mchtId != null">
+        MCHT_ID = #{mchtId,jdbcType=VARCHAR},
+      </if>
+      <if test="prodId != null">
+        PROD_ID = #{prodId,jdbcType=VARCHAR},
+      </if>
+      <if test="acctType != null">
+        ACCT_TYPE = #{acctType,jdbcType=VARCHAR},
+      </if>
+      <if test="pagyNo != null">
+        PAGY_NO = #{pagyNo,jdbcType=CHAR},
+      </if>
+      <if test="priority != null">
+        PRIORITY = #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=CHAR},
+      </if>
+      <if test="routeDesc != null">
+        ROUTE_DESC = #{routeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="crtTlr != null">
+        CRT_TLR = #{crtTlr,jdbcType=VARCHAR},
+      </if>
+      <if test="crtDateTime != null">
+        CRT_DATE_TIME = #{crtDateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdTlr != null">
+        LAST_UPD_TLR = #{lastUpdTlr,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdDateTime != null">
+        LAST_UPD_DATE_TIME = #{lastUpdDateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="remark1 != null">
+        REMARK1 = #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null">
+        REMARK2 = #{remark2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ROUTE_ID = #{routeId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lele.test.mybatis.generator.bean.dto.QrsRouteInfo">
+    update qrs_route_info
+    set MCHT_ID = #{mchtId,jdbcType=VARCHAR},
+      PROD_ID = #{prodId,jdbcType=VARCHAR},
+      ACCT_TYPE = #{acctType,jdbcType=VARCHAR},
+      PAGY_NO = #{pagyNo,jdbcType=CHAR},
+      PRIORITY = #{priority,jdbcType=INTEGER},
+      STATUS = #{status,jdbcType=CHAR},
+      ROUTE_DESC = #{routeDesc,jdbcType=VARCHAR},
+      CRT_TLR = #{crtTlr,jdbcType=VARCHAR},
+      CRT_DATE_TIME = #{crtDateTime,jdbcType=VARCHAR},
+      LAST_UPD_TLR = #{lastUpdTlr,jdbcType=VARCHAR},
+      LAST_UPD_DATE_TIME = #{lastUpdDateTime,jdbcType=VARCHAR},
+      REMARK1 = #{remark1,jdbcType=VARCHAR},
+      REMARK2 = #{remark2,jdbcType=VARCHAR}
+    where ROUTE_ID = #{routeId,jdbcType=VARCHAR}
+  </update>
+    <resultMap id="BaseResultMap" type="com.lele.test.mybatis.generator.bean.dto.QrsRouteInfo">
+        <id column="ROUTE_ID" jdbcType="VARCHAR" property="routeId" />
+        <result column="MCHT_ID" jdbcType="VARCHAR" property="mchtId" />
+        <result column="PROD_ID" jdbcType="CHAR" property="prodId" />
+        <result column="ACCT_TYPE" jdbcType="CHAR" property="acctType" />
+        <result column="PAGY_NO" jdbcType="CHAR" property="pagyNo" />
+        <result column="PRIORITY" jdbcType="INTEGER" property="priority" />
+        <result column="STATUS" jdbcType="CHAR" property="status" />
+        <result column="ROUTE_DESC" jdbcType="VARCHAR" property="routeDesc" />
+        <result column="CRT_TLR" jdbcType="VARCHAR" property="crtTlr" />
+        <result column="CRT_DATE_TIME" jdbcType="VARCHAR" property="crtDateTime" />
+        <result column="LAST_UPD_TLR" jdbcType="VARCHAR" property="lastUpdTlr" />
+        <result column="LAST_UPD_DATE_TIME" jdbcType="VARCHAR" property="lastUpdDateTime" />
+        <result column="REMARK1" jdbcType="VARCHAR" property="remark1" />
+        <result column="REMARK2" jdbcType="VARCHAR" property="remark2" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        ROUTE_ID, MCHT_ID, PROD_ID, ACCT_TYPE, PAGY_NO, PRIORITY, STATUS, ROUTE_DESC, CRT_TLR,
+        CRT_DATE_TIME, LAST_UPD_TLR, LAST_UPD_DATE_TIME, REMARK1, REMARK2
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from qrs_route_info
+        where ROUTE_ID = #{routeId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from qrs_route_info
+        where ROUTE_ID = #{routeId,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.lele.test.mybatis.generator.bean.dto.QrsRouteInfo">
+        insert into qrs_route_info (ROUTE_ID, MCHT_ID, PROD_ID,
+        ACCT_TYPE, PAGY_NO, PRIORITY,
+        STATUS, ROUTE_DESC, CRT_TLR,
+        CRT_DATE_TIME, LAST_UPD_TLR, LAST_UPD_DATE_TIME,
+        REMARK1, REMARK2)
+        values (#{routeId,jdbcType=VARCHAR}, #{mchtId,jdbcType=VARCHAR}, #{prodId,jdbcType=CHAR},
+        #{acctType,jdbcType=CHAR}, #{pagyNo,jdbcType=CHAR}, #{priority,jdbcType=INTEGER},
+        #{status,jdbcType=CHAR}, #{routeDesc,jdbcType=VARCHAR}, #{crtTlr,jdbcType=VARCHAR},
+        #{crtDateTime,jdbcType=VARCHAR}, #{lastUpdTlr,jdbcType=VARCHAR}, #{lastUpdDateTime,jdbcType=VARCHAR},
+        #{remark1,jdbcType=VARCHAR}, #{remark2,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.lele.test.mybatis.generator.bean.dto.QrsRouteInfo">
+        insert into qrs_route_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="routeId != null">
+                ROUTE_ID,
+            </if>
+            <if test="mchtId != null">
+                MCHT_ID,
+            </if>
+            <if test="prodId != null">
+                PROD_ID,
+            </if>
+            <if test="acctType != null">
+                ACCT_TYPE,
+            </if>
+            <if test="pagyNo != null">
+                PAGY_NO,
+            </if>
+            <if test="priority != null">
+                PRIORITY,
+            </if>
+            <if test="status != null">
+                STATUS,
+            </if>
+            <if test="routeDesc != null">
+                ROUTE_DESC,
+            </if>
+            <if test="crtTlr != null">
+                CRT_TLR,
+            </if>
+            <if test="crtDateTime != null">
+                CRT_DATE_TIME,
+            </if>
+            <if test="lastUpdTlr != null">
+                LAST_UPD_TLR,
+            </if>
+            <if test="lastUpdDateTime != null">
+                LAST_UPD_DATE_TIME,
+            </if>
+            <if test="remark1 != null">
+                REMARK1,
+            </if>
+            <if test="remark2 != null">
+                REMARK2,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="routeId != null">
+                #{routeId,jdbcType=VARCHAR},
+            </if>
+            <if test="mchtId != null">
+                #{mchtId,jdbcType=VARCHAR},
+            </if>
+            <if test="prodId != null">
+                #{prodId,jdbcType=CHAR},
+            </if>
+            <if test="acctType != null">
+                #{acctType,jdbcType=CHAR},
+            </if>
+            <if test="pagyNo != null">
+                #{pagyNo,jdbcType=CHAR},
+            </if>
+            <if test="priority != null">
+                #{priority,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=CHAR},
+            </if>
+            <if test="routeDesc != null">
+                #{routeDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="crtTlr != null">
+                #{crtTlr,jdbcType=VARCHAR},
+            </if>
+            <if test="crtDateTime != null">
+                #{crtDateTime,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdTlr != null">
+                #{lastUpdTlr,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdDateTime != null">
+                #{lastUpdDateTime,jdbcType=VARCHAR},
+            </if>
+            <if test="remark1 != null">
+                #{remark1,jdbcType=VARCHAR},
+            </if>
+            <if test="remark2 != null">
+                #{remark2,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.lele.test.mybatis.generator.bean.dto.QrsRouteInfo">
+        update qrs_route_info
+        <set>
+            <if test="mchtId != null">
+                MCHT_ID = #{mchtId,jdbcType=VARCHAR},
+            </if>
+            <if test="prodId != null">
+                PROD_ID = #{prodId,jdbcType=CHAR},
+            </if>
+            <if test="acctType != null">
+                ACCT_TYPE = #{acctType,jdbcType=CHAR},
+            </if>
+            <if test="pagyNo != null">
+                PAGY_NO = #{pagyNo,jdbcType=CHAR},
+            </if>
+            <if test="priority != null">
+                PRIORITY = #{priority,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                STATUS = #{status,jdbcType=CHAR},
+            </if>
+            <if test="routeDesc != null">
+                ROUTE_DESC = #{routeDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="crtTlr != null">
+                CRT_TLR = #{crtTlr,jdbcType=VARCHAR},
+            </if>
+            <if test="crtDateTime != null">
+                CRT_DATE_TIME = #{crtDateTime,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdTlr != null">
+                LAST_UPD_TLR = #{lastUpdTlr,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdDateTime != null">
+                LAST_UPD_DATE_TIME = #{lastUpdDateTime,jdbcType=VARCHAR},
+            </if>
+            <if test="remark1 != null">
+                REMARK1 = #{remark1,jdbcType=VARCHAR},
+            </if>
+            <if test="remark2 != null">
+                REMARK2 = #{remark2,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ROUTE_ID = #{routeId,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.lele.test.mybatis.generator.bean.dto.QrsRouteInfo">
+        update qrs_route_info
+        set MCHT_ID = #{mchtId,jdbcType=VARCHAR},
+        PROD_ID = #{prodId,jdbcType=CHAR},
+        ACCT_TYPE = #{acctType,jdbcType=CHAR},
+        PAGY_NO = #{pagyNo,jdbcType=CHAR},
+        PRIORITY = #{priority,jdbcType=INTEGER},
+        STATUS = #{status,jdbcType=CHAR},
+        ROUTE_DESC = #{routeDesc,jdbcType=VARCHAR},
+        CRT_TLR = #{crtTlr,jdbcType=VARCHAR},
+        CRT_DATE_TIME = #{crtDateTime,jdbcType=VARCHAR},
+        LAST_UPD_TLR = #{lastUpdTlr,jdbcType=VARCHAR},
+        LAST_UPD_DATE_TIME = #{lastUpdDateTime,jdbcType=VARCHAR},
+        REMARK1 = #{remark1,jdbcType=VARCHAR},
+        REMARK2 = #{remark2,jdbcType=VARCHAR}
+        where ROUTE_ID = #{routeId,jdbcType=VARCHAR}
+    </update>
+</mapper>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="300">
+
+    <Properties>
+        <Property name="LOG_PATH">target/logs</Property>
+        <Property name="FILE_LOG_NAME" value="test.log"/>
+        <Property name="RANDOM_FILE_LOG_NAME">random_file_log.log</Property>
+        <Property name="ROLLING_RANDOM_FILE_LOG_NAME">rolling_random_file_log.log</Property>
+        <Property name="FILE_LOG">${LOG_PATH}/${FILE_LOG_NAME}</Property>
+        <Property name="RANDOM_FILE_LOG">${LOG_PATH}/${RANDOM_FILE_LOG_NAME}.log</Property>
+        <Property name="ROLLING_RANDOM_FILE_LOG" value="${LOG_PATH}/${ROLLING_RANDOM_FILE_LOG_NAME}" />
+    </Properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <!--PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss.SSS}[%t][%level]{%m}%l%n"/-->
+            <!--PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/-->
+            <PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} [%t] %level %class{36} [%M:%L] - %msg%xEx%n"/>
+        </Console>
+        <File name="File" fileName="${FILE_LOG}">
+            <PatternLayout>
+                <Charset>UTF-8</Charset>
+                <Pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%l] - %m%n</Pattern>
+            </PatternLayout>
+        </File>
+        <RandomAccessFile name="RandomFile" fileName="${RANDOM_FILE_LOG}"  >
+            <PatternLayout>
+                <Charset>UTF-8</Charset>
+                <Pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %l - %msg%xEx%n</Pattern>
+            </PatternLayout>
+        </RandomAccessFile>
+
+        <RollingRandomAccessFile name="RollingRandomAccessFile" fileName="${ROLLING_RANDOM_FILE_LOG}"
+                                 filePattern="${LOG_PATH}/RollingRandomAccessFile-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+            <!-- 备份策略:满足其中一个就可以启动备份-->
+            <Policies>
+                <!-- interval 多久执行一次备份，单位为 RollingRandomAccessFile的属性filePattern中%d{yyyy-MM-dd}的最小时间单位，此处是天-->
+                <TimeBasedTriggeringPolicy  interval="1"  modulate="true"/>
+                <SizeBasedTriggeringPolicy size="250 MB"/>
+            </Policies>
+            <!-- 默认的备份策略：max="7"表示最多只保留7份日志，fileIndex属性是在拥有多个备份日志的时候，命令是以递增的数为文件名，max值时值大的文件是最新的内容，min值时值大的是最久的内容-->
+            <DefaultRolloverStrategy  fileIndex="max" max="1000">
+                <!-- 删除指定目录下60天之前的日志-->
+                <Delete basePath="${LOG_PATH}" maxDepth="2">
+                    <IfFileName glob="*.log.gz" />
+                    <IfLastModified age="60d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingRandomAccessFile>
+    </Appenders>
+    <Loggers>
+        <Root level="error" >
+            <AppenderRef ref="Console"/>
+        </Root>
+
+        <Logger name="com.lele.test" level="info" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File" level="error"/>
+        </Logger>
+    </Loggers>
+</Configuration>
