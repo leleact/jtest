@@ -3,8 +3,7 @@
 
     <Properties>
         <Property name="LOG_PATH">logs</Property>
-        <Property name="ROLLING_RANDOM_FILE_LOG_NAME">rolling_random_file_log.log</Property>
-        <Property name="ROLLING_RANDOM_FILE_LOG" value="${LOG_PATH}/${ROLLING_RANDOM_FILE_LOG_NAME}" />
+        <Property name="LOG_FILE_NAME">application.log</Property>
     </Properties>
 
     <Appenders>
@@ -12,8 +11,8 @@
             <PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} [%t] %level %class{36} [%M:%L] - %msg%xEx%n"/>
         </Console>
 
-        <RollingRandomAccessFile name="File" fileName="${ROLLING_RANDOM_FILE_LOG}"
-                                 filePattern="${LOG_PATH}/backup/RollingRandomAccessFile-%d{yyyy-MM-dd}-%i.log.gz">
+        <RollingRandomAccessFile name="File" fileName="${LOG_PATH}/${LOG_FILE_NAME}"
+                                 filePattern="${LOG_PATH}/backup/${LOG_FILE_NAME}-%d{yyyy-MM-dd}-%i.log.gz">
             <PatternLayout>
                 <Pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [%t] %level %class{36} [%M:%L] - %msg%xEx%n</Pattern>
             </PatternLayout>
