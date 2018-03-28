@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN" monitorInterval="300">
 
-    <!-- http://logging.apache.org/log4j/2.x/manual/appenders.html#RollingFileAppender -->
     <Properties>
-        <Property name="URL">http://logging.apache.org/log4j/2.x/manual/appenders.html#RollingFileAppender</Property>
-        <Property name="baseDir">target/logs</Property>
+        <Property name="baseDir">logs</Property>
         <Property name="rollingFileName">app.log</Property>
     </Properties>
 
@@ -33,16 +31,12 @@
     <Loggers>
         <Root level="info">
             <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile" level="info"/>
         </Root>
 
         <Logger name="com.lele.test" level="debug" additivity="false">
             <AppenderRef ref="Console"/>
-            <AppenderRef ref="RollingFile" level="error"/>
-        </Logger>
-
-        <Logger name="org.springframework" level="debug" additivity="false">
-            <AppenderRef ref="Console"/>
-            <AppenderRef ref="RollingFile" level="error"/>
+            <AppenderRef ref="RollingFile" level="info"/>
         </Logger>
     </Loggers>
 </Configuration>
