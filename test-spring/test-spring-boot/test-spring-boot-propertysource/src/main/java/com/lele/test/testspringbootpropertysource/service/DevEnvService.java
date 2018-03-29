@@ -2,6 +2,7 @@ package com.lele.test.testspringbootpropertysource.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +14,17 @@ public class DevEnvService {
 
     private static final Logger log = LoggerFactory.getLogger(DevEnvService.class);
 
+    public DevEnvService() {
+        log.info("===============");
+    }
+    // 可以直接从 System property总获取
+    @Value("${environmentTocken}")
+    private String environmentTocken;
+
     @PostConstruct
     public void constructor() {
         log.info("test environment");
+
+        log.info("{}", environmentTocken);
     }
 }

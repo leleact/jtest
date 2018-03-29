@@ -11,6 +11,7 @@ public class TestSpringBootPropertysourceApplication {
 	private static final Logger log = LoggerFactory.getLogger(TestSpringBootPropertysourceApplication.class);
 
 	public static void main(String[] args) {
+	    System.setProperty("environmentTocken", "myTocken");
 	    log.info("=======================  spring boot start ======================");
 		SpringApplication.run(TestSpringBootPropertysourceApplication.class, args);
 	}
