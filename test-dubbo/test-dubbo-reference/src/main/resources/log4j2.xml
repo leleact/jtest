@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN" monitorInterval="300">
 
+    <!-- http://logging.apache.org/log4j/2.x/manual/appenders.html#RollingFileAppender -->
     <Properties>
+        <Property name="URL">http://logging.apache.org/log4j/2.x/manual/appenders.html#RollingFileAppender</Property>
         <Property name="baseDir">target/logs</Property>
         <Property name="rollingFileName">app.log</Property>
     </Properties>
