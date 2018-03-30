@@ -1,7 +1,7 @@
 package com.lele.test.spring.boot.mybatis.test;
 
 
-import com.lele.test.spring.boot.mybatis.SpringBootTestApplication;
+import com.lele.test.spring.boot.mybatis.TestSpringBootMybatisApplication;
 import com.lele.test.spring.boot.mybatis.bean.dto.T1;
 import com.lele.test.spring.boot.mybatis.bean.dto.T2;
 import com.lele.test.spring.boot.mybatis.bean.mapper.T1Mapper;
@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.annotation.Resource;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = SpringBootTestApplication.class)
+@SpringBootTest(classes = TestSpringBootMybatisApplication.class)
 public class SpringBootMybatisTest {
 
     private static final Logger log = LoggerFactory.getLogger(SpringBootMybatisTest.class);

@@ -1,7 +1,7 @@
 package com.lele.test.spring.boot.mybatis.test;
 
 
-import com.lele.test.spring.boot.mybatis.SpringBootTestApplication;
+import com.lele.test.spring.boot.mybatis.TestSpringBootMybatisApplication;
 import com.lele.test.spring.boot.mybatis.bean.dto.T1;
 import com.lele.test.spring.boot.mybatis.bean.mapper.T1Mapper;
 import com.lele.test.spring.boot.mybatis.service.TransactionService;
@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = SpringBootTestApplication.class)
+@SpringBootTest(classes = TestSpringBootMybatisApplication.class)
 public class SpringBootTransactionTest {
 
     private static final Logger log = LoggerFactory.getLogger(SpringBootTransactionTest.class);
@@ -32,9 +32,8 @@ public class SpringBootTransactionTest {
 
     @Before
     public void before() {
-        T1 t1 = new T1();
-        t1.setF1("1");
-        t1Mapper.delete(t1);
+        long count = t1Mapper.deleteAll();
+        log.info("delete {} counts", count);
     }
 
     @Test
