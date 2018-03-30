@@ -16,6 +16,8 @@
         <module>test-spring-boot-mybatis</module>
         <module>test-spring-boot-amqp</module>
         <module>test-spring-boot-context</module>
+        <module>test-spring-boot-propertysource</module>
+        <module>test-spring-boot-uploadfile</module>
     </modules>
 
     <description>Demo project for Spring Boot</description>
