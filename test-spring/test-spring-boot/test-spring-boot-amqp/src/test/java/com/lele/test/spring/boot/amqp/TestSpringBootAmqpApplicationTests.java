@@ -2,6 +2,8 @@ package com.lele.test.spring.boot.amqp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.Exchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.support.CorrelationData;
@@ -15,6 +17,8 @@ import java.util.Date;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class TestSpringBootAmqpApplicationTests {
+
+    private static final Logger log = LoggerFactory.getLogger(TestSpringBootAmqpApplicationTests.class);
 
 	@Test
 	public void contextLoads() {
@@ -37,6 +41,15 @@ public class TestSpringBootAmqpApplicationTests {
             String message = "hello @" + sdf.format(new Date());
             CorrelationData correlationData = new CorrelationData(sdf.format(new Date()));
             rabbitTemplate.convertAndSend(exchange.getName(), "xx", message, correlationData);
+        }
+    }
+
+    @Test
+    public void throwExcetionTest() {
+	    try {
+	        throw new Exception("111");
+        } catch (Exception e) {
+	        log.error(e.getMessage(), e);
         }
     }
 

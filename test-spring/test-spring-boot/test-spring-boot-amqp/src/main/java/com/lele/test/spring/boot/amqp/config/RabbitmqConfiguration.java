@@ -9,12 +9,12 @@ public class RabbitmqConfiguration {
 
     @Bean
     public Queue queue() {
-        return QueueBuilder.durable("test_queue").build();
+        return QueueBuilder.nonDurable("test_queue").autoDelete().build();
     }
 
     @Bean
     public Exchange exchange() {
-        return ExchangeBuilder.topicExchange("topic_exchange").build();
+        return ExchangeBuilder.topicExchange("topic_exchange").autoDelete().durable(false).build();
     }
 
     @Bean
