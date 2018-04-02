@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>JTest</artifactId>
+        <artifactId>jtest</artifactId>
         <groupId>com.lele.test</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
@@ -47,6 +47,7 @@
                         <goals>
                             <goal>generate</goal>
                         </goals>
+                        <phase>generate</phase>
                     </execution>
                 </executions>
                 <configuration>
