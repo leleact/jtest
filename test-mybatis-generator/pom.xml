@@ -47,7 +47,7 @@
                         <goals>
                             <goal>generate</goal>
                         </goals>
-                        <phase>generate</phase>
+                        <phase>generate-resources</phase>
                     </execution>
                 </executions>
                 <configuration>
