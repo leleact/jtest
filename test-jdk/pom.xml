@@ -32,6 +32,7 @@
         <module>test-jdk-threadpool</module>
         <module>test-jdk-base64</module>
         <module>test-jdk-certificate</module>
+        <module>test-jdk-uuid</module>
     </modules>
 
 </project>
