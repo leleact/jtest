@@ -9,13 +9,13 @@
 
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{-%5p}{FATAL=red blink, ERROR=red, WARN=yellow bold, INFO=green, DEBUG=green bold, TRACE=blue} %style{%pid}{magenta} [%15.15t] %style{%-40.40C{1.}}{cyan} %style{[%-20.40file:%4.4line]}{green} : %m%n%xEx"/>
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{-%5p}{FATAL=red blink, ERROR=red, WARN=yellow bold, INFO=green, DEBUG=green bold, TRACE=blue} %style{${sys:PID}}{magenta} [%20.20t] %style{%-40.40C{1.}}{cyan} %style{[%-20.40file:%4.4line]}{green} : %m%n%xEx"/>
         </Console>
 
         <RollingFile name="RollingFile" fileName="${baseDir}/${rollingFileName}"
-                     filePattern="${baseDir}/backup/$${date:yyyy-MM}/${filename}-%d{yyyy-MM-dd}-%i.log.gz">
+                     filePattern="${baseDir}/backup/$${date:yyyy-MM}/${filename}-%d{MM-dd-yyyy}-%i.log.gz">
             <PatternLayout>
-                <Pattern>%d %-5p [%15.15t] %-40.40C{1.} [%-20.40file:%4.4line] : %m%n</Pattern>
+                <Pattern>%d %-5p [%20.20t] %-40.40C{1.} [%-20.40file:%4.4line] : %m%n</Pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy/>

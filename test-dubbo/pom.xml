@@ -16,6 +16,7 @@
         <module>test-dubbo-consumer</module>
         <module>test-dubbo-api</module>
         <module>test-dubbo-reference</module>
+        <module>test-dubbo-starter</module>
     </modules>
 
     <dependencyManagement>

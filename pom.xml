@@ -39,9 +39,8 @@
         <slf4j-api.version>1.7.25</slf4j-api.version>
         <jcl-over-slf4j.version>1.7.25</jcl-over-slf4j.version>
         <slf4j-log4j12.version>1.7.25</slf4j-log4j12.version>
-        <log4j2-slf4j.version>2.10.0</log4j2-slf4j.version>
+        <log4j2.version>2.10.0</log4j2.version>
         <log4j.version>1.2.17</log4j.version>
-        <log4j-core.version>2.10.0</log4j-core.version>
         <jstl.version>1.2</jstl.version>
         <spring.version>4.3.13.RELEASE</spring.version>
         <hibernate.version>5.2.12.Final</hibernate.version>
@@ -109,25 +108,10 @@
 
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-slf4j-impl</artifactId>
-                <version>${log4j2-slf4j.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.apache.logging.log4j</groupId>
-                        <artifactId>log4j-api</artifactId>
-                    </exclusion>
-
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>slf4j-api</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-core</artifactId>
-                <version>${log4j-core.version}</version>
+                <artifactId>log4j-bom</artifactId>
+                <version>${log4j2.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
 
             <dependency>
@@ -279,12 +263,17 @@
 
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
+            <artifactId>log4j-api</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
         </dependency>
 
         <dependency>
