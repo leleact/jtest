@@ -6,14 +6,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class TestBuildSpringBootJarApplication {
 
-    private static final Logger log = LoggerFactory.getLogger(Application.class);
+    private static final Logger log = LoggerFactory.getLogger(TestBuildSpringBootJarApplication.class);
 
     public static void main(String[] args) {
 
         log.info("运行成功");
 
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(TestBuildSpringBootJarApplication.class, args);
     }
 }
