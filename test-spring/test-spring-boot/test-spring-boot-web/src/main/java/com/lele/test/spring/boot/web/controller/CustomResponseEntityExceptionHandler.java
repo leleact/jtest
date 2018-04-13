@@ -17,7 +17,6 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
     @Override
     protected ResponseEntity<Object> handleNoHandlerFoundException(NoHandlerFoundException ex, HttpHeaders headers,
             HttpStatus status, WebRequest request) {
-        log.info("===============>>>" + status.toString());
         return super.handleNoHandlerFoundException(ex, headers, status, request);
     }
 }

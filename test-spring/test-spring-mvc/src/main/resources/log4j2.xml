@@ -2,8 +2,8 @@
 <Configuration status="WARN" monitorInterval="300" >
 
     <Properties>
-        <Property name="baseDir">target/logs</Property>
-        <Property name="filename">app</Property>
+        <Property name="baseDir">${sys:user.home}</Property>
+        <Property name="filename">test-spring-mvc</Property>
         <Property name="rollingFileName">${filename}.log</Property>
     </Properties>
 

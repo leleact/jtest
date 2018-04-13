@@ -1,15 +1,11 @@
 package com.lele.test.spring.boot.web.controller;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.Map;
-
 @RestController
-@RequestMapping(value = "/exh")
 public class ExceptionHandleController {
 
     @GetMapping(value = "/{id}/info")
@@ -22,24 +18,14 @@ public class ExceptionHandleController {
         }
     }
 
-    @GetMapping("/ex")
+    @GetMapping("/rex")
     public String exceptionthrow() {
         throw new RuntimeException();
     }
 
     @ExceptionHandler({NumberFormatException.class})
-    public String databaseError() {
+    public String numberFormatException() {
         return "NumberFormatException";
-    }
-
-
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(Exception.class)
-    @ResponseBody
-    public Map<String, String> handleBadRequest(HttpServletRequest req, Exception ex) {
-        Map<String, String> map = new HashMap<>();
-        map.put("1", "2");
-        return map;
     }
 
 }

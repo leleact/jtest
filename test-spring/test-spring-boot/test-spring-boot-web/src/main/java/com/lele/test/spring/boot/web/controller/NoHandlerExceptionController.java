@@ -9,10 +9,11 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 
 @ControllerAdvice
 public class NoHandlerExceptionController {
+
     @ExceptionHandler(NoHandlerFoundException.class)
-    @ResponseStatus(value= HttpStatus.NOT_FOUND)
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
     @ResponseBody
     public String requestHandlingNoHandlerFound() {
-        return "heihei-404";
+        return "404 status";
     }
 }

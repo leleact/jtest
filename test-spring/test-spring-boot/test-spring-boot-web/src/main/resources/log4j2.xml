@@ -2,8 +2,8 @@
 <Configuration status="WARN" monitorInterval="300" >
 
     <Properties>
-        <Property name="baseDir">target/logs</Property>
-        <Property name="filename">app</Property>
+        <Property name="baseDir">${sys:user.home}/logs</Property>
+        <Property name="filename">test-spring-boot-web</Property>
         <Property name="rollingFileName">${filename}.log</Property>
     </Properties>
 
@@ -30,7 +30,7 @@
         </RollingFile>
     </Appenders>
     <Loggers>
-        <Root level="info">
+        <Root level="trace">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="RollingFile" level="info"/>
         </Root>
