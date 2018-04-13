@@ -41,4 +41,16 @@ public class RetStrTestor {
 
         System.out.println(response);
     }
+
+
+    @Test
+    public void pathVariableControllerTest() throws Exception {
+        String response = this.mockMvc.perform(
+                post("/111/info").contentType(MediaType.parseMediaType("application/json;charset=UTF-8")))
+                .andExpect(status().isOk())
+                .andExpect(content().string("ok"))
+                .andReturn().getResponse().getContentAsString();
+
+        System.out.println(response);
+    }
 }
