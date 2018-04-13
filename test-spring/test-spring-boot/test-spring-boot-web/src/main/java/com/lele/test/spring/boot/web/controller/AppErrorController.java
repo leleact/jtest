@@ -1,5 +1,6 @@
 package com.lele.test.spring.boot.web.controller;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.web.ErrorAttributes;
 import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 @RestController
+@ConditionalOnProperty(prefix = "web.error", name = "enabled", havingValue = "true" )
 public class AppErrorController implements ErrorController {
 
     private ErrorAttributes errorAttributes;
