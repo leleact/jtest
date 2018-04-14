@@ -1,33 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN" monitorInterval="300">
+<Configuration status="WARN" monitorInterval="300" >
 
     <Properties>
-        <Property name="name1">value</Property>
-        <Property name="name2" value="value2"/>
-        <Property name="filename">target/test.log</Property>
+        <Property name="baseDir">${sys:user.home}/logs</Property>
+        <Property name="filename">test-dubbo-consumer</Property>
+        <Property name="rollingFileName">${filename}.log</Property>
     </Properties>
 
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
-            <!--PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss.SSS}[%t][%level]{%m}%l%n"/-->
-            <!--PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/-->
-            <PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %class{36} [%M:%L] - %msg%xEx%n"/>
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{-%5p}{FATAL=red blink, ERROR=red, WARN=yellow bold, INFO=green, DEBUG=green bold, TRACE=blue} %style{${sys:PID}}{magenta} [%15.15t] %style{%-40.40C{1.}}{cyan} %style{[%-20.40file:%4.4line]}{green} : %m%n%xEx"/>
         </Console>
 
-        <File name="File" fileName="${filename}">
+        <RollingFile name="RollingFile" fileName="${baseDir}/${rollingFileName}"
+                     filePattern="${baseDir}/backup/$${date:yyyy-MM}/${filename}-%d{yyyy-MM-dd}-%i.log.gz">
             <PatternLayout>
-                <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n</pattern>
+                <Pattern>%d %-5p [%15.15t] %-40.40C{1.} [%-20.40file:%4.4line] : %m%n</Pattern>
             </PatternLayout>
-        </File>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="250 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${baseDir}" maxDepth="2">
+                    <IfFileName glob="*/${filename}-*.log.gz"/>
+                    <IfLastModified age="60d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
     </Appenders>
     <Loggers>
-        <Root level="trace">
+        <Root level="info">
             <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile" level="info"/>
         </Root>
 
         <Logger name="com.lele.test" level="trace" additivity="false">
             <AppenderRef ref="Console"/>
-            <AppenderRef ref="File" level="error"/>
+            <AppenderRef ref="RollingFile" level="error"/>
         </Logger>
     </Loggers>
 </Configuration>
