@@ -1,6 +1,5 @@
 package com.lele.test.dubbo.reference;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.dubbo.rpc.service.GenericService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
