@@ -12,10 +12,6 @@
     <!-- use dubbo protocol to export service on port 20880 -->
     <dubbo:protocol name="dubbo" port="20880"/>
 
-    <!-- service implementation, as same as regular local bean -->
-    <bean id="demoService" class="com.lele.test.dubbo.compatibility.provider.DemoService"/>
-
-    <!-- declare the service interface to be exported -->
-    <dubbo:service interface="com.lele.test.dubbo.compatibility.api.EchoService" ref="demoService"/>
+    <dubbo:annotation package="com.lele.test.dubbo.compatibility.provider.dubbo" />
 
 </beans>
