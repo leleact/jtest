@@ -1,4 +1,4 @@
-package com.lele.test.dubbo.provider.dubbo.service;
+package com.lele.test.dubbo.provider.dubbo.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.lele.test.dubbo.api.EchoService;
