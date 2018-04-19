@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN" monitorInterval="300">
+<Configuration status="WARN" monitorInterval="300" >
 
     <Properties>
         <Property name="baseDir">target/logs</Property>
-        <Property name="rollingFileName">app.log</Property>
+        <Property name="filename">test-spring-boot-context</Property>
+        <Property name="rollingFileName">${filename}.log</Property>
     </Properties>
 
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} [%t] %level %class{36} [%M:%L] - %msg%xEx%n"/>
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{-%5p}{FATAL=red blink, ERROR=red, WARN=yellow bold, INFO=green, DEBUG=green bold, TRACE=blue} %style{%pid}{magenta} [%15.15t] %style{%-40.40C{1.}}{cyan} %style{[%-20.40file:%4.4line]}{green} : %m%n%xEx"/>
         </Console>
 
         <RollingFile name="RollingFile" fileName="${baseDir}/${rollingFileName}"
-                     filePattern="${baseDir}/backup/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+                     filePattern="${baseDir}/backup/$${date:yyyy-MM}/${filename}-%d{yyyy-MM-dd}-%i.log.gz">
             <PatternLayout>
-                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+                <Pattern>%d %-5p [%15.15t] %-40.40C{1.} [%-20.40file:%4.4line] : %m%n</Pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy/>
@@ -22,15 +23,16 @@
             </Policies>
             <DefaultRolloverStrategy>
                 <Delete basePath="${baseDir}" maxDepth="2">
-                    <IfFileName glob="*/app-*.log.gz"/>
+                    <IfFileName glob="*/${filename}-*.log.gz"/>
                     <IfLastModified age="60d"/>
                 </Delete>
             </DefaultRolloverStrategy>
         </RollingFile>
     </Appenders>
     <Loggers>
-        <Root level="trace">
+        <Root level="info">
             <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile" level="info"/>
         </Root>
 
         <Logger name="com.lele.test" level="trace" additivity="false">
