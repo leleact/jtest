@@ -36,9 +36,7 @@
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <servlet.api.version>4.0.0</servlet.api.version>
         <jsp.api.version>2.3.1</jsp.api.version>
-        <slf4j-api.version>1.7.25</slf4j-api.version>
-        <jcl-over-slf4j.version>1.7.25</jcl-over-slf4j.version>
-        <slf4j-log4j12.version>1.7.25</slf4j-log4j12.version>
+        <slf4j.version>1.7.25</slf4j.version>
         <log4j2.version>2.10.0</log4j2.version>
         <log4j.version>1.2.17</log4j.version>
         <jstl.version>1.2</jstl.version>
@@ -103,7 +101,7 @@
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
-                <version>${slf4j-api.version}</version>
+                <version>${slf4j.version}</version>
             </dependency>
 
             <dependency>
@@ -132,7 +130,7 @@
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>jcl-over-slf4j</artifactId>
-                <version>${jcl-over-slf4j.version}</version>
+                <version>${slf4j.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
