@@ -4,6 +4,7 @@ package com.lele.test.json;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.lele.test.json.bean.*;
+import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +18,13 @@ import static com.alibaba.fastjson.serializer.SerializerFeature.*;
 public class FastJsonTest {
 
     private Logger log = LoggerFactory.getLogger(FastJsonTest.class);
+
+    @Test
+    public void NullObjectTest() {
+        String str = JSONObject.toJSONString(null);
+        log.info("null object to JSONString is [{}]", str);
+        Assert.assertEquals("null", str);
+    }
 
     @Test
     public void pojoTest() {
@@ -181,43 +189,5 @@ public class FastJsonTest {
         B b1 = JSONObject.parseObject(str, B.class);
 
         log.info(b1.getbName() + ", " + b1.getA().getaName());
-    }
-
-
-    @Test
-    public void mixpayTest() {
-
-        TradeResult tradeResult = new TradeResult();
-        tradeResult.setReturn_code("SUCCESS");
-        tradeResult.setReturn_msg("OK");
-        tradeResult.setAppid("wxa8d0b58cefc18eb2");
-        tradeResult.setMch_id("1900008721");
-        tradeResult.setSub_mch_id("30230438");
-        tradeResult.setNonce_str("6CsXOPU0w9kYPBzB");
-        tradeResult.setSign("72E1B14E5E82AB7ADA999329397E3CD4");
-        tradeResult.setResult_code("SUCCESS");
-        tradeResult.setPrepay_id("wx20171013193158a05cd6505c0614692279");
-        tradeResult.setTrade_type("NATIVE");
-        tradeResult.setCode_url("weixin:\\/\\/wxpay\\/bizpayurl?pr=F3kPLVy");
-
-        MixPayOrderResponse mixPayOrderResponse = new MixPayOrderResponse();
-        mixPayOrderResponse.setOrd_no("9150789431772103143710073");
-        mixPayOrderResponse.setOrd_mct_id("3063");
-        mixPayOrderResponse.setOrd_shop_id("3063");
-        mixPayOrderResponse.setOrd_currency("CNY");
-        mixPayOrderResponse.setCurrency_sign("\u00a5");
-        mixPayOrderResponse.setPmt_tag("WeixinBERL");
-        mixPayOrderResponse.setPmt_name("\u5fae\u4fe1\u652f\u4ed8(\u6d4b\u8bd5)");
-        mixPayOrderResponse.setTrade_no("wx20171013193158a05cd6505c0614692279");
-        mixPayOrderResponse.setTrade_amount("1");
-        mixPayOrderResponse.setTrade_qrcode("weixin:\\/\\/wxpay\\/bizpayurl?pr=F3kPLVy");
-        mixPayOrderResponse.setTrade_discout_amount("0");
-        mixPayOrderResponse.setStatus("2");
-        mixPayOrderResponse.setOut_no("31221530189693092323958375173947");
-        mixPayOrderResponse.setTrade_result(tradeResult);
-
-        log.info(JSONObject.toJSONString(mixPayOrderResponse, WriteMapNullValue, WriteSlashAsSpecial,
-                BrowserCompatible));
-
     }
 }
