@@ -29,7 +29,7 @@ public class PropertiesController {
 
     @GetMapping("/classloader")
     Map<String, String> getPropWithClassLoader() throws IOException {
-        Properties properties = ReadPropertiesUtil.readPropertiesWithClassLoader("/config/config.properties");
+        Properties properties = ReadPropertiesUtil.readPropertiesWithClassLoader("config/config.properties");
         Map<String, String> map = new HashMap<>();
         Enumeration<?> enumeration = properties.propertyNames();
         while (enumeration.hasMoreElements()) {

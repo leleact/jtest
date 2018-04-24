@@ -40,6 +40,17 @@ public class PropertiesControllerTests {
     @Test
     public void propClassLoaderTest() throws Exception {
         String response = this.mockMvc.perform(
+                get("/prop/classloader").contentType(MediaType.parseMediaType("application/json;charset=UTF-8")))
+                .andExpect(status().isOk())
+                .andExpect(content().string("{\"a\":\"1\",\"b\":\"2\"}"))
+                .andReturn().getResponse().getContentAsString();
+
+        System.out.println(response);
+    }
+
+    @Test
+    public void propClassTest() throws Exception {
+        String response = this.mockMvc.perform(
                 get("/prop/class").contentType(MediaType.parseMediaType("application/json;charset=UTF-8")))
                 .andExpect(status().isOk())
                 .andExpect(content().string("{\"a\":\"1\",\"b\":\"2\"}"))
