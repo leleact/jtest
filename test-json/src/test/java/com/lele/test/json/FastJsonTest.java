@@ -162,17 +162,6 @@ public class FastJsonTest {
     }
 
     @Test
-    public void escapeTest() {
-        String url = "https://mixpayuat1.orangebank.com.cn/?f=9150787232258644286000660&O=17a3dd718db492db4f0c3c5ad254942b";
-
-        Map<String, String> map = new HashMap<>();
-
-        map.put("mixPayUrl", url);
-
-        log.debug(JSONObject.toJSONString(map));
-    }
-
-    @Test
     public void parseComplexObject() {
 
         B b = new B();
