@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(locations = {"classpath:config/spring/spring-mvc.xml"}, loader = WebDelegatingSmartContextLoader.class)
-@WebAppConfiguration
+@WebAppConfiguration(value = "src/main/webapp")
 public class PropertiesControllerTests {
 
     private static final Logger log = LoggerFactory.getLogger(PropertiesControllerTests.class);
@@ -45,7 +45,7 @@ public class PropertiesControllerTests {
                 .andExpect(content().string("{\"a\":\"1\",\"b\":\"2\"}"))
                 .andReturn().getResponse().getContentAsString();
 
-        System.out.println(response);
+        log.info("response : {}", response);
     }
 
     @Test
@@ -56,6 +56,6 @@ public class PropertiesControllerTests {
                 .andExpect(content().string("{\"a\":\"1\",\"b\":\"2\"}"))
                 .andReturn().getResponse().getContentAsString();
 
-        System.out.println(response);
+        log.info("response : {}", response);
     }
 }
