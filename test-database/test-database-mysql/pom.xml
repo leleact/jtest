@@ -11,6 +11,9 @@
 
     <artifactId>test-database-mysql</artifactId>
 
+    <properties>
+        <mysql.connector.version>8.0.11</mysql.connector.version>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -22,6 +25,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connector.version}</version>
         </dependency>
 
         <dependency>
@@ -55,7 +59,6 @@
 
     </dependencies>
 
-
     <build>
         <resources>
             <resource>
@@ -81,7 +84,7 @@
                         <goals>
                             <goal>generate</goal>
                         </goals>
-                        <phase>deploy</phase>
+                        <phase>generate</phase>
                     </execution>
                 </executions>
                 <configuration>
@@ -93,7 +96,7 @@
                     <dependency>
                         <groupId>mysql</groupId>
                         <artifactId>mysql-connector-java</artifactId>
-                        <version>5.1.38</version>
+                        <version>${mysql.connector.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
