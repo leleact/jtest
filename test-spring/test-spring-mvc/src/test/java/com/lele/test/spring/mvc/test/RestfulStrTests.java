@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:config/spring/spring-mvc.xml"})
 @WebAppConfiguration
-public class RetStrTestor {
+public class RestfulStrTests {
 
     @Autowired
     private WebApplicationContext context;

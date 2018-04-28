@@ -302,6 +302,9 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>2.21.0</version>
                     <configuration>
+                        <includes>
+                            <include>%regex[.*Test.*]</include>
+                        </includes>
                         <argLine>-Dfile.encoding=UTF-8</argLine>
                     </configuration>
                 </plugin>
