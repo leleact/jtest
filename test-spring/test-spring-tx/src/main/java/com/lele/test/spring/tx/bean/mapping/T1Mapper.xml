@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lele.test.spring.tx.bean.T1Mapper">
+<mapper namespace="com.lele.test.spring.tx.bean.mapper.T1Mapper">
   <resultMap id="BaseResultMap" type="com.lele.test.spring.tx.bean.dto.T1">
     <id column="F1" jdbcType="VARCHAR" property="f1" />
     <result column="F2" jdbcType="VARCHAR" property="f2" />

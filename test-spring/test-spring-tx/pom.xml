@@ -9,6 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <properties>
+        <mysql.connector.version>8.0.11</mysql.connector.version>
+    </properties>
+
     <artifactId>test-spring-tx</artifactId>
     <dependencies>
         <dependency>
@@ -96,7 +100,6 @@
                     <dependency>
                         <groupId>mysql</groupId>
                         <artifactId>mysql-connector-java</artifactId>
-                        <version>5.1.38</version>
                     </dependency>
                 </dependencies>
             </plugin>

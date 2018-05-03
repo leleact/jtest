@@ -12,9 +12,9 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://10.0.0.2:3306/qrsonldb?useSSL=false"
-                        userId="qrsonldb"
-                        password="qrsonldb">
+                        connectionURL="jdbc:mysql://10.0.0.2:3306/test?useSSL=false"
+                        userId="test"
+                        password="test">
         </jdbcConnection>
 
         <javaTypeResolver>
