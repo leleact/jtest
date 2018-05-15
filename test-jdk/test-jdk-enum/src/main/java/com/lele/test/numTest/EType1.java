@@ -12,13 +12,13 @@ public enum EType1 {
 
     D("3");
 
-    private final String value_;
+    private final String value;
 
     EType1(String value) {
-        this.value_ = value;
+        this.value = value;
     }
 
     public String value() {
-        return this.value_;
+        return this.value;
     }
 }
