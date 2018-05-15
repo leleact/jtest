@@ -3,7 +3,7 @@
 
     <Properties>
         <Property name="baseDir">target/logs</Property>
-        <Property name="filename">app</Property>
+        <Property name="filename">test-jdk-enum</Property>
         <Property name="rollingFileName">${filename}.log</Property>
     </Properties>
 
