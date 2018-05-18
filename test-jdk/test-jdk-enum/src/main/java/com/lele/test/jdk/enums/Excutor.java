@@ -1,4 +1,4 @@
-package com.lele.test.numTest;
+package com.lele.test.jdk.enums;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

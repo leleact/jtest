@@ -1,6 +1,6 @@
 package com.lele.test.jdk.enums;
 
-import com.lele.test.numTest.EType;
+import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,8 +11,19 @@ public class EnumTests {
 
     @Test
     public void valueOfTest(){
-        log.info("name:{}", EType.A.name());
-        log.info("ordinal:{}", EType.B.ordinal());
-        EType e = EType.valueOf(EType.A.name());
+        Assert.assertEquals("A", EType.A.name());
+
+        // B的顺序为1
+        Assert.assertEquals(1, EType.B.ordinal());
+
+
+        EType a = EType.valueOf("A");
+        Assert.assertEquals(0, a.value());
+
+        EType b = EType.valueOf(EType.class, "B");
+        Assert.assertEquals(10, b.value());
+
+        EType c = EType.valueOf(3);
+        Assert.assertEquals(3, c.value());
     }
 }

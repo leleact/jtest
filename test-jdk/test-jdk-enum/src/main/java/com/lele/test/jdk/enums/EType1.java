@@ -1,4 +1,4 @@
-package com.lele.test.numTest;
+package com.lele.test.jdk.enums;
 
 /**
  * Created by Lele on 2017/7/7.
