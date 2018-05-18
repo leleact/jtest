@@ -25,5 +25,9 @@ public class EnumTests {
 
         EType c = EType.valueOf(3);
         Assert.assertEquals(3, c.value());
+
+        for (EType e : EType.class.getEnumConstants()) {
+            log.info("{} : {}", e.name(), e.value());
+        }
     }
 }
