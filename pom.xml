@@ -28,6 +28,7 @@
         <module>test-apache-commons</module>
         <module>test-build</module>
         <module>test-fasterxml</module>
+        <module>test-xstream</module>
     </modules>
 
     <properties>
