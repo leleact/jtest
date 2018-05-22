@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -178,5 +179,19 @@ public class FastJsonTest {
         B b1 = JSONObject.parseObject(str, B.class);
 
         log.info(b1.getbName() + ", " + b1.getA().getaName());
+    }
+
+    @Test
+    public void listsTest() {
+
+        ListBean b = new ListBean();
+
+        b.setId("1");
+        b.setLists(new ArrayList<>());
+        b.getLists().add("a");
+        b.getLists().add("a");
+        b.getLists().add("b");
+
+        log.info(JSONObject.toJSONString(b));
     }
 }
