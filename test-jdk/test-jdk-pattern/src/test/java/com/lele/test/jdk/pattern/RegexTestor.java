@@ -1,5 +1,6 @@
 package com.lele.test.jdk.pattern;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,4 +47,18 @@ public class RegexTestor {
 
     }
 
+    @Test
+    public void spaceTest() {
+
+        String patternStr = "^[\\S]{0,64}$";
+
+        Pattern pattern = Pattern.compile(patternStr);
+
+        String s1 = "s";
+        Assert.assertTrue( pattern.matcher(s1).matches());
+
+        String s2 = "";
+        Assert.assertTrue( pattern.matcher(s2).matches());
+    }
 }
+
