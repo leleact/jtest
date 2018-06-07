@@ -35,6 +35,7 @@
         <module>test-jdk-uuid</module>
         <module>test-jdk-resource</module>
         <module>test-jdk-collection</module>
+        <module>test-jdk-map</module>
     </modules>
 
 </project>
