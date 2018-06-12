@@ -65,20 +65,38 @@ public class JsonArrayTests {
 
     @Test
     public void parseOneJsonArrayTest() {
+        {
+            String s = "[{\"a\":\"a1\",\"b\":\"b1\"}]";
 
-        String s = "[{\"a\":\"a1\",\"b\":\"b1\"}]";
+            List<Object> list = JSONObject.parseArray(s, new Type[]{B.class, C.class});
 
-        List<Object> list = JSONObject.parseArray(s, new Type[]{B.class, C.class});
-
-        for (Object b : list) {
-            if (b instanceof B) {
-                log.info("B {}", b);
-            } else if (b instanceof C) {
-                log.info("C {}", b);
-            } else {
-                log.info("O {}", b);
+            for (Object b : list) {
+                if (b instanceof B) {
+                    log.info("B {}", b);
+                } else if (b instanceof C) {
+                    log.info("C {}", b);
+                } else {
+                    log.info("O {}", b);
+                }
             }
         }
+
+        {
+            String s = "[{},{\"a\":\"a1\",\"c\":\"c1\"}]";
+
+            List<Object> list = JSONObject.parseArray(s, new Type[]{B.class, C.class});
+
+            for (Object b : list) {
+                if (b instanceof B) {
+                    log.info("B {}", b);
+                } else if (b instanceof C) {
+                    log.info("C {}", b);
+                } else {
+                    log.info("O {}", b);
+                }
+            }
+        }
+
     }
 
 
