@@ -29,5 +29,7 @@ public class EnumTests {
         for (EType e : EType.class.getEnumConstants()) {
             log.info("{} : {}", e.name(), e.value());
         }
+
+        log.info(EType2.A.name());
     }
 }
