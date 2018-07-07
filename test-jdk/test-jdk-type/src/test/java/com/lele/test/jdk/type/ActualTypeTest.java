@@ -61,4 +61,13 @@ public class ActualTypeTest {
         }
     }
 
+
+    @Test
+    public void test2() {
+        Invoke<Request, Response> i = new Invoke<Request, Response>() {};
+
+        Request r = new Request();
+        i.handle(r);
+    }
+
 }
