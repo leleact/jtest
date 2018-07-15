@@ -28,11 +28,11 @@ public class TestDubboConsumerApplicationTests {
             sb.append("1");
         }
         int i = 0;
-        while (i++ < 1000000000) {
+//        while (i++ < 1000000000) {
             String uuid = UUID.randomUUID().toString().replace("-", "");
             Object o = echoService.echo(uuid + sb.toString());
             log.info("receive {}", o.toString());
-        }
+//        }
 
     }
 }

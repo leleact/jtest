@@ -19,6 +19,7 @@
         <module>test-spring-mvc</module>
         <module>test-spring-retry</module>
         <module>test-spring-boot</module>
+        <module>test-spring-oxm</module>
     </modules>
 
 
