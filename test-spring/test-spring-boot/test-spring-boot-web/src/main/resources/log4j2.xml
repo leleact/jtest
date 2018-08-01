@@ -30,12 +30,12 @@
         </RollingFile>
     </Appenders>
     <Loggers>
-        <Root level="trace">
+        <Root level="info">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="RollingFile" level="info"/>
         </Root>
 
-        <Logger name="com.lele.test" level="trace" additivity="false">
+        <Logger name="com.lele.test" level="debug" additivity="false">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="RollingFile" level="error"/>
         </Logger>
