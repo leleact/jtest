@@ -4,6 +4,9 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FunctionCallTests {
 
     private static final Logger logger = LoggerFactory.getLogger(FunctionCallTests.class);
@@ -23,11 +26,15 @@ public class FunctionCallTests {
 
     @Test
     public void callTest() {
-
         A a = new A("Hello Word!!!");
+        a.execute(logger::info);
+    }
 
-        a.execute((str) -> {
-            logger.info(str);
-        });
+    @Test
+    public void listTest() {
+        List<String> list = new ArrayList<>();
+        list.add("aa");
+        list.add("bb");
+        list.forEach(logger::info);
     }
 }
