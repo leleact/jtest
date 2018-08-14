@@ -30,9 +30,10 @@
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.lele.test.spring.tx.bean.mapper"/>
     </bean>
-    <tx:annotation-driven mode="aspectj"/>
 
     <context:component-scan base-package="com.lele.test.spring"/>
+
+    <tx:annotation-driven />
 
     <tx:advice id="txAdvice" >
         <tx:attributes>
@@ -45,4 +46,6 @@
                       expression="execution(* com.lele.test.spring.tx.service.InnterTransaction.intertInnter(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="allServices"/>
     </aop:config>
+
+    <tx:annotation-driven mode="aspectj" />
 </beans>
