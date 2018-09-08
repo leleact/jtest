@@ -38,6 +38,7 @@
         <module>test-jdk-map</module>
         <module>test-jdk-condition</module>
         <module>test-jdk-lambda</module>
+        <module>test-jdk-ssl</module>
     </modules>
 
 </project>
