@@ -1,4 +1,4 @@
-package com.lele.test.spring.mvc.bean.response;
+package com.github.leleact.test.spring.mvc.bean.response;
 
 public class CommonResponse {
 

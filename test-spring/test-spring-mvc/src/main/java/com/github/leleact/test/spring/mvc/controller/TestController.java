@@ -1,7 +1,7 @@
-package com.lele.test.spring.mvc.controller;
+package com.github.leleact.test.spring.mvc.controller;
 
-import com.lele.test.spring.mvc.bean.request.CommonRequest;
-import com.lele.test.spring.mvc.bean.response.CommonResponse;
+import com.github.leleact.test.spring.mvc.bean.request.CommonRequest;
+import com.github.leleact.test.spring.mvc.bean.response.CommonResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;

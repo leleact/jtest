@@ -1,6 +1,6 @@
-package com.lele.test.spring.mvc.controller;
+package com.github.leleact.test.spring.mvc.controller;
 
-import com.lele.test.spring.mvc.utils.ReadPropertiesUtil;
+import com.github.leleact.test.spring.mvc.utils.ReadPropertiesUtil;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
