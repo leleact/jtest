@@ -1,4 +1,4 @@
-package com.lele.test.http.client;
+package com.github.leleact.test.http.client;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.http.HttpResponse;

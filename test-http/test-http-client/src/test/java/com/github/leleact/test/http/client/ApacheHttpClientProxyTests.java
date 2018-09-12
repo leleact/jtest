@@ -1,4 +1,4 @@
-package com.lele.test.http.client;
+package com.github.leleact.test.http.client;
 
 import org.apache.http.HttpHost;
 import org.apache.http.client.config.RequestConfig;

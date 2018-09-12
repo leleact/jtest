@@ -1,4 +1,4 @@
-package com.lele.test.http.client;
+package com.github.leleact.test.http.client;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.io.IOUtils;
