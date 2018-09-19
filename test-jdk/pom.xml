@@ -39,6 +39,7 @@
         <module>test-jdk-condition</module>
         <module>test-jdk-lambda</module>
         <module>test-jdk-ssl</module>
+        <module>test-jdk-format</module>
     </modules>
 
 </project>
