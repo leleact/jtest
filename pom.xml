@@ -14,7 +14,7 @@
         <module>test-mybatis-generator</module>
         <module>test-json</module>
         <module>test-log4j2</module>
-        <module>test-unknow</module>
+        <module>test-unknown</module>
         <module>test-jdk</module>
         <module>test-spring</module>
         <module>test-maven</module>

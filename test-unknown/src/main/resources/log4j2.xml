@@ -3,7 +3,7 @@
 
     <Properties>
         <Property name="baseDir">target/logs</Property>
-        <Property name="filename">test-unknow</Property>
+        <Property name="filename">test-unknown</Property>
         <Property name="rollingFileName">${filename}.log</Property>
     </Properties>
 
