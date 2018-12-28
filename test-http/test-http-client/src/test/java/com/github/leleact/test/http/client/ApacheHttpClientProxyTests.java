@@ -1,8 +1,10 @@
 package com.github.leleact.test.http.client;
 
 import org.apache.http.HttpHost;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.config.RequestConfig;
-import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.conn.ssl.NoopHostnameVerifier;
 import org.apache.http.conn.ssl.TrustAllStrategy;
@@ -39,19 +41,17 @@ public class ApacheHttpClientProxyTests {
 
             System.out.println("Executing request " + request.getRequestLine() + " to " + target + " via " + proxy);
 
-            CloseableHttpResponse response = httpclient.execute(target, request);
+            String response = httpclient.execute(target, request,
+                    new ResponseHandler<String>() {
+                        @Override
+                        public String handleResponse(HttpResponse response) throws
+                                ClientProtocolException, IOException {
+                            return EntityUtils.toString(response.getEntity());
+                        }
+                    });
+            System.out.println("----------------------------------------");
+            System.out.println(response);
 
-            try {
-                System.out.println("----------------------------------------");
-                System.out.println(response.getStatusLine());
-                System.out.println(EntityUtils.toString(response.getEntity()));
-            } finally {
-                try {
-                    response.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         } catch (IOException e) {
             e.printStackTrace();
         }
