@@ -35,4 +35,9 @@ public class MessageFormatTests {
         Assert.assertEquals("X{0}", MessageFormat.format("X{0}", null));
         Assert.assertEquals("X12", MessageFormat.format("X{0}{1}", 1, 2));
     }
+
+    @Test
+    public void noPlaceHolderTest() {
+        Assert.assertEquals("X", MessageFormat.format("X", 1, 2));
+    }
 }
