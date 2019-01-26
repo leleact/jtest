@@ -40,6 +40,7 @@
         <module>test-jdk-lambda</module>
         <module>test-jdk-ssl</module>
         <module>test-jdk-format</module>
+        <module>test-jdk-finally</module>
     </modules>
 
 </project>
