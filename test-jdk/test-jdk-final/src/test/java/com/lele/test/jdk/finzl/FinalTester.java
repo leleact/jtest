@@ -7,9 +7,9 @@ import org.slf4j.LoggerFactory;
 import java.util.HashSet;
 import java.util.Set;
 
-public class FinalTestor {
+public class FinalTester {
 
-    private static final Logger log = LoggerFactory.getLogger(FinalTestor.class);
+    private static final Logger log = LoggerFactory.getLogger(FinalTester.class);
 
     // 变量sets不可再作为其他对象的引用
     // <code>sets = new HashSet<>()</code>编译错误
