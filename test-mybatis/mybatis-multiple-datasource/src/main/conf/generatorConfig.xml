@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="mysqlTables" targetRuntime="MyBatis3" defaultModelType="flat">
+
+        <plugin type="org.mybatis.generator.plugins.MapperAnnotationPlugin" />
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://10.0.0.2:3306/mysql?useSSL=false&amp;allowPublicKeyRetrieval=true"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.github.leleact.test.mybatis.db2.dto" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mybatis.db2" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.github.leleact.test.mybatis.db2.mapper"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table schema=""
+               tableName="db"
+               selectByExampleQueryId="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               enableCountByExample="false">
+        </table>
+
+        <table schema=""
+               tableName="user"
+               selectByExampleQueryId="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               enableCountByExample="false">
+        </table>
+    </context>
+</generatorConfiguration>
