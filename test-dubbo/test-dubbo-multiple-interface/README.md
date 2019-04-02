@@ -1,0 +1,1 @@
+dubbo中一个interface应该对应一个接口，dubbo根据interface来生成*servicebean*
