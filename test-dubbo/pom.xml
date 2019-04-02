@@ -19,6 +19,7 @@
         <module>test-dubbo-starter</module>
         <module>test-dubbo-compatibility</module>
         <module>test-dubbo-generic</module>
+        <module>test-dubbo-multiple-interface</module>
     </modules>
 
     <dependencyManagement>
