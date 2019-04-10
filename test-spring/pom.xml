@@ -22,6 +22,7 @@
         <module>test-spring-oxm</module>
         <module>test-spring-amqp</module>
         <module>test-spring-profile</module>
+        <module>spring-test</module>
     </modules>
 
 
