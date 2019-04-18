@@ -1,7 +1,8 @@
+drop TABLE IF EXISTS person;
+
 create table if not exists person
 (
-    ID   bigint auto_increment
-        primary key,
+    id int auto_increment primary key,
     name varchar(64) null,
     age  int         null
 );
