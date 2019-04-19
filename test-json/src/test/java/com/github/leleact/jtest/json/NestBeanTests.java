@@ -1,4 +1,4 @@
-package com.lele.test.json;
+package com.github.leleact.jtest.json;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
@@ -67,7 +67,7 @@ public class NestBeanTests {
     }.getType();
 
     @Test
-    public void derializeTest() {
+    public void deserializeTest() {
 
 
         String s = "{\"base\":{\"f1\":\"a\"}}";

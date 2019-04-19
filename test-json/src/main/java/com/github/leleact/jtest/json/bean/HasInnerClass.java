@@ -1,6 +1,6 @@
-package com.lele.test.json.bean;
+package com.github.leleact.jtest.json.bean;
 
-public class HasStaticInnerClass {
+public class HasInnerClass {
 
     private String filed1;
 
@@ -23,7 +23,7 @@ public class HasStaticInnerClass {
     }
 
 
-    public static class InnerClass {
+    public class InnerClass {
         private String filed1;
 
         private String filed2;

@@ -1,4 +1,4 @@
-package com.lele.test.json;
+package com.github.leleact.jtest.json;
 
 import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;

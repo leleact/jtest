@@ -1,4 +1,4 @@
-package com.lele.test.json.bean;
+package com.github.leleact.jtest.json.bean;
 
 import java.util.List;
 

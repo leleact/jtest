@@ -1,20 +1,16 @@
-package com.lele.test.json;
+package com.github.leleact.jtest.json;
 
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.lele.test.json.bean.*;
+import com.github.leleact.jtest.json.bean.*;
 import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map;
-
-import static com.alibaba.fastjson.serializer.SerializerFeature.*;
 
 public class FastJsonTest {
 

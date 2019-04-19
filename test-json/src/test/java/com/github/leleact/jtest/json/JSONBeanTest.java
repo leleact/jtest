@@ -1,8 +1,8 @@
-package com.lele.test.json;
+package com.github.leleact.jtest.json;
 
 import com.alibaba.fastjson.JSONObject;
-import com.lele.test.json.bean.Bean;
-import com.lele.test.json.bean.Payment;
+import com.github.leleact.jtest.json.bean.Bean;
+import com.github.leleact.jtest.json.bean.Payment;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
