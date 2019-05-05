@@ -12,7 +12,7 @@
         <module>test-design-pattern</module>
         <module>test-dubbo</module>
         <module>test-json</module>
-        <module>test-log4j2</module>
+        <module>log4j2</module>
         <module>test-unknown</module>
         <module>test-jdk</module>
         <module>test-spring</module>
