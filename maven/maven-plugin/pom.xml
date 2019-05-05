@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>maven-plugin-checkstyle</module>
+        <module>maven-plugin-surefire</module>
     </modules>
 
 
