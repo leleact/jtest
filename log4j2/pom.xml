@@ -9,7 +9,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>test-log4j2</artifactId>
+    <artifactId>log4j2</artifactId>
     <packaging>pom</packaging>
     <modules>
         <module>log4j2-template</module>
