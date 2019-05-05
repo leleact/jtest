@@ -19,8 +19,6 @@
         <module>test-maven</module>
         <module>test-web</module>
         <module>test-guava</module>
-        <module>test-couchbase</module>
-        <module>test-netty</module>
         <module>test-http</module>
         <module>test-validator</module>
         <module>test-database</module>
