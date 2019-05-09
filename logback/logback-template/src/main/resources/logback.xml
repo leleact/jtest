@@ -1,4 +1,4 @@
-<configuration scan="true" scanPeriod="1800 seconds">
+<configuration scan="true" scanPeriod="15 minutes">
 
     <property name="BASE_DIR" value="logs" />
     <property name="LOG_NAME" value="app" />
