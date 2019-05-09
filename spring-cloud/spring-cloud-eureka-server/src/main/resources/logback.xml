@@ -1,0 +1,24 @@
+<configuration scan="true" scanPeriod="1800 seconds">
+
+    <property name="BASE_DIR" value="logs" />
+    <property name="LOG_NAME" value="app" />
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <charset>UTF-8</charset>
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <Pattern>
+                    %d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) %magenta(${PID}) [%15.15t] %cyan(%-40.40C{1}) %green([%-20.40F:%4.4L]) : %m%n%xEx
+                </Pattern>
+            </layout>
+        </encoder>
+    </appender>
+
+    <logger name="com.github.leleact.jtest" level="DEBUG" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <root level="DEBUG" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>

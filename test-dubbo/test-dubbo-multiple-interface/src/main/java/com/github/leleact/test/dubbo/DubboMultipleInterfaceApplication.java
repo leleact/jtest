@@ -6,9 +6,9 @@ import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
 @ImportResource("classpath:spring/dubbo.xml")
-public class Application {
+public class DubboMultipleInterfaceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(DubboMultipleInterfaceApplication.class, args);
     }
 }

@@ -28,6 +28,7 @@
         <module>mybatis</module>
         <module>maven</module>
         <module>logback</module>
+        <module>spring-cloud</module>
     </modules>
 
     <properties>
@@ -170,12 +171,6 @@
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis</artifactId>
                 <version>${mybatis.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.thoughtworks.xstream</groupId>
-                <artifactId>xstream</artifactId>
-                <version>${xstream.version}</version>
             </dependency>
 
             <dependency>

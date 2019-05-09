@@ -13,9 +13,9 @@ import javax.annotation.Resource;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ApplicationTests {
+public class SpringTestApplicationTests {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ApplicationTests.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SpringTestApplicationTests.class);
 
     @Resource
     private PersonMapper personMapper;
