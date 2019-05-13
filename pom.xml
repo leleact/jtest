@@ -11,7 +11,7 @@
     <modules>
         <module>test-design-pattern</module>
         <module>test-dubbo</module>
-        <module>test-json</module>
+        <module>json</module>
         <module>log4j2</module>
         <module>test-unknown</module>
         <module>test-jdk</module>
@@ -33,10 +33,11 @@
     </modules>
 
     <properties>
-        <maven.compiler.plugin.version>3.6.2</maven.compiler.plugin.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <maven.compiler.plugin.version>3.6.2</maven.compiler.plugin.version>
+        <maven.surefire.plugin.version>3.0.0-M3</maven.surefire.plugin.version>
         <servlet.api.version>4.0.0</servlet.api.version>
         <jsp.api.version>2.3.1</jsp.api.version>
         <slf4j.version>1.7.25</slf4j.version>
@@ -225,24 +226,12 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven.compiler.plugin.version}</version>
-                    <configuration>
-                        <encoding>${maven.compiler.encoding}</encoding>
-                        <source>${maven.compiler.source}</source>
-                        <target>${maven.compiler.target}</target>
-                        <compilerArgs>
-                            <arg>-verbose</arg>
-                            <arg>-Xlint:unchecked</arg>
-                        </compilerArgs>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.21.0</version>
+                    <version>${maven.surefire.plugin.version}</version>
                     <configuration>
-                        <includes>
-                            <include>%regex[.*Test.*]</include>
-                        </includes>
                         <argLine>-Dfile.encoding=UTF-8</argLine>
                     </configuration>
                 </plugin>
@@ -260,16 +249,5 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-            </plugin>
-        </plugins>
     </build>
 </project>
