@@ -1,12 +1,12 @@
-package com.github.leleact.maven.plugin.checkstyle;
+package com.github.leleact.jtest.maven.plugin.checkstyle;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class MavenPluginCheckStyleApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(MavenPluginCheckStyleApplication.class, args);
     }
 }
