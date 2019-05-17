@@ -16,6 +16,7 @@
         <puppycrawl-tools-checkstyle.version>8.18</puppycrawl-tools-checkstyle.version>
         <checkstyle.config.location>google_checks.xml</checkstyle.config.location>
         <checkstyle.consoleOutput>true</checkstyle.consoleOutput>
+        <checkstyle.violationSeverity>warning</checkstyle.violationSeverity>
     </properties>
 
     <dependencies>
@@ -64,10 +65,11 @@
                         <phase>validate</phase>
                         <inherited>true</inherited>
                         <configuration>
-                            <configLocation>src/main/checkstyle/google_checks.xml</configLocation>
+                            <configLocation>${checkstyle.config.location}</configLocation>
                             <includeTestSourceDirectory>true</includeTestSourceDirectory>
                             <failsOnError>true</failsOnError>
-                            <consoleOutput>true</consoleOutput>
+                            <consoleOutput>${checkstyle.consoleOutput}</consoleOutput>
+                            <violationSeverity>${checkstyle.violationSeverity}</violationSeverity>
                         </configuration>
                         <goals>
                             <goal>check</goal>
