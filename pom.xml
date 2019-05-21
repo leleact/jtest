@@ -14,7 +14,7 @@
         <module>json</module>
         <module>log4j2</module>
         <module>test-unknown</module>
-        <module>test-jdk</module>
+        <module>feature</module>
         <module>spring</module>
         <module>test-web</module>
         <module>test-guava</module>

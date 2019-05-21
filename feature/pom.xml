@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>jtest</artifactId>
+        <groupId>com.github.leleact.jtest</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>feature</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>test-jdk-string</module>
+        <module>test-jdk-bigdecimal</module>
+        <module>test-jdk-enum</module>
+        <module>test-jdk-date</module>
+        <module>test-jdk-static</module>
+        <module>test-jdk-exception</module>
+        <module>test-jdk-pattern</module>
+        <module>test-jdk-zip</module>
+        <module>test-jdk-mkdir</module>
+        <module>test-jdk-concurrency</module>
+        <module>test-jdk-switch</module>
+        <module>test-jdk-file</module>
+        <module>test-jdk-type</module>
+        <module>test-jdk-prikey</module>
+        <module>test-jdk-annotation</module>
+        <module>test-jdk-cipher</module>
+        <module>test-jdk-final</module>
+        <module>test-jdk-threadpool</module>
+        <module>test-jdk-base64</module>
+        <module>test-jdk-certificate</module>
+        <module>test-jdk-uuid</module>
+        <module>test-jdk-resource</module>
+        <module>test-jdk-collection</module>
+        <module>test-jdk-map</module>
+        <module>test-jdk-condition</module>
+        <module>test-jdk-lambda</module>
+        <module>test-jdk-ssl</module>
+        <module>test-jdk-format</module>
+        <module>test-jdk-finally</module>
+        <module>reflect</module>
+    </modules>
+
+</project>
