@@ -1,16 +1,14 @@
-package com.lele.test.fasterxml.jackson;
+package com.github.leleact.jtest.fasterxml.jackson;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Assert;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
+@Slf4j
 public class AnnotationTests {
-
-    private static final Logger log = LoggerFactory.getLogger(AnnotationTests.class);
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class Bean {
@@ -41,10 +39,9 @@ public class AnnotationTests {
     }
 
     @Test
-    public void nullValueTest() throws JsonProcessingException {
+    void nullValueTest() throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         Bean b = new Bean("1", null);
-        Assert.assertEquals("{\"s1\":\"1\"}", mapper.writeValueAsString(b));
+        Assertions.assertEquals("{\"s1\":\"1\"}", mapper.writeValueAsString(b));
     }
-
 }
