@@ -14,9 +14,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>test-apache-commons-beanutils</module>
-        <module>test-commons-io</module>
         <module>test-commons-lang3</module>
     </modules>
-
-
 </project>
