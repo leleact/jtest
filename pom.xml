@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>apache-http-client</module>
+        <module>apache</module>
         <module>feature</module>
         <module>json</module>
         <module>logback</module>
@@ -25,10 +25,10 @@
         <module>test-guava</module>
         <module>test-validator</module>
         <module>test-database</module>
-        <module>test-apache-commons</module>
         <module>test-build</module>
         <module>fasterxml</module>
         <module>test-xstream</module>
+        <module>apache</module>
     </modules>
 
     <properties>
