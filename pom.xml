@@ -24,7 +24,6 @@
         <module>test-unknown</module>
         <module>test-guava</module>
         <module>test-validator</module>
-        <module>test-database</module>
         <module>test-build</module>
         <module>fasterxml</module>
         <module>test-xstream</module>
