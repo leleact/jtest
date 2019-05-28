@@ -24,6 +24,7 @@
         <module>test-spring-profile</module>
         <module>spring-test</module>
         <module>spring-jdbc</module>
+        <module>spring-web</module>
     </modules>
 
 
