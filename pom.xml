@@ -27,7 +27,6 @@
         <module>test-build</module>
         <module>fasterxml</module>
         <module>test-xstream</module>
-        <module>apache</module>
     </modules>
 
     <properties>
