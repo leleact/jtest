@@ -1,6 +1,6 @@
 # https://editorconfig.org
 root = true
-[*.{java, xml, sql}]
+[*.{java, xml, sql, properties}]
 charset = utf-8
 indent_style = space
 indent_size = 4

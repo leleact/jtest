@@ -23,10 +23,11 @@
         <module>test-dubbo</module>
         <module>test-unknown</module>
         <module>test-guava</module>
-        <module>test-validator</module>
         <module>test-build</module>
         <module>fasterxml</module>
         <module>test-xstream</module>
+        <module>spring-boot</module>
+        <module>validator</module>
     </modules>
 
     <properties>
