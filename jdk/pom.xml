@@ -41,7 +41,7 @@
         <module>test-jdk-ssl</module>
         <module>test-jdk-format</module>
         <module>test-jdk-finally</module>
-        <module>feature-reflect</module>
+        <module>jdk-reflect</module>
     </modules>
 
 </project>
