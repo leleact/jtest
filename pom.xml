@@ -10,7 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>apache</module>
-        <module>feature</module>
+        <module>jdk</module>
         <module>json</module>
         <module>logback</module>
         <module>lombok</module>
