@@ -1,16 +1,15 @@
 package com.lele.test.jdk.lambda;
 
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class MapTests {
-
-    private static final Logger logger = LoggerFactory.getLogger(MapTests.class);
+@Slf4j
+class MapTests {
 
     class Pojo {
         private String id;
@@ -19,13 +18,13 @@ public class MapTests {
 
         private Integer age;
 
-        public Pojo(String id, String name, Integer age) {
+        Pojo(String id, String name, Integer age) {
             this.id = id;
             this.name = name;
             this.age = age;
         }
 
-        public String getId() {
+        String getId() {
             return id;
         }
 
@@ -51,12 +50,12 @@ public class MapTests {
     }
 
     @Test
-    public void streamMapTest() {
+    void streamMapTest() {
 
         List<Pojo> list = Arrays.asList(new Pojo("1", "a", 10), new Pojo("2", "b", 11), new Pojo("3", "c", 12));
 
         List<String> r = list.stream().map(Pojo::getId).collect(Collectors.toList());
 
-        logger.info("r:{}", r);
+        log.info("r:{}", r);
     }
 }

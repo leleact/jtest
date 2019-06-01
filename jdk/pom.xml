@@ -37,10 +37,10 @@
         <module>test-jdk-collection</module>
         <module>test-jdk-map</module>
         <module>test-jdk-condition</module>
-        <module>test-jdk-lambda</module>
         <module>test-jdk-ssl</module>
         <module>test-jdk-format</module>
         <module>test-jdk-finally</module>
+        <module>jdk-lambda</module>
         <module>jdk-reflect</module>
     </modules>
 
