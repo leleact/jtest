@@ -1,43 +1,41 @@
 package com.github.leleact.test.jdk.format;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MessageFormatTests {
-
-    private static final Logger logger = LoggerFactory.getLogger(MessageFormatTests.class);
+@Slf4j
+class MessageFormatTests {
 
     @Test
-    public void formatBaseTest() {
+    void formatBaseTest() {
 
         String s = MessageFormat.format("xx {0} yy {1}", "1", "2");
 
-        logger.info(s);
+        log.info(s);
     }
 
     @Test
-    public void formatArrayTest() {
+    void formatArrayTest() {
         List<Object> objectList = new ArrayList<>();
         objectList.add("1");
         objectList.add(2);
         String s = MessageFormat.format("XX {0} yy {1}", objectList.toArray());
-        logger.info(s);
+        log.info(s);
     }
 
     @Test
-    public void nullFormatTest() {
-        Assert.assertEquals("X{0}", MessageFormat.format("X{0}", null));
-        Assert.assertEquals("X12", MessageFormat.format("X{0}{1}", 1, 2));
+    void nullFormatTest() {
+        Assertions.assertEquals("X{0}", MessageFormat.format("X{0}", null));
+        Assertions.assertEquals("X12", MessageFormat.format("X{0}{1}", 1, 2));
     }
 
     @Test
-    public void noPlaceHolderTest() {
-        Assert.assertEquals("X", MessageFormat.format("X", 1, 2));
+    void noPlaceHolderTest() {
+        Assertions.assertEquals("X", MessageFormat.format("X", 1, 2));
     }
 }
