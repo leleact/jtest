@@ -38,7 +38,7 @@
         <module>test-jdk-map</module>
         <module>test-jdk-condition</module>
         <module>test-jdk-ssl</module>
-        <module>test-jdk-format</module>
+        <module>jdk-format</module>
         <module>test-jdk-finally</module>
         <module>jdk-lambda</module>
         <module>jdk-reflect</module>
