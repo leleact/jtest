@@ -35,7 +35,7 @@
         <module>test-jdk-uuid</module>
         <module>test-jdk-resource</module>
         <module>test-jdk-collection</module>
-        <module>test-jdk-map</module>
+        <module>jdk-map</module>
         <module>test-jdk-condition</module>
         <module>test-jdk-ssl</module>
         <module>jdk-format</module>
