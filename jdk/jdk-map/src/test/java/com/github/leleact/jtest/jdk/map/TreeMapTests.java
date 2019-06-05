@@ -54,4 +54,16 @@ class TreeMapTests {
 
         Assertions.assertEquals(2, map.size());
     }
+
+    @Test
+    void accessTest() {
+        TreeMap<Pojo, Integer> map = new TreeMap<>();
+        Pojo p1 = new Pojo("i", "a");
+        Pojo p2 = new Pojo("a", "a");
+        Pojo p3 = new Pojo("p", "a");
+        map.put(p3, 1);
+        map.put(p1, 1);
+        map.put(p2, 1);
+        map.forEach((k, v)->log.info("key: [{}], value: [{}]", k, v));
+    }
 }
