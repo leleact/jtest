@@ -4,6 +4,8 @@ import com.github.leleact.jtest.validator.customize.constraints.Enum;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class EnumValidator implements ConstraintValidator<Enum, String> {
 
@@ -16,20 +18,25 @@ public class EnumValidator implements ConstraintValidator<Enum, String> {
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        boolean result = false;
+
         if (null == value) {
             return false;
         }
-        Object[] enumValues = this.annotation.enumClass().getEnumConstants();
-        if (enumValues != null) {
-            for (Object enumValue : enumValues) {
-                if (value.equals(enumValue.toString())
-                        || (this.annotation.ignoreCase() && value.equalsIgnoreCase(enumValue.toString()))) {
-                    result = true;
-                    break;
-                }
-            }
+
+        Class<?> clazz = this.annotation.enumClass();
+        Method method = null;
+        try {
+            clazz.isEnum();
+            method = clazz.getMethod("constantOf", String.class);
+        } catch (NoSuchMethodException ex) {
+            throw new RuntimeException(ex);
         }
-        return result;
+
+        try {
+            method.invoke(null, value);
+        } catch (IllegalAccessException | InvocationTargetException ex) {
+            return false;
+        }
+        return true;
     }
 }

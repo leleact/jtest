@@ -15,12 +15,10 @@ class ValidatorTestor {
 
     @Test
     void validatorTest() {
-
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
-
         A a = new A();
-
+        a.setE("80");
         Set<ConstraintViolation<A>> violations = validator.validate(a);
         for (ConstraintViolation<A> constraintViolation : violations) {
             log.info("{}", constraintViolation.getMessage());
