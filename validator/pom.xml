@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>customize-validator</module>
+        <module>datadic-validator</module>
     </modules>
 
 
