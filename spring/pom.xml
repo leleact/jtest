@@ -23,6 +23,7 @@
         <module>test-spring-amqp</module>
         <module>test-spring-profile</module>
         <module>spring-test</module>
+        <module>spring-test-mysql</module>
         <module>spring-jdbc</module>
         <module>spring-web</module>
     </modules>
