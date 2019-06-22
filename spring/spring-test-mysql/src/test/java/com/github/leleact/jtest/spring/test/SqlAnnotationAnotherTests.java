@@ -6,34 +6,33 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.jdbc.SqlGroup;
 
 import javax.annotation.Resource;
 
 @SpringBootTest
 @DirtiesContext
 @Slf4j
+@SqlGroup({@Sql(scripts = {"classpath:test-del.sql", "classpath:test-init.sql"}),
+              @Sql(scripts = {"classpath:test-init.sql"}, executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)})
 class SqlAnnotationAnotherTests {
 
     @Resource
     PersonMapper personMapper;
 
     @Test
-    @Sql(scripts = {"classpath:test-del.sql", "classpath:test-init.sql"})
-    @Sql(scripts = {"classpath:test-init.sql"}, executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     void test1() throws InterruptedException {
 
         Thread.sleep(1000L);
 
-        personMapper.selectAll().forEach(x-> log.info("{}", x));
+        personMapper.selectAll().forEach(x -> log.info("{}", x));
     }
 
     @Test
-    @Sql(scripts = {"classpath:test-del.sql", "classpath:test-init.sql"})
-    @Sql(scripts = {"classpath:test-init.sql"}, executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     void test2() throws InterruptedException {
 
         Thread.sleep(1000L);
 
-        personMapper.selectAll().forEach(x-> log.info("{}", x));
+        personMapper.selectAll().forEach(x -> log.info("{}", x));
     }
 }
