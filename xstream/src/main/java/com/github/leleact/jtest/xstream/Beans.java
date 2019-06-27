@@ -1,4 +1,4 @@
-package com.lele.test.xstream;
+package com.github.leleact.jtest.xstream;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;

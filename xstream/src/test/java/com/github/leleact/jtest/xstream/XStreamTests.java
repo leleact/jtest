@@ -1,18 +1,16 @@
-package com.lele.test.xstream;
+package com.github.leleact.jtest.xstream;
 
 import com.thoughtworks.xstream.XStream;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-public class XStreamTests {
-
-    private static final Logger log = LoggerFactory.getLogger(XStreamTests.class);
+@Slf4j
+class XStreamTests {
 
     @Test
-    public void serilize() {
+    void serializeTest() {
 
         Beans beans = new Beans();
         beans.setBeans(new ArrayList<>());
