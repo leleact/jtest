@@ -14,8 +14,8 @@
   <modules>
     <module>test-jdk-string</module>
     <module>test-jdk-bigdecimal</module>
+    <module>jdk-date</module>
     <module>jdk-enum</module>
-    <module>test-jdk-date</module>
     <module>test-jdk-static</module>
     <module>test-jdk-exception</module>
     <module>test-jdk-pattern</module>

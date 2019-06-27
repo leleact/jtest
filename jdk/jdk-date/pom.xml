@@ -9,7 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>test-jdk-date</artifactId>
-
+    <artifactId>jdk-date</artifactId>
 
 </project>
