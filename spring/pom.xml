@@ -13,7 +13,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>test-spring-aop</module>
+        <module>spring-aop</module>
         <module>test-spring-ioc</module>
         <module>test-spring-tx</module>
         <module>spring-mvc</module>
