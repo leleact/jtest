@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.hamcrest.core.IsEqual;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.scheduling.support.CronTrigger;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import javax.annotation.Resource;
@@ -21,9 +22,9 @@ class ScheduleJobTests {
     @Test
     void addScheduleJobTest() {
         await().untilAsserted(() -> {
-            scheduleJobApplication.addJob("a");
+            scheduleJobApplication.addJob("a", new CronTrigger("0/1 * * * * *"));
             scheduleJobApplication.cancel("a");
-            Job job = scheduleJobApplication.addJob("b");
+            Job job = scheduleJobApplication.addJob("b", new CronTrigger("0/1 * * * * *"));
             Assertions.assertEquals(1, scheduleJobApplication.getFutures().size());
             await().untilAtomic(job.getCounter(), new IsEqual<>(3));
         });

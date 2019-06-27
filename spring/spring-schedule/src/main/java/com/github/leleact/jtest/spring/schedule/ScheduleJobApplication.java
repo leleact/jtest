@@ -4,9 +4,9 @@ import lombok.Data;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.TaskScheduler;
+import org.springframework.scheduling.Trigger;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ConcurrentTaskScheduler;
-import org.springframework.scheduling.support.CronTrigger;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -24,9 +24,9 @@ public class ScheduleJobApplication {
         return new ConcurrentTaskScheduler();
     }
 
-    public Job addJob(String name) {
+    public Job addJob(String name, Trigger trigger) {
         Job job = new Job(name);
-        ScheduledFuture<?> future = taskScheduler().schedule(job , new CronTrigger("0/1 * * * * *"));
+        ScheduledFuture<?> future = taskScheduler().schedule(job , trigger);
         futures.put(name, future);
         return job;
     }
