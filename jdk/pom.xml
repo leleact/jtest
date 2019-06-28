@@ -13,6 +13,7 @@
   <packaging>pom</packaging>
   <modules>
     <module>test-jdk-string</module>
+    <module>jdk-base64</module>
     <module>test-jdk-bigdecimal</module>
     <module>jdk-date</module>
     <module>jdk-enum</module>
@@ -30,7 +31,6 @@
     <module>test-jdk-cipher</module>
     <module>test-jdk-final</module>
     <module>test-jdk-threadpool</module>
-    <module>test-jdk-base64</module>
     <module>test-jdk-certificate</module>
     <module>test-jdk-uuid</module>
     <module>test-jdk-resource</module>
