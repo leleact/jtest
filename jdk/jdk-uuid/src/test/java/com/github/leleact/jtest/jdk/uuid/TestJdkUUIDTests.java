@@ -1,28 +1,20 @@
-package com.lele.test.jdk.uuid;
+package com.github.leleact.jtest.jdk.uuid;
 
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
 
 import java.util.UUID;
 
-public class TestJdkUUIDTests {
-
-    private static final Logger log = LoggerFactory.getLogger(TestJdkUUIDTests.class);
+@Slf4j
+class TestJdkUUIDTests {
 
     @Test
-    public void generateUUIDTest() {
-
+    void generateUUIDTest() {
         for (int i = 0; i < 10; i++) {
-
             UUID uuid = UUID.randomUUID();
-
             long most = uuid.getMostSignificantBits();
-
             String s = uuid.toString().replace("-", "");
-
             log.info("s: {}, most : {}", s, most);
         }
-
     }
 }
