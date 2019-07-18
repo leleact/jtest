@@ -1,10 +1,15 @@
 package com.github.leleact.jtest.spring.boot.validation;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
  * login form.
@@ -21,4 +26,21 @@ public class LoginForm {
 
     @NotNull
     private String email;
+
+    @NotEmpty
+    @Valid
+    private List<Detail> details;
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class Detail {
+
+        @NotEmpty
+        private String name;
+
+        @Min(0)
+        @NotNull
+        private Integer age;
+    }
 }
