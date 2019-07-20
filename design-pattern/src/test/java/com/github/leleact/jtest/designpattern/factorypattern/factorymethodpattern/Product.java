@@ -1,4 +1,4 @@
-package com.lele.test.DesignPattern.FactoryPattern.FactoryMethodPattern;
+package com.github.leleact.jtest.designpattern.factorypattern.factorymethodpattern;
 
 /**
  * Created by Lele on 2017/6/25.

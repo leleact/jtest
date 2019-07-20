@@ -1,12 +1,11 @@
-package com.lele.test.DesignPattern.FactoryPattern.FactoryMethodPattern;
+package com.github.leleact.jtest.designpattern.factorypattern.factorymethodpattern;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class RunTest {
-
+class RunTest {
 
     @Test
-    public void factoryMethodPatternTest() {
+    void factoryMethodPatternTest() {
 
         Factory factory = new ConcreteFactory();
 

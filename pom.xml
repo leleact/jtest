@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>apache</module>
+        <module>design-pattern</module>
         <module>jdk</module>
         <module>json</module>
         <module>logback</module>
@@ -20,7 +21,6 @@
         <module>log4j2</module>
         <module>spring</module>
         <module>spring-cloud</module>
-        <module>test-design-pattern</module>
         <module>test-dubbo</module>
         <module>test-unknown</module>
         <module>test-build</module>

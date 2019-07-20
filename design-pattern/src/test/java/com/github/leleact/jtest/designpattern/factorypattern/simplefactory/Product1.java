@@ -1,4 +1,4 @@
-package com.lele.test.DesignPattern.FactoryPattern.SimpleFactory;
+package com.github.leleact.jtest.designpattern.factorypattern.simplefactory;
 
 /**
  * Created by Lele on 2017/6/21.

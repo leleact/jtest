@@ -1,4 +1,4 @@
-package com.lele.test.DesignPattern.FactoryPattern.SimpleFactory;
+package com.github.leleact.jtest.designpattern.factorypattern.simplefactory;
 
 
 public class SimpleProductFactory {
