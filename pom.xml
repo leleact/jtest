@@ -14,6 +14,7 @@
         <module>json</module>
         <module>logback</module>
         <module>lombok</module>
+        <module>guava</module>
         <module>maven</module>
         <module>mybatis</module>
         <module>log4j2</module>
@@ -22,7 +23,6 @@
         <module>test-design-pattern</module>
         <module>test-dubbo</module>
         <module>test-unknown</module>
-        <module>test-guava</module>
         <module>test-build</module>
         <module>fasterxml</module>
         <module>xstream</module>
