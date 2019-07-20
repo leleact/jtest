@@ -1,18 +1,16 @@
-package com.lele.test.guava.cache.test;
+package com.github.leleact.jtest.guava.cache;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
-public class MainTest {
-
-    private static Logger log = LoggerFactory.getLogger(MainTest.class);
+@Slf4j
+class CacheTests {
 
     private static class Employee {
         private int id;
@@ -55,19 +53,19 @@ public class MainTest {
 
 
     @Test
-    public void createCacheTest() throws ExecutionException, InterruptedException {
+    void createCacheTest() throws ExecutionException, InterruptedException {
 
         LoadingCache<Integer, Employee> empCache = CacheBuilder.newBuilder()
-                .maximumSize(100)
-                .expireAfterWrite(10, TimeUnit.MINUTES)
-                .build(
-                        new CacheLoader<Integer, Employee>() {
-                            @Override
-                            public Employee load(Integer id) throws Exception {
-                                return getEmployeeById(id);
-                            }
-                        }
-                      );
+                                                               .maximumSize(100)
+                                                               .expireAfterWrite(10, TimeUnit.MINUTES)
+                                                               .build(
+                                                                   new CacheLoader<Integer, Employee>() {
+                                                                       @Override
+                                                                       public Employee load(Integer id) throws Exception {
+                                                                           return getEmployeeById(id);
+                                                                       }
+                                                                   }
+                                                               );
 
         log.info(empCache.get(1).getName());
 
