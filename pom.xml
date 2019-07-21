@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>apache</module>
+        <module>build</module>
         <module>design-pattern</module>
         <module>jdk</module>
         <module>json</module>
@@ -23,7 +24,6 @@
         <module>spring-cloud</module>
         <module>test-dubbo</module>
         <module>test-unknown</module>
-        <module>test-build</module>
         <module>fasterxml</module>
         <module>xstream</module>
         <module>spring-boot</module>
