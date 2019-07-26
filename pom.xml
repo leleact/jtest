@@ -12,6 +12,7 @@
         <module>apache</module>
         <module>build</module>
         <module>design-pattern</module>
+        <module>dubbo</module>
         <module>jdk</module>
         <module>json</module>
         <module>logback</module>
@@ -22,11 +23,10 @@
         <module>log4j2</module>
         <module>spring</module>
         <module>spring-cloud</module>
-        <module>test-dubbo</module>
-        <module>test-unknown</module>
         <module>fasterxml</module>
         <module>xstream</module>
         <module>spring-boot</module>
+        <module>unknown</module>
         <module>validator</module>
     </modules>
 
