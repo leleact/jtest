@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>logback-template</module>
+      <module>logback-logger</module>
     </modules>
 
     <dependencies>
