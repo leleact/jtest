@@ -1,0 +1,47 @@
+<configuration scan="true" scanPeriod="15 minutes">
+
+  <property name="BASE_DIR" value="logs"/>
+  <property name="LOG_NAME" value="app"/>
+
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+      <charset>UTF-8</charset>
+      <layout class="ch.qos.logback.classic.PatternLayout">
+        <Pattern>
+          %d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) %magenta(${PID}) [%15.15t] %cyan(%-40.40C{1}) %logger %green([%-20.40F:%4.4L]) : %m%n%xEx
+        </Pattern>
+      </layout>
+    </encoder>
+  </appender>
+
+  <appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${BASE_DIR}/${LOG_NAME}.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>${BASE_DIR}/backup/%d{yyyy-MM, aux}/${LOG_NAME}-%d{yyyy-MM-dd-HH-mm-ss}.%i.log.gz</fileNamePattern>
+      <maxFileSize>100MB</maxFileSize>
+      <maxHistory>30</maxHistory>
+      <totalSizeCap>10GB</totalSizeCap>
+    </rollingPolicy>
+    <encoder>
+      <charset>UTF-8</charset>
+      <Pattern>
+        %d{yyyy-MM-dd HH:mm:ss.SSS} %-5level ${PID} [%15.15t] %-40.40C{1} [%-20.40F:%4.4L] : %m%n%xEx
+      </Pattern>
+    </encoder>
+  </appender>
+
+  <logger name="com.github.leleact" level="trace" additivity="false">
+    <appender-ref ref="CONSOLE"/>
+    <appender-ref ref="ROLLING"/>
+  </logger>
+
+  <logger name="com.github.leleact.jtest.logback.logger.LoggerTests.A1" level="debug" additivity="false">
+    <appender-ref ref="CONSOLE"/>
+    <appender-ref ref="ROLLING"/>
+  </logger>
+
+  <root level="info" additivity="false">
+    <appender-ref ref="CONSOLE"/>
+    <appender-ref ref="ROLLING"/>
+  </root>
+</configuration>
