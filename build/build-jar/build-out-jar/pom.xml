@@ -51,7 +51,7 @@
               <addClasspath>true</addClasspath>
               <classpathPrefix>libs/</classpathPrefix>
               <mainClass>
-                com.lele.test.build.out.jar.Main
+                com.github.leleact.jtest.build.out.jar.Main
               </mainClass>
             </manifest>
           </archive>

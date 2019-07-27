@@ -12,14 +12,14 @@
     <artifactId>dubbo</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>test-dubbo-provider</module>
-        <module>test-dubbo-consumer</module>
-        <module>test-dubbo-api</module>
-        <module>test-dubbo-reference</module>
-        <module>test-dubbo-starter</module>
-        <module>test-dubbo-compatibility</module>
-        <module>test-dubbo-generic</module>
-        <module>test-dubbo-multiple-interface</module>
+        <module>dubbo-provider</module>
+        <module>dubbo-consumer</module>
+        <module>dubbo-api</module>
+        <module>dubbo-reference</module>
+        <module>dubbo-starter</module>
+        <module>dubbo-compatibility</module>
+        <module>dubbo-generic</module>
+        <module>dubbo-multiple-interface</module>
     </modules>
 
     <dependencyManagement>
