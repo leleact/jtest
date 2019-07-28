@@ -12,36 +12,36 @@
   <artifactId>jdk</artifactId>
   <packaging>pom</packaging>
   <modules>
-    <module>test-jdk-string</module>
+    <module>jdk-annotation</module>
     <module>jdk-base64</module>
     <module>jdk-bigdecimal</module>
+    <module>jdk-certificate</module>
+    <module>jdk-cipher</module>
+    <module>jdk-collection</module>
+    <module>jdk-concurrency</module>
+    <module>jdk-condition</module>
     <module>jdk-date</module>
     <module>jdk-enum</module>
-    <module>test-jdk-static</module>
-    <module>test-jdk-exception</module>
-    <module>test-jdk-pattern</module>
-    <module>test-jdk-zip</module>
-    <module>test-jdk-mkdir</module>
-    <module>test-jdk-concurrency</module>
-    <module>test-jdk-switch</module>
-    <module>test-jdk-file</module>
-    <module>test-jdk-type</module>
-    <module>test-jdk-prikey</module>
-    <module>test-jdk-annotation</module>
-    <module>test-jdk-cipher</module>
-    <module>test-jdk-final</module>
-    <module>test-jdk-threadpool</module>
-    <module>test-jdk-certificate</module>
-    <module>test-jdk-resource</module>
-    <module>test-jdk-collection</module>
-    <module>jdk-map</module>
-    <module>test-jdk-condition</module>
-    <module>test-jdk-ssl</module>
+    <module>jdk-exception</module>
+    <module>jdk-file</module>
+    <module>jdk-final</module>
+    <module>jdk-finally</module>
     <module>jdk-format</module>
-    <module>test-jdk-finally</module>
     <module>jdk-lambda</module>
+    <module>jdk-map</module>
+    <module>jdk-mkdir</module>
+    <module>jdk-prikey</module>
+    <module>jdk-pattern</module>
     <module>jdk-reflect</module>
+    <module>jdk-resource</module>
+    <module>jdk-ssl</module>
+    <module>jdk-static</module>
+    <module>jdk-string</module>
+    <module>jdk-switch</module>
+    <module>jdk-threadpool</module>
+    <module>jdk-type</module>
     <module>jdk-uuid</module>
+    <module>jdk-zip</module>
   </modules>
 
   <dependencies>
