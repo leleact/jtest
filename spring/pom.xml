@@ -15,7 +15,7 @@
   <modules>
     <module>spring-aop</module>
     <module>test-spring-ioc</module>
-    <module>test-spring-tx</module>
+    <module>spring-tx</module>
     <module>spring-mvc</module>
     <module>test-spring-retry</module>
     <module>test-spring-boot</module>
