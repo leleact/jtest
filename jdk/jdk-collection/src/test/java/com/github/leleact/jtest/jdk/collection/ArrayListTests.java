@@ -1,24 +1,19 @@
 package com.github.leleact.jtest.jdk.collection;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArrayListTests {
-
-    private static final Logger log = LoggerFactory.getLogger(ArrayListTests.class);
+@Slf4j
+class ArrayListTests {
 
     @Test
-    public void addNullObjectTest() {
-
+    void addNullObjectTest() {
         List<String> list = new ArrayList<>();
-
         list.add(null);
-
-        Assert.assertEquals(1, list.size());
+        Assertions.assertEquals(1, list.size());
     }
 }

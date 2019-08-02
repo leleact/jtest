@@ -1,21 +1,16 @@
 package com.github.leleact.jtest.jdk.collection;
 
-import org.junit.Assert;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.NoSuchElementException;
 
-public class DequeTests {
-
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
+class DequeTests {
 
     @Test
-    public void pollTest() {
+    void pollTest() {
 
         Deque<String> deque = new ArrayDeque<>();
 
@@ -25,14 +20,15 @@ public class DequeTests {
 
             String str = deque.poll();
 
-            Assert.assertEquals("2", str);
-            Assert.assertEquals(1, deque.size());
+            Assertions.assertEquals("2", str);
+            Assertions.assertEquals(1, deque.size());
         }
 
         {
             deque.pop();
-            thrown.expect(NoSuchElementException.class);
-            deque.pop();
+            Assertions.assertThrows(NoSuchElementException.class, () -> {
+                deque.pop();
+            });
         }
     }
 }
