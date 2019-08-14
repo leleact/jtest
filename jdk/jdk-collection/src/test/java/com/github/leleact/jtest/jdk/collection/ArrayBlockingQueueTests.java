@@ -79,8 +79,12 @@ class ArrayBlockingQueueTests {
                     log.debug("Size: {}", collection.size());
                     Thread.sleep(100L);
                     collection.forEach((i) -> {
-                        Future<Integer> f = futures.get(i);
-                        f.setValue(i);
+                        Future<Integer> f = futures.remove(i);
+                        if (f != null) {
+                            f.setValue(i);
+                        } else {
+                            log.warn("id [{}] not exist", i);
+                        }
                         counter.getAndIncrement();
                     });
                     log.debug("Counter: {}", counter.get());
