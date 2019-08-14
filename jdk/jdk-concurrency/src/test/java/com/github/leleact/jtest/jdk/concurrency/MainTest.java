@@ -1,6 +1,6 @@
 package com.github.leleact.jtest.jdk.concurrency;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,7 +27,7 @@ public class MainTest {
     }
 
     @Test
-    public void reOrderTest() {
+    void reOrderTest() {
 
         Param p = new Param();
 
@@ -58,7 +58,7 @@ public class MainTest {
     }
 
     @Test
-    public void reOrderTestTimes() {
+    void reOrderTestTimes() {
         for (int i = 0; i < 100; i++) {
             reOrderTest();
             log.info("" + i + " times!!!\n\n\n");

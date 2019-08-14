@@ -1,24 +1,23 @@
 package com.github.leleact.jtest.jdk.concurrency;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.*;
 
-public class FutureTaskTests {
+class FutureTaskTests {
 
-    private ExecutorService executorService;
+    private static ExecutorService executorService;
 
-    @Before
-    public void setup() {
+    @BeforeAll
+    static void setup() {
         executorService = Executors.newSingleThreadExecutor();
     }
 
     @Test
-    public void futureTest() throws ExecutionException, InterruptedException {
-
+    void futureTest() throws ExecutionException, InterruptedException {
         Future<String> future = executorService.submit(() -> "ok");
-
-        String str = future.get();
+        Assertions.assertEquals("ok", future.get());
     }
 }
