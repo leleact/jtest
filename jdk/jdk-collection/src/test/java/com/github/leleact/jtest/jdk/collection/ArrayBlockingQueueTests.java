@@ -50,14 +50,15 @@ class ArrayBlockingQueueTests {
         AtomicInteger counter = new AtomicInteger(0);
 
         Future<Integer> add(Integer i) throws InterruptedException {
+            Future<Integer> future = new Future<>();
+            futures.put(i, future);
+            queue.add(i);
+            // notifyAll 应该放在后面, 放在前面并发满队列后，没有通知
             if (queue.size() + 1 >= 200) {
                 synchronized (this) {
                     this.notifyAll();
                 }
             }
-            Future<Integer> future = new Future<>();
-            futures.put(i, future);
-            queue.add(i);
             return future;
         }
 
