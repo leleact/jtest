@@ -19,8 +19,7 @@
     <module>spring-tx</module>
     <module>spring-mvc</module>
     <module>test-spring-retry</module>
-    <module>test-spring-boot</module>
-    <module>test-spring-oxm</module>
+    <module>spring-oxm</module>
     <module>test-spring-profile</module>
     <module>spring-test</module>
     <module>spring-test-mysql</module>
