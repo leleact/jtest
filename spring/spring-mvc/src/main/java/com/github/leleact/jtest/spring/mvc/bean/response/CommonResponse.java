@@ -1,4 +1,4 @@
-package com.github.leleact.test.spring.mvc.bean.response;
+package com.github.leleact.jtest.spring.mvc.bean.response;
 
 public class CommonResponse {
 

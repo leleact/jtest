@@ -1,4 +1,4 @@
-package com.github.leleact.test.spring.mvc.bean.request;
+package com.github.leleact.jtest.spring.mvc.bean.request;
 
 import java.util.Date;
 

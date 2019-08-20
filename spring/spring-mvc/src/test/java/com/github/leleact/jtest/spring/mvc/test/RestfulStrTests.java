@@ -1,4 +1,4 @@
-package com.github.leleact.test.spring.mvc.test;
+package com.github.leleact.jtest.spring.mvc.test;
 
 import org.junit.Test;
 import org.springframework.http.MediaType;

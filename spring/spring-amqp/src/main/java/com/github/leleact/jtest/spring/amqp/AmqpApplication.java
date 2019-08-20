@@ -1,4 +1,4 @@
-package com.github.leleact.spring.amqp;
+package com.github.leleact.jtest.spring.amqp;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;

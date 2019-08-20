@@ -1,4 +1,4 @@
-package com.github.leleact.test.spring.mvc;
+package com.github.leleact.jtest.spring.mvc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

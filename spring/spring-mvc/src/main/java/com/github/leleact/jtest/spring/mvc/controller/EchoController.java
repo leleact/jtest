@@ -1,4 +1,4 @@
-package com.github.leleact.test.spring.mvc.controller;
+package com.github.leleact.jtest.spring.mvc.controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
