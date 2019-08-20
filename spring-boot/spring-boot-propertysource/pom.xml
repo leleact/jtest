@@ -7,12 +7,12 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>test-spring-boot-propertysource</name>
+	<name>spring-boot-propertysource</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
 		<groupId>com.github.leleact.jtest</groupId>
-		<artifactId>test-spring-boot</artifactId>
+		<artifactId>spring-boot</artifactId>
 		<version>1.0-SNAPSHOT</version>
         <relativePath>..</relativePath>
 	</parent>
