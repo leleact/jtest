@@ -1,4 +1,4 @@
-package com.lele.test.testspringbootpropertysource.configure;
+package com.github.leleact.jtest.springboot.propertysource.configure;
 
 public class Bean2 {
 

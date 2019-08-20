@@ -1,4 +1,4 @@
-package com.lele.test.testspringbootpropertysource.configure;
+package com.github.leleact.jtest.springboot.propertysource.configure;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

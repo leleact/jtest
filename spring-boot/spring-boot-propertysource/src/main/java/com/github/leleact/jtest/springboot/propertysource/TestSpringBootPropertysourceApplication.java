@@ -1,4 +1,4 @@
-package com.lele.test.testspringbootpropertysource;
+package com.github.leleact.jtest.springboot.propertysource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
