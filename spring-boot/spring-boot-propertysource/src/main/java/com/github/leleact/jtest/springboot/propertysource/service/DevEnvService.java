@@ -18,13 +18,12 @@ public class DevEnvService {
         log.info("===============");
     }
     // 可以直接从 System property总获取
-    @Value("${environmentTocken}")
-    private String environmentTocken;
+    @Value("${environmentToken}")
+    private String environmentToken;
 
     @PostConstruct
     public void constructor() {
         log.info("test environment");
-
-        log.info("{}", environmentTocken);
+        log.info("{}", environmentToken);
     }
 }
