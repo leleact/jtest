@@ -20,7 +20,7 @@
     <module>spring-mvc</module>
     <module>test-spring-retry</module>
     <module>spring-oxm</module>
-    <module>test-spring-profile</module>
+    <module>spring-profile</module>
     <module>spring-test</module>
     <module>spring-test-mysql</module>
     <module>spring-jdbc</module>
