@@ -18,7 +18,6 @@
     <module>spring-ioc</module>
     <module>spring-tx</module>
     <module>spring-mvc</module>
-    <module>test-spring-retry</module>
     <module>spring-oxm</module>
     <module>spring-profile</module>
     <module>spring-test</module>
