@@ -1,4 +1,4 @@
-package com.lele.test.spring.boot.uploadfile.controller;
+package com.github.leleact.jtest.spring.boot.uploadfile.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

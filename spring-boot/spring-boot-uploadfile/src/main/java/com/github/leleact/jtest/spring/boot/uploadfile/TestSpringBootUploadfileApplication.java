@@ -1,4 +1,4 @@
-package com.lele.test.spring.boot.uploadfile;
+package com.github.leleact.jtest.spring.boot.uploadfile;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
