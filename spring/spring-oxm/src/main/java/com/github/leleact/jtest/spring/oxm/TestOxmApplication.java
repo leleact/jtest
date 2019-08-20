@@ -1,6 +1,6 @@
-package com.lele.test.spring.oxm;
+package com.github.leleact.jtest.spring.oxm;
 
-import com.lele.test.spring.oxm.bean.A;
+import com.github.leleact.jtest.spring.oxm.bean.A;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;

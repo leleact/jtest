@@ -1,4 +1,4 @@
-package com.lele.test.spring.oxm.bean;
+package com.github.leleact.jtest.spring.oxm.bean;
 
 public class A {
 

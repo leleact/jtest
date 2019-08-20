@@ -1,6 +1,6 @@
-package com.lele.test.spring.oxm;
+package com.github.leleact.jtest.spring.oxm;
 
-import com.lele.test.spring.oxm.bean.A;
+import com.github.leleact.jtest.spring.oxm.bean.A;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
