@@ -13,6 +13,7 @@
   <packaging>pom</packaging>
 
   <modules>
+    <module>spring-amqp</module>
     <module>spring-aop</module>
     <module>spring-ioc</module>
     <module>spring-tx</module>
@@ -20,7 +21,6 @@
     <module>test-spring-retry</module>
     <module>test-spring-boot</module>
     <module>test-spring-oxm</module>
-    <module>test-spring-amqp</module>
     <module>test-spring-profile</module>
     <module>spring-test</module>
     <module>spring-test-mysql</module>

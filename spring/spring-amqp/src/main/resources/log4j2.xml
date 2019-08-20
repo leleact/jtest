@@ -23,7 +23,7 @@
             </Policies>
             <DefaultRolloverStrategy>
                 <Delete basePath="${baseDir}" maxDepth="2">
-                    <IfFileName glob="*/${filename}-*.log.gz"/>
+                    <IfFileName glob="**/${filename}-*.log.gz"/>
                     <IfLastModified age="60d"/>
                 </Delete>
             </DefaultRolloverStrategy>
