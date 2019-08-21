@@ -12,6 +12,7 @@
     <modules>
         <module>maven-plugin-spring-checkstyle</module>
         <module>maven-plugin-google-checkstyle</module>
+      <module>maven-plugin-common-checkstyle</module>
     </modules>
 
     <artifactId>maven-plugin-checkstyle</artifactId>
