@@ -1,4 +1,4 @@
-package com.lele.test.jdk.lambda;
+package com.github.leleact.jtest.jdk.lambda;
 
 
 import lombok.extern.slf4j.Slf4j;

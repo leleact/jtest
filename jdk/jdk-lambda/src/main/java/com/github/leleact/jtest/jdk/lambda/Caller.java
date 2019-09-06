@@ -1,4 +1,4 @@
-package com.lele.test.jdk.lambda;
+package com.github.leleact.jtest.jdk.lambda;
 
 public interface Caller {
 
