@@ -28,6 +28,7 @@
     <module>spring-boot</module>
     <module>unknown</module>
     <module>validator</module>
+    <module>rx-java</module>
   </modules>
 
   <properties>
