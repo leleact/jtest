@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="300">
+
+  <Properties>
+    <Property name="baseDir">target/logs</Property>
+    <Property name="filename">app</Property>
+    <Property name="A">${filename}.a.log</Property>
+    <Property name="B">${filename}.b.log</Property>
+  </Properties>
+
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout
+        pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{-%5p}{FATAL=red blink, ERROR=red, WARN=yellow bold, INFO=green, DEBUG=green bold, TRACE=blue} %style{%pid}{magenta} [%15.15t] %style{%-40.40C{1.}}{cyan} %style{[%-20.40file:%4.4line]}{green} : %m%n%xEx"/>
+    </Console>
+
+    <RollingFile name="A" fileName="${baseDir}/${A}"
+                 filePattern="${baseDir}/backup/$${date:yyyy-MM}/${filename}.a-%d{yyyy-MM-dd}-%i.log.gz">
+      <PatternLayout>
+        <Pattern>%d %-5p [%15.15t] %-40.40C{1.} : %m%n</Pattern>
+      </PatternLayout>
+      <Policies>
+        <TimeBasedTriggeringPolicy/>
+        <SizeBasedTriggeringPolicy size="250 MB"/>
+      </Policies>
+      <DefaultRolloverStrategy>
+        <Delete basePath="${baseDir}" maxDepth="3">
+          <IfFileName glob="**/${filename}-*.log.gz"/>
+          <IfLastModified age="5d"/>
+        </Delete>
+      </DefaultRolloverStrategy>
+    </RollingFile>
+
+    <RollingFile name="B" fileName="${baseDir}/${B}"
+                 filePattern="${baseDir}/backup/$${date:yyyy-MM}/${filename}.b-%d{yyyy-MM-dd}-%i.log.gz">
+      <PatternLayout>
+        <Pattern>%d %-5p [%15.15t] %-40.40C{1.} [%-20.40file:%4.4line] : %m%n</Pattern>
+      </PatternLayout>
+      <Policies>
+        <TimeBasedTriggeringPolicy/>
+        <SizeBasedTriggeringPolicy size="250 MB"/>
+      </Policies>
+      <DefaultRolloverStrategy>
+        <Delete basePath="${baseDir}" maxDepth="3">
+          <IfFileName glob="**/${filename}-*.log.gz"/>
+          <IfLastModified age="5d"/>
+        </Delete>
+      </DefaultRolloverStrategy>
+    </RollingFile>
+  </Appenders>
+  <Loggers>
+    <Root level="info">
+      <AppenderRef ref="Console"/>
+    </Root>
+
+    <Logger name="A" level="debug" additivity="false">
+      <AppenderRef ref="A" />
+    </Logger>
+    <Logger name="B" level="debug" additivity="false">
+      <AppenderRef ref="B" />
+    </Logger>
+  </Loggers>
+</Configuration>

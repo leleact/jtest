@@ -25,7 +25,7 @@
                 <SizeBasedTriggeringPolicy size="250 MB"/>
             </Policies>
             <DefaultRolloverStrategy>
-                <Delete basePath="${baseDir}" maxDepth="2">
+                <Delete basePath="${baseDir}" maxDepth="3">
                     <IfFileName glob="*/app-*.log.gz"/>
                     <IfLastModified age="60d"/>
                 </Delete>

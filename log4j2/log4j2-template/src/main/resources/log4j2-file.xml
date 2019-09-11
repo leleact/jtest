@@ -26,7 +26,7 @@
             <!-- 默认的备份策略：max="7"表示最多只保留7份日志，fileIndex属性是在拥有多个备份日志的时候，命令是以递增的数为文件名，max值时值大的文件是最新的内容，min值时值大的是最久的内容-->
             <DefaultRolloverStrategy  fileIndex="max" max="1000">
                 <!-- 删除指定目录下60天之前的日志-->
-                <Delete basePath="${LOG_PATH}" maxDepth="2">
+                <Delete basePath="${LOG_PATH}" maxDepth="3">
                     <IfFileName glob="*.log.gz" />
                     <IfLastModified age="60d" />
                 </Delete>
