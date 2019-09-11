@@ -1,4 +1,4 @@
-package com.lele.test.http.old.client;
+package com.github.leleact.jtest.http.old.client;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
