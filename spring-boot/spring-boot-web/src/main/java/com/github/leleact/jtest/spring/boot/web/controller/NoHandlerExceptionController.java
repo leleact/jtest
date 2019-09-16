@@ -1,4 +1,4 @@
-package com.lele.test.spring.boot.web.controller;
+package com.github.leleact.jtest.spring.boot.web.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

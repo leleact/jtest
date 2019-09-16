@@ -1,4 +1,4 @@
-package com.lele.test.spring.boot.web;
+package com.github.leleact.jtest.spring.boot.web;
 
 import org.junit.Before;
 import org.junit.Test;

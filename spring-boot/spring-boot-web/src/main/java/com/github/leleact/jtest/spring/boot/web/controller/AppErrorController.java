@@ -1,4 +1,4 @@
-package com.lele.test.spring.boot.web.controller;
+package com.github.leleact.jtest.spring.boot.web.controller;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.web.ErrorAttributes;

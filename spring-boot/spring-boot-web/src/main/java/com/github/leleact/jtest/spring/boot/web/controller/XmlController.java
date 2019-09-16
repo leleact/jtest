@@ -1,4 +1,4 @@
-package com.lele.test.spring.boot.web.controller;
+package com.github.leleact.jtest.spring.boot.web.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
