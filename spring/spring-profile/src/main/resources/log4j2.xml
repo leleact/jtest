@@ -22,8 +22,8 @@
                 <SizeBasedTriggeringPolicy size="250 MB"/>
             </Policies>
             <DefaultRolloverStrategy>
-                <Delete basePath="${baseDir}" maxDepth="2">
-                    <IfFileName glob="*/${filename}-*.log.gz"/>
+                <Delete basePath="${baseDir}" maxDepth="3">
+                    <IfFileName glob="**/${filename}-*.log.gz"/>
                     <IfLastModified age="60d"/>
                 </Delete>
             </DefaultRolloverStrategy>
