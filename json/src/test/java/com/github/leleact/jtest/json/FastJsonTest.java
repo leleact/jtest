@@ -190,4 +190,12 @@ public class FastJsonTest {
 
         log.info(JSONObject.toJSONString(b));
     }
+
+    @Test
+    public void deSerializeTest() {
+        String str = "{}";
+        PrimitiveTypePojo pojo = JSON.parseObject(str, PrimitiveTypePojo.class);
+        log.info("pojo = [{}]", pojo);
+        Assert.assertEquals(0, pojo.getI());
+    }
 }
