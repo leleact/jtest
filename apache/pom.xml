@@ -15,7 +15,6 @@
   <modules>
     <module>apache-http-client</module>
     <module>apache-commons</module>
-    <module>apache-commons-pool</module>
   </modules>
 
 </project>
