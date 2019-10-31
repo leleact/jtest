@@ -1,4 +1,4 @@
-package com.lele.test.spring.boot.amqp;
+package com.github.leleact.jtest.spring.boot.amqp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
