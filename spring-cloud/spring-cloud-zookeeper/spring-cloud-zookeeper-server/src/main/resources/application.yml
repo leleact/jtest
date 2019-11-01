@@ -4,7 +4,7 @@ spring:
       connect-string: localhost:2189,localhost:2181,localhost:2183
       discovery:
         enabled: true
-        preferIpAddress: true
+        prefer-ip-address: true
   application:
     name: zookeeper-server
   profiles:
