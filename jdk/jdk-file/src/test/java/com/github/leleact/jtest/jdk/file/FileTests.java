@@ -1,17 +1,16 @@
 package com.github.leleact.jtest.jdk.file;
 
 
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
 
-public class FileTest {
+@Slf4j
+public class FileTests {
 
-    private static Logger log = LoggerFactory.getLogger(FileTest.class);
-
+    // 递归创建目录
     @Test
     public void mkdirsTest() {
         String path = "C:\\Users\\Lele\\Desktop\\a";
@@ -23,8 +22,6 @@ public class FileTest {
     @Test
     public void generatorFile() throws IOException {
         String filepath = "C:\\Users\\Lele\\Desktop\\a.txt";
-
         File f = new File(filepath);
     }
-
 }
