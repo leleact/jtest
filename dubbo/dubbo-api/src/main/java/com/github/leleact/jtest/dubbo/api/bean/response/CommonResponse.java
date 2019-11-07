@@ -6,6 +6,8 @@ import java.io.Serializable;
 
 public class CommonResponse extends CommonRequest implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     private int res;
 
     public int getRes() {
