@@ -42,6 +42,7 @@
     <module>jdk-type</module>
     <module>jdk-uuid</module>
     <module>jdk-zip</module>
+    <module>jdk-assert</module>
   </modules>
 
   <dependencies>
