@@ -64,6 +64,17 @@ class TreeMapTests {
         map.put(p3, 1);
         map.put(p1, 1);
         map.put(p2, 1);
-        map.forEach((k, v)->log.info("key: [{}], value: [{}]", k, v));
+        map.forEach((k, v) -> log.info("key: [{}], value: [{}]", k, v));
+    }
+
+    @Test
+    public void nullKeyTest() {
+        TreeMap<Pojo, String> map = new TreeMap<>();
+        Pojo p1 = new Pojo("i", "a");
+        Pojo p2 = new Pojo("a", "a");
+        Pojo p3 = new Pojo("p", "a");
+        Assertions.assertThrows(NullPointerException.class, () -> {
+            String value = map.get(null);
+        });
     }
 }
