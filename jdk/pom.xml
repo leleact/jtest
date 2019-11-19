@@ -44,6 +44,7 @@
     <module>jdk-zip</module>
     <module>jdk-assert</module>
     <module>jdk-optional</module>
+    <module>jdk-byte</module>
   </modules>
 
   <dependencies>
