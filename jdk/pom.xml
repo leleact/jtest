@@ -30,7 +30,7 @@
     <module>jdk-lambda</module>
     <module>jdk-map</module>
     <module>jdk-mkdir</module>
-    <module>jdk-prikey</module>
+    <module>jdk-keystore</module>
     <module>jdk-pattern</module>
     <module>jdk-reflect</module>
     <module>jdk-resource</module>
