@@ -48,6 +48,7 @@ public class Pkcs12Tests {
                     log.info(
                         "private entry[" + alias + "]=[" + entry1.getPrivateKey() + "], [" + entry1.getCertificate() + "]");
                     log.info("serialNumber: {}", ((X509Certificate)entry1.getCertificate()).getSerialNumber());
+                    log.info("certificate base64 encode: [{}]", new String(Base64.getEncoder().encode(entry1.getCertificate().getEncoded())));
                     log.info("PrivateKey Algorithm:" + entry1.getPrivateKey().getAlgorithm());
                     log.info("PrivateKey Format:" + entry1.getPrivateKey().getFormat());
                     base64Pri = new String(Base64.getEncoder().encode(entry1.getPrivateKey().getEncoded()));
