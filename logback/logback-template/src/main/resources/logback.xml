@@ -30,7 +30,7 @@
     </encoder>
   </appender>
 
-  <logger name="com.github.leleact" level="debug" additivity="false">
+  <logger name="com.github.leleact.jtest" level="debug" additivity="false">
     <appender-ref ref="CONSOLE"/>
     <appender-ref ref="ROLLING"/>
   </logger>

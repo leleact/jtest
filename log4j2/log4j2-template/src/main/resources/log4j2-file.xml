@@ -27,7 +27,7 @@
             <DefaultRolloverStrategy  fileIndex="max" max="1000">
                 <!-- 删除指定目录下60天之前的日志-->
                 <Delete basePath="${LOG_PATH}" maxDepth="3">
-                    <IfFileName glob="*.log.gz" />
+                    <IfFileName glob="**/*.log.gz" />
                     <IfLastModified age="60d" />
                 </Delete>
             </DefaultRolloverStrategy>
