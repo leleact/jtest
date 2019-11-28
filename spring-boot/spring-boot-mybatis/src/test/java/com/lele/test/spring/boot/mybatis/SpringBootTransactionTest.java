@@ -1,7 +1,6 @@
-package com.lele.test.spring.boot.mybatis.test;
+package com.lele.test.spring.boot.mybatis;
 
 
-import com.lele.test.spring.boot.mybatis.TestSpringBootMybatisApplication;
 import com.lele.test.spring.boot.mybatis.bean.dto.T1;
 import com.lele.test.spring.boot.mybatis.bean.mapper.T1Mapper;
 import com.lele.test.spring.boot.mybatis.service.TransactionService;
@@ -19,7 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = TestSpringBootMybatisApplication.class)
+@SpringBootTest(classes = SpringBootMybatisApplication.class)
 public class SpringBootTransactionTest {
 
     private static final Logger log = LoggerFactory.getLogger(SpringBootTransactionTest.class);

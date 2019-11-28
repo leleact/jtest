@@ -1,11 +1,11 @@
-package com.lele.test.spring.boot.mybatis.test;
+package com.lele.test.spring.boot.mybatis;
 
 
-import com.lele.test.spring.boot.mybatis.TestSpringBootMybatisApplication;
 import com.lele.test.spring.boot.mybatis.bean.dto.T1;
 import com.lele.test.spring.boot.mybatis.bean.dto.T2;
 import com.lele.test.spring.boot.mybatis.bean.mapper.T1Mapper;
 import com.lele.test.spring.boot.mybatis.bean.mapper.T2Mapper;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,11 +16,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(classes = TestSpringBootMybatisApplication.class)
+@Slf4j
+@SpringBootTest
 public class SpringBootMybatisTest {
-
-    private static final Logger log = LoggerFactory.getLogger(SpringBootMybatisTest.class);
 
     @Resource
     private T1Mapper t1Mapper;
