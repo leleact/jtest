@@ -14,7 +14,7 @@ public class GenericInvokeServiceImpl implements GenericInvokeService {
 
     @Override
     public GenericResponse invoke(GenericRequest request) {
-        log.info("receive message {}", request);
+        log.info("receive a message {}", request);
         GenericResponse response = new GenericResponse();
         response.setName(request.getName());
         response.setAge(request.getAge());
