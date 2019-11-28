@@ -28,7 +28,7 @@ public class TestDubboReferenceTests {
         map.put("id", sdf.format(new Date()));
         map.put("exchange", "haha");
         demoService.$invoke("saveAndSend", new String[]{"com.lele.test.dubbo.reference.GenericService"},
-                new Object[]{map});
+                            new Object[]{map});
     }
 
 }

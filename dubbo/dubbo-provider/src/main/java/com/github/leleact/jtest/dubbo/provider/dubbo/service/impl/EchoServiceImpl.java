@@ -1,7 +1,7 @@
 package com.github.leleact.jtest.dubbo.provider.dubbo.service.impl;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.github.leleact.jtest.dubbo.api.EchoService;
+import org.apache.dubbo.config.annotation.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

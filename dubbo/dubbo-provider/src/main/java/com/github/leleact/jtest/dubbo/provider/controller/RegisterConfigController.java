@@ -1,6 +1,6 @@
 package com.github.leleact.jtest.dubbo.provider.controller;
 
-import com.alibaba.dubbo.config.RegistryConfig;
+import org.apache.dubbo.registry.support.AbstractRegistryFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,8 +9,7 @@ public class RegisterConfigController {
 
     @GetMapping("/stop")
     public String stop() {
-        RegistryConfig.destroyAll();
+        AbstractRegistryFactory.destroyAll();
         return "ok";
     }
-
 }
