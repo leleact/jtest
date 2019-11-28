@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
@@ -18,6 +19,10 @@ public class SpringCloudZookeeperClientApplication {
     @Bean
     @LoadBalanced
     public RestTemplate restTemplate() {
-        return new RestTemplate();
+        SimpleClientHttpRequestFactory clientHttpRequestFactory
+            = new SimpleClientHttpRequestFactory();
+        clientHttpRequestFactory.setConnectTimeout(10_000);
+        clientHttpRequestFactory.setReadTimeout(10_000);
+        return new RestTemplate(clientHttpRequestFactory);
     }
 }

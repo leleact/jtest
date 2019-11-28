@@ -1,7 +1,7 @@
 spring:
   cloud:
     zookeeper:
-      connect-string: localhost:2189,localhost:2181,localhost:2183
+      connect-string: localhost:2181,localhost:2182,localhost:2183
       discovery:
         enabled: true
         prefer-ip-address: true

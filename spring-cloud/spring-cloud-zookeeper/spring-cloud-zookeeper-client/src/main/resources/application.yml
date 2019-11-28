@@ -4,3 +4,7 @@ spring:
       connect-string: localhost:2181
   application:
     name: zookeeper-client
+zookeeper-server:
+  ribbon:
+    ConnectTimeout: 2000
+    ReadTimeout: 30000

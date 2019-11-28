@@ -4,8 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
@@ -13,13 +14,17 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class SpringCloudZookeeperServerApplication {
 
-    @RequestMapping(value = "/echo")
-    public String echo(@RequestBody String str) {
+    @PostMapping(value = "/echo")
+    public String echo(@RequestParam long sleepTime, @RequestBody String str) throws InterruptedException {
         log.info("request str: {}", str);
+        if (sleepTime > 0) {
+            Thread.sleep(sleepTime);
+        }
         return str;
     }
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder(SpringCloudZookeeperServerApplication.class).web(WebApplicationType.SERVLET).run(args);
+        new SpringApplicationBuilder(SpringCloudZookeeperServerApplication.class).web(WebApplicationType.SERVLET)
+                                                                                 .run(args);
     }
 }
