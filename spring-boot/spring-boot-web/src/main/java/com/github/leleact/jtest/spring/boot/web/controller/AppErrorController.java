@@ -1,21 +1,20 @@
 package com.github.leleact.jtest.spring.boot.web.controller;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.autoconfigure.web.ErrorAttributes;
-import org.springframework.boot.autoconfigure.web.ErrorController;
+import org.springframework.boot.web.servlet.error.ErrorAttributes;
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.context.request.ServletWebRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 @RestController
-@ConditionalOnProperty(prefix = "web.error", name = "enabled", havingValue = "true" )
+@ConditionalOnProperty(prefix = "web.error", name = "enabled", havingValue = "true")
 public class AppErrorController implements ErrorController {
 
     private ErrorAttributes errorAttributes;
@@ -41,20 +40,19 @@ public class AppErrorController implements ErrorController {
     }
 
     private Map<String, Object> getErrorAttributes(HttpServletRequest request,
-            boolean includeStackTrace) {
-        RequestAttributes requestAttributes = new ServletRequestAttributes(request);
+                                                   boolean includeStackTrace) {
+        ServletWebRequest requestAttributes = new ServletWebRequest(request);
         return this.errorAttributes.getErrorAttributes(requestAttributes,
-                includeStackTrace);
+                                                       includeStackTrace);
     }
 
     private HttpStatus getStatus(HttpServletRequest request) {
         Integer statusCode = (Integer) request
-                .getAttribute("javax.servlet.error.status_code");
+            .getAttribute("javax.servlet.error.status_code");
         if (statusCode != null) {
             try {
                 return HttpStatus.valueOf(statusCode);
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
             }
         }
         return HttpStatus.INTERNAL_SERVER_ERROR;
