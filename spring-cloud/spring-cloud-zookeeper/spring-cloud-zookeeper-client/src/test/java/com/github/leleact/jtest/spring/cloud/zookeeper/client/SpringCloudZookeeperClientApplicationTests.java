@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
-import org.springframework.cloud.netflix.ribbon.apache.RetryableRibbonLoadBalancingHttpClient;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
@@ -22,14 +21,13 @@ public class SpringCloudZookeeperClientApplicationTests {
     @Autowired
     private DiscoveryClient discoveryClient;
 
-    @Resource
-    private RetryableRibbonLoadBalancingHttpClient retryableRibbonLoadBalancingHttpClient;
-
     @Test
     public void restTemplateTest() {
-        log.info("start...");
-        String str = restTemplate.postForObject("http://zookeeper-server/echo?sleepTime=6000", "abc", String.class);
-        log.info("end...str: {}", str);
+        for (int i = 0; i < 10000; i++) {
+            log.info("start...");
+            String str = restTemplate.postForObject("http://zookeeper-server/echo?sleepTime=6000", "abc", String.class);
+            log.info("end...str: {}", str);
+        }
     }
 
     @Test
