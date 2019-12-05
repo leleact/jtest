@@ -15,6 +15,7 @@
     <module>spring-cloud-ribbon</module>
     <module>spring-cloud-eureka-server</module>
     <module>spring-cloud-zookeeper</module>
+    <module>spring-cloud-feign</module>
   </modules>
 
   <properties>
@@ -23,6 +24,15 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
   <build>
     <plugins>
       <plugin>
