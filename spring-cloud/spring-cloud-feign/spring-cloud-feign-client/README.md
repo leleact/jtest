@@ -9,3 +9,12 @@ ribbon loadbalancer in maintain mode, so suggest `org.springframework.cloud:spri
 #### when use ribbon loadbalancer
 
 set feign configuration should set ribbon configuration
+
+#### use apache httpclient
+
+``` xml
+    <dependency>
+      <groupId>io.github.openfeign</groupId>
+      <artifactId>feign-httpclient</artifactId>
+    </dependency>
+```

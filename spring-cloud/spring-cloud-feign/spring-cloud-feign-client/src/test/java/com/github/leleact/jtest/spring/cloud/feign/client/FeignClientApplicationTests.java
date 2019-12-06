@@ -28,7 +28,7 @@ public class FeignClientApplicationTests {
     @Test
     public void waitServiceTest() {
         log.info("start...");
-        String res = waitServiceApi.waitAtTime(120000);
+        String res = waitServiceApi.waitAtTime(80000);
         log.info("res: [{}]", res);
         Assertions.assertEquals("hello, world", res);
     }
