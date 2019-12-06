@@ -19,6 +19,12 @@ public class FeignServerApplication {
         return "hello " + str;
     }
 
+    @PostMapping("/wait")
+    public String waitService(@RequestBody long time) throws InterruptedException {
+        Thread.sleep(time);
+        return "hello, world";
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(FeignServerApplication.class, args);
     }

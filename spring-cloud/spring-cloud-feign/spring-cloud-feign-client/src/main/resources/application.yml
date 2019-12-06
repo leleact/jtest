@@ -1,7 +1,25 @@
 spring:
   application:
     name: feign-client
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: true
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+    registry-fetch-interval-seconds: 5
+  instance:
+    prefer-ip-address: true
+# feign client config not work in ribbon loadbalancer and spring-cloud-loadbalancer both, fuck...
+feign:
+  client:
+    config:
+      feign-server:
+        connectTimeout: 60000
+        readTimeout: 150000
+feign-server:
+  ribbon:
+    ConnectTimeout: 60000
+    ReadTimeout: 150000
