@@ -21,4 +21,11 @@
     <module>spring-boot-uploadfile</module>
     <module>spring-boot-urlmap</module>
   </modules>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+    </dependency>
+  </dependencies>
 </project>
