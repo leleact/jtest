@@ -1,6 +1,6 @@
-package com.lele.test.spring.boot.mybatis.bean.mapper;
+package com.github.leleact.jtest.spring.boot.mybatis.bean.mapper;
 
-import com.lele.test.spring.boot.mybatis.bean.dto.T2;
+import com.github.leleact.jtest.spring.boot.mybatis.bean.dto.T2;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 

@@ -1,4 +1,4 @@
-package com.lele.test.spring.boot.mybatis;
+package com.github.leleact.jtest.spring.boot.mybatis;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

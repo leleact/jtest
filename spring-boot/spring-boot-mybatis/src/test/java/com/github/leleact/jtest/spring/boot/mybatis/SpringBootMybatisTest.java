@@ -1,18 +1,14 @@
-package com.lele.test.spring.boot.mybatis;
+package com.github.leleact.jtest.spring.boot.mybatis;
 
 
-import com.lele.test.spring.boot.mybatis.bean.dto.T1;
-import com.lele.test.spring.boot.mybatis.bean.dto.T2;
-import com.lele.test.spring.boot.mybatis.bean.mapper.T1Mapper;
-import com.lele.test.spring.boot.mybatis.bean.mapper.T2Mapper;
+import com.github.leleact.jtest.spring.boot.mybatis.bean.dto.T1;
+import com.github.leleact.jtest.spring.boot.mybatis.bean.dto.T2;
+import com.github.leleact.jtest.spring.boot.mybatis.bean.mapper.T1Mapper;
+import com.github.leleact.jtest.spring.boot.mybatis.bean.mapper.T2Mapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 

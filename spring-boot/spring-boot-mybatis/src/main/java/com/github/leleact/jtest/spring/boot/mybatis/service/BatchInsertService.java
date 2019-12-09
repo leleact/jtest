@@ -1,7 +1,7 @@
-package com.lele.test.spring.boot.mybatis.service;
+package com.github.leleact.jtest.spring.boot.mybatis.service;
 
-import com.lele.test.spring.boot.mybatis.bean.dto.T1;
-import com.lele.test.spring.boot.mybatis.bean.mapper.T1Mapper;
+import com.github.leleact.jtest.spring.boot.mybatis.bean.dto.T1;
+import com.github.leleact.jtest.spring.boot.mybatis.bean.mapper.T1Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

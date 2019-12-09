@@ -1,4 +1,4 @@
-package com.lele.test.spring.boot.mybatis.bean.dto;
+package com.github.leleact.jtest.spring.boot.mybatis.bean.dto;
 
 public class T1 {
 

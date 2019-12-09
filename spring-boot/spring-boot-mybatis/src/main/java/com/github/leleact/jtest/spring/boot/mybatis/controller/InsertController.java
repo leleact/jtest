@@ -1,6 +1,6 @@
-package com.lele.test.spring.boot.mybatis.controller;
+package com.github.leleact.jtest.spring.boot.mybatis.controller;
 
-import com.lele.test.spring.boot.mybatis.service.BatchInsertService;
+import com.github.leleact.jtest.spring.boot.mybatis.service.BatchInsertService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,7 +1,7 @@
-package com.lele.test.spring.boot.mybatis;
+package com.github.leleact.jtest.spring.boot.mybatis;
 
-import com.lele.test.spring.boot.mybatis.bean.dto.T1;
-import com.lele.test.spring.boot.mybatis.bean.mapper.T1Mapper;
+import com.github.leleact.jtest.spring.boot.mybatis.bean.dto.T1;
+import com.github.leleact.jtest.spring.boot.mybatis.bean.mapper.T1Mapper;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

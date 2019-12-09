@@ -1,6 +1,6 @@
-package com.lele.test.spring.boot.mybatis.bean.mapper;
+package com.github.leleact.jtest.spring.boot.mybatis.bean.mapper;
 
-import com.lele.test.spring.boot.mybatis.bean.dto.T1;
+import com.github.leleact.jtest.spring.boot.mybatis.bean.dto.T1;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.jdbc.SQL;
 import org.slf4j.Logger;
