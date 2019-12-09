@@ -1,4 +1,4 @@
-package com.lele.test.http.loadbalance;
+package com.github.leleact.jtest.http.loadbalance;
 
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;

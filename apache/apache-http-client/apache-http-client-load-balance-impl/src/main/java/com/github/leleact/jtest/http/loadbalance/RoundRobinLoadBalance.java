@@ -1,4 +1,4 @@
-package com.lele.test.http.loadbalance;
+package com.github.leleact.jtest.http.loadbalance;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;

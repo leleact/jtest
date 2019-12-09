@@ -1,4 +1,4 @@
-package com.lele.test.http.loadbalance;
+package com.github.leleact.jtest.http.loadbalance;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpEntity;

@@ -1,4 +1,4 @@
-package com.lele.test.http.loadbalance;
+package com.github.leleact.jtest.http.loadbalance;
 
 import java.util.ArrayList;
 import java.util.Arrays;
