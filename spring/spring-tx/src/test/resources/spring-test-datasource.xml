@@ -15,8 +15,7 @@
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="mapperLocations" value="classpath*:com/lele/test/spring/tx/bean/mapping/*.xml"/>
-        <!--<property name="typeAliasesPackage" value="com.lele.test.database.mysql.bean.dto"/>-->
+        <property name="mapperLocations" value="classpath*:com/github/leleact/jtest/spring/tx/bean/mapping/*.xml"/>
     </bean>
 
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -28,10 +27,10 @@
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.lele.test.spring.tx.bean.mapper"/>
+        <property name="basePackage" value="com.github.leleact.jtest.spring.tx.bean.mapper"/>
     </bean>
 
-    <context:component-scan base-package="com.lele.test.spring"/>
+    <context:component-scan base-package="com.github.leleact.jtest.spring.tx"/>
 
     <tx:annotation-driven />
 
