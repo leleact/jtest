@@ -10,7 +10,7 @@ public class ExceptionHandleController {
 
     @GetMapping(value = "/{id}/info")
     public String getInfo(@PathVariable("id") String id) {
-        Integer i = Integer.parseInt(id);
+        int i = Integer.parseInt(id);
         if (i % 2 == 0) {
             return id + "-info";
         } else {
@@ -19,12 +19,12 @@ public class ExceptionHandleController {
     }
 
     @GetMapping("/rex")
-    public String exceptionthrow() {
+    public String exceptionThrow() {
         throw new RuntimeException();
     }
 
     @ExceptionHandler({NumberFormatException.class})
-    public String numberFormatException() {
+    public String numberFormatException(Exception ex) {
         return "NumberFormatException";
     }
 
