@@ -1,6 +1,6 @@
-package com.lele.test.spring.boot.context.configuration;
+package com.github.leleact.jtest.spring.boot.context.configuration;
 
-import com.lele.test.spring.boot.context.bean.Person;
+import com.github.leleact.jtest.spring.boot.context.bean.Person;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;

@@ -1,4 +1,4 @@
-package com.lele.test.spring.boot.context.service;
+package com.github.leleact.jtest.spring.boot.context.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,4 @@
-package com.lele.test.spring.boot.context.bean;
+package com.github.leleact.jtest.spring.boot.context.bean;
 
 public class Person {
 
