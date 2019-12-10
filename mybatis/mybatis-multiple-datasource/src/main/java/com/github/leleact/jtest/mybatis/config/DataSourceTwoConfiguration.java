@@ -1,6 +1,6 @@
-package com.github.leleact.test.mybatis.config;
+package com.github.leleact.jtest.mybatis.config;
 
-import com.github.leleact.test.mybatis.db2.Db2BeanNameGenerator;
+import com.github.leleact.jtest.mybatis.db2.Db2BeanNameGenerator;
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -16,7 +16,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan(basePackages = "com.github.leleact.test.mybatis.db2", sqlSessionFactoryRef = "db2SqlSessionFactory", nameGenerator = Db2BeanNameGenerator.class)
+@MapperScan(basePackages = "com.github.leleact.jtest.mybatis.db2", sqlSessionFactoryRef = "db2SqlSessionFactory", nameGenerator = Db2BeanNameGenerator.class)
 public class DataSourceTwoConfiguration {
 
     @Bean

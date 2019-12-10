@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.github.leleact.test.mybatis.db1.mapper.DbMapper">
-  <resultMap id="BaseResultMap" type="com.github.leleact.test.mybatis.db1.dto.Db">
+<mapper namespace="com.github.leleact.jtest.mybatis.db1.mapper.DbMapper">
+  <resultMap id="BaseResultMap" type="com.github.leleact.jtest.mybatis.db1.dto.Db">
     <id column="Host" jdbcType="CHAR" property="host" />
     <id column="Db" jdbcType="CHAR" property="db" />
     <id column="User" jdbcType="CHAR" property="user" />
@@ -45,7 +45,7 @@
       and Db = #{db,jdbcType=CHAR}
       and User = #{user,jdbcType=CHAR}
   </delete>
-  <insert id="insert" parameterType="com.github.leleact.test.mybatis.db1.dto.Db">
+  <insert id="insert" parameterType="com.github.leleact.jtest.mybatis.db1.dto.Db">
     insert into db (Host, Db, User, Select_priv, 
       Insert_priv, Update_priv, Delete_priv, 
       Create_priv, Drop_priv, Grant_priv, 
@@ -63,7 +63,7 @@
       #{executePriv,jdbcType=CHAR}, #{eventPriv,jdbcType=CHAR}, #{triggerPriv,jdbcType=CHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.github.leleact.test.mybatis.db1.dto.Db">
+  <insert id="insertSelective" parameterType="com.github.leleact.jtest.mybatis.db1.dto.Db">
     insert into db
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="host != null">
@@ -202,7 +202,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.github.leleact.test.mybatis.db1.dto.Db">
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.leleact.jtest.mybatis.db1.dto.Db">
     update db
     <set>
       <if test="selectPriv != null">
@@ -267,7 +267,7 @@
       and Db = #{db,jdbcType=CHAR}
       and User = #{user,jdbcType=CHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.github.leleact.test.mybatis.db1.dto.Db">
+  <update id="updateByPrimaryKey" parameterType="com.github.leleact.jtest.mybatis.db1.dto.Db">
     update db
     set Select_priv = #{selectPriv,jdbcType=CHAR},
       Insert_priv = #{insertPriv,jdbcType=CHAR},

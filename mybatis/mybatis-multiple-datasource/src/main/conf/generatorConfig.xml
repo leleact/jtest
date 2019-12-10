@@ -27,7 +27,7 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
 
-        <javaModelGenerator targetPackage="com.github.leleact.test.mybatis.db2.dto" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.github.leleact.jtest.mybatis.db2.dto" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
@@ -36,7 +36,7 @@
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.github.leleact.test.mybatis.db2.mapper"
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.github.leleact.jtest.mybatis.db2.mapper"
                              targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>

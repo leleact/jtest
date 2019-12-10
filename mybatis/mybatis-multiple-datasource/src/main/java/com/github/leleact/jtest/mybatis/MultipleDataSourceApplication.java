@@ -1,4 +1,4 @@
-package com.github.leleact.test.mybatis;
+package com.github.leleact.jtest.mybatis;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

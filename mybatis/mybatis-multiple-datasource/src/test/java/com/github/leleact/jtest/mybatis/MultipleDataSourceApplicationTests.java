@@ -1,7 +1,7 @@
-package com.github.leleact.test.mybatis;
+package com.github.leleact.jtest.mybatis;
 
-import com.github.leleact.test.mybatis.db1.mapper.DbMapper;
-import com.github.leleact.test.mybatis.db2.mapper.UserMapper;
+import com.github.leleact.jtest.mybatis.db1.mapper.DbMapper;
+import com.github.leleact.jtest.mybatis.db2.mapper.UserMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

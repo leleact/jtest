@@ -1,6 +1,6 @@
-package com.github.leleact.test.mybatis.db1.mapper;
+package com.github.leleact.jtest.mybatis.db2.mapper;
 
-import com.github.leleact.test.mybatis.db1.dto.Db;
+import com.github.leleact.jtest.mybatis.db2.dto.Db;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

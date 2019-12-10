@@ -1,4 +1,4 @@
-package com.github.leleact.test.mybatis.db2.dto;
+package com.github.leleact.jtest.mybatis.db1.dto;
 
 import java.io.Serializable;
 
