@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AopService {
-    @AopEx
+    @AopEx(value = Exception.class)
     public String execute(String str) {
         return "hello, " + str;
     }

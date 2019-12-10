@@ -5,7 +5,7 @@ import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 
 @Slf4j
-public class ExHandlerInterceptor implements MethodInterceptor {
+public class ExHandlerInterceptor1 implements MethodInterceptor {
 
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {

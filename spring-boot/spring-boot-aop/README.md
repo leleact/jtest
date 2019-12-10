@@ -1,0 +1,1 @@
+`AbstractBeanFactoryAwareAdvisingPostProcessor` add advisor end of the advisor list because of `advisor` in  `AbstractBeanFactoryAwareAdvisingPostProcessor` is not a `bean`, `order` in it is not take effect
