@@ -13,3 +13,6 @@ eureka:
     prefer-ip-address: true
     lease-expiration-duration-in-seconds: 10
     lease-renewal-interval-in-seconds: 3
+logging:
+  level:
+    com.github.leleact.jtest: debug

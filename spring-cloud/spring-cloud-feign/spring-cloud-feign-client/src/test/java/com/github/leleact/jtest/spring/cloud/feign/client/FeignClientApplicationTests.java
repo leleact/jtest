@@ -1,7 +1,10 @@
 package com.github.leleact.jtest.spring.cloud.feign.client;
 
 import com.github.leleact.jtest.spring.cloud.feign.api.EchoServiceApi;
+import com.github.leleact.jtest.spring.cloud.feign.api.QueryServiceApi;
 import com.github.leleact.jtest.spring.cloud.feign.api.WaitServiceApi;
+import com.github.leleact.jtest.spring.cloud.feign.api.request.QueryRequest;
+import com.github.leleact.jtest.spring.cloud.feign.api.response.QueryResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -18,6 +21,9 @@ public class FeignClientApplicationTests {
     @Autowired
     private WaitServiceApi waitServiceApi;
 
+    @Autowired
+    private QueryServiceApi queryServiceApi;
+
     @Test
     public void echoServiceTest() {
         String res = echoServiceApi.echo("xxx");
@@ -31,5 +37,16 @@ public class FeignClientApplicationTests {
         String res = waitServiceApi.waitAtTime(80000);
         log.info("res: [{}]", res);
         Assertions.assertEquals("hello, world", res);
+    }
+
+    @Test
+    public void queryTest() {
+        log.info("start...");
+        QueryRequest request = new QueryRequest();
+        request.setPage(1);
+        request.setRows(10);
+        QueryResponse<String> res = queryServiceApi.query(10L, 2, request);
+        log.info("res: [{}]", res);
+        Assertions.assertEquals(2, res.getEList().size());
     }
 }

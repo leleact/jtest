@@ -25,6 +25,10 @@ feign:
         connectTimeout: 60000
         readTimeout: 60000
         loggerLevel: FULL
+      queryServiceApi:
+        connectTimeout: 60000
+        readTimeout: 60000
+        loggerLevel: FULL
   httpclient:
     enabled: true
 feign-server:
