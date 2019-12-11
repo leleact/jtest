@@ -12,8 +12,10 @@ public class ExHandlerInterceptor2 implements MethodInterceptor {
     public Object invoke(MethodInvocation invocation) throws Throwable {
         log.info("yyy");
         AopEx ex = invocation.getMethod().getAnnotation(AopEx.class);
-        Class<? extends Throwable> exceptionType = ex.value();
-        log.info("{}", exceptionType);
+        if (ex != null) {
+            Class<? extends Throwable> exceptionType = ex.value();
+            log.info("{}", exceptionType);
+        }
         return invocation.proceed();
     }
 }
