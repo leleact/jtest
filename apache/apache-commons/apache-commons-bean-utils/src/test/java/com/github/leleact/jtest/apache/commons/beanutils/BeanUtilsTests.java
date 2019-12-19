@@ -1,11 +1,9 @@
-package com.github.leleact.jtest.apache.commons.beanutils.test;
+package com.github.leleact.jtest.apache.commons.beanutils;
 
-import com.github.leleact.jtest.apache.commons.beanutils.Order;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.BeanUtilsBean;
 import org.junit.jupiter.api.Test;
-
 
 import java.lang.reflect.InvocationTargetException;
 
