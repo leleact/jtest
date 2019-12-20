@@ -9,6 +9,8 @@ import java.util.List;
 @Data
 public class A {
 
+    private Double d;
+
     private String name;
 
     private List<B> details;
