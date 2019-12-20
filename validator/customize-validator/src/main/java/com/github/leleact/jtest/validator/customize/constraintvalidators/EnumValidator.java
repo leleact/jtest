@@ -18,25 +18,38 @@ public class EnumValidator implements ConstraintValidator<Enum, String> {
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-
         if (null == value) {
             return false;
         }
-
         Class<?> clazz = this.annotation.enumClass();
-        Method method = null;
-        try {
-            clazz.isEnum();
-            method = clazz.getMethod("constantOf", String.class);
-        } catch (NoSuchMethodException ex) {
-            throw new RuntimeException(ex);
-        }
 
-        try {
-            method.invoke(null, value);
-        } catch (IllegalAccessException | InvocationTargetException ex) {
-            return false;
+        if (clazz.isEnum()) {
+            try {
+                Method method = getMethod(clazz, annotation);
+                if (annotation.isStaticMethod()) {
+                    method.invoke(null, value);
+                } else {
+                    Object[] enums = clazz.getEnumConstants();
+                    for (Object item : enums) {
+                        Object val = method.invoke(item);
+                        if (val.equals(value)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+            } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException ex) {
+                return false;
+            }
         }
         return true;
+    }
+
+    private Method getMethod(Class<?> clazz, Enum annotation) throws NoSuchMethodException {
+        if (annotation.isStaticMethod()) {
+            return clazz.getMethod(annotation.methodName(), String.class);
+        } else {
+            return clazz.getMethod(annotation.methodName());
+        }
     }
 }
