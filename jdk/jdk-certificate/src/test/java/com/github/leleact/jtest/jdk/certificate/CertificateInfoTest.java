@@ -1,6 +1,7 @@
-package com.github.leleact.jtest.certificate;
+package com.github.leleact.jtest.jdk.certificate;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,7 +14,7 @@ public class CertificateInfoTest {
 
     @Test
     public void getCertificateInfo() throws KeyStoreException, IOException, CertificateException,
-            NoSuchAlgorithmException {
+        NoSuchAlgorithmException {
 
         String pfxFileName = "C:\\Users\\Lele\\Desktop\\czbdsf.pfx";
         String pfxPassword = "password";
