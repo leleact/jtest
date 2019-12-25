@@ -1,6 +1,7 @@
 package com.github.leleact.jtest.spring.boot.validation.constraintvalidators;
 
 import com.github.leleact.jtest.spring.boot.validation.constraints.DateValid;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -9,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
+@Slf4j
 public class DateValidValidator implements ConstraintValidator<DateValid, String> {
 
     private DateValid annotation;
@@ -23,6 +25,7 @@ public class DateValidValidator implements ConstraintValidator<DateValid, String
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
+        log.trace("This hashcode: [{}]", this.hashCode());
         if (null == value) {
             return true;
         }

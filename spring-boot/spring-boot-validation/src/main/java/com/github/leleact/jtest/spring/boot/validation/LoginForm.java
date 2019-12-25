@@ -28,8 +28,14 @@ public class LoginForm {
     @NotNull
     private String email;
 
-    @DateValid(pattern = "yyyyMMdd", message = "loginDate[${validatedValue}] invalid")
+    @DateValid(message = "loginDate[${validatedValue}] invalid")
     private String loginDate;
+
+    @DateValid(message = "registerDate[${validatedValue}] invalid")
+    private String registerDate;
+
+    @DateValid(pattern = "yyyyMMdd", message = "birthDate[${validatedValue}] invalid")
+    private String birthDate;
 
     @NotEmpty
     @Valid

@@ -58,18 +58,20 @@ class SpringBootValidationApplicationTests {
 
     @Test
     public void dateValidTest() throws Exception {
-        LoginForm form = new LoginForm();
-        form.setName(UUID.randomUUID().toString().substring(0, 10));
-        form.setEmail("abc@gmail.com");
-        form.setLoginDate("20190230");
-        List<LoginForm.Detail> list = new ArrayList<>();
-        LoginForm.Detail detail = new LoginForm.Detail();
-        detail.setAge(1);
-        detail.setName("a");
-        list.add(detail);
-        form.setDetails(list);
-        mockMvc.perform(post("/login").content(objectMapper.writeValueAsString(form))
-                                      .contentType(MediaType.APPLICATION_JSON))
-               .andExpect(status().is4xxClientError());
+        for (int i = 0; i < 3; i++) {
+            LoginForm form = new LoginForm();
+            form.setName(UUID.randomUUID().toString().substring(0, 10));
+            form.setEmail("abc@gmail.com");
+            form.setLoginDate("20190230");
+            List<LoginForm.Detail> list = new ArrayList<>();
+            LoginForm.Detail detail = new LoginForm.Detail();
+            detail.setAge(1);
+            detail.setName("a");
+            list.add(detail);
+            form.setDetails(list);
+            mockMvc.perform(post("/login").content(objectMapper.writeValueAsString(form))
+                                          .contentType(MediaType.APPLICATION_JSON))
+                   .andExpect(status().is4xxClientError());
+        }
     }
 }
