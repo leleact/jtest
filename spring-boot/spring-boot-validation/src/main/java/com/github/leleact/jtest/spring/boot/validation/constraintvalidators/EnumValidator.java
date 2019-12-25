@@ -1,6 +1,6 @@
-package com.github.leleact.jtest.validator.customize.constraintvalidators;
+package com.github.leleact.jtest.spring.boot.validation.constraintvalidators;
 
-import com.github.leleact.jtest.validator.customize.constraints.Enum;
+import com.github.leleact.jtest.spring.boot.validation.constraints.Enum;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -19,7 +19,7 @@ public class EnumValidator implements ConstraintValidator<Enum, String> {
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
         if (null == value) {
-            return true;
+            return false;
         }
         Class<?> clazz = this.annotation.enumClass();
 

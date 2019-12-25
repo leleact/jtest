@@ -1,5 +1,6 @@
 package com.github.leleact.jtest.spring.boot.validation;
 
+import com.github.leleact.jtest.spring.boot.validation.constraints.DateValid;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,9 @@ public class LoginForm {
 
     @NotNull
     private String email;
+
+    @DateValid(pattern = "yyyyMMdd", message = "loginDate[${validatedValue}] invalid")
+    private String loginDate;
 
     @NotEmpty
     @Valid
