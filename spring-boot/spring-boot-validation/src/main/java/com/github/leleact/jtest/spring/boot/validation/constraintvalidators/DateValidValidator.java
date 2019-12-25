@@ -13,9 +13,12 @@ public class DateValidValidator implements ConstraintValidator<DateValid, String
 
     private DateValid annotation;
 
+    private SimpleDateFormat sdf = null;
+
     @Override
     public void initialize(DateValid constraintAnnotation) {
         this.annotation = constraintAnnotation;
+        this.sdf = new SimpleDateFormat(constraintAnnotation.pattern());
     }
 
     @Override
@@ -23,8 +26,6 @@ public class DateValidValidator implements ConstraintValidator<DateValid, String
         if (null == value) {
             return true;
         }
-
-        SimpleDateFormat sdf = new SimpleDateFormat(annotation.pattern());
         Date date;
         try {
             date = sdf.parse(value);
