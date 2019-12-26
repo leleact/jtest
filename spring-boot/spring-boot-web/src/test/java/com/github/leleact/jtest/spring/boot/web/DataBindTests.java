@@ -29,4 +29,14 @@ public class DataBindTests {
             status().is(200)).andReturn().getResponse().getContentAsString();
         log.info("response : [{}]", response);
     }
+
+    @Test
+    public void json2MapTest() throws Exception {
+        String data = "{\"a\":\"1\", \"b\": {\"b1\": \"1\"}, \"c\": [{\"c1\":\"1\"}, {\"c2\", \"2\"}]}";
+        String response = mockMvc.perform(
+            post("/bind/j2m").contentType(MediaType.APPLICATION_JSON).content(
+                data)).andExpect(
+            status().is4xxClientError()).andReturn().getResponse().getContentAsString();
+        log.info("response : [{}]", response);
+    }
 }
