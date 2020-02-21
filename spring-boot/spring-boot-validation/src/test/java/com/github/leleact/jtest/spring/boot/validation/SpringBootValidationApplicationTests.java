@@ -1,18 +1,25 @@
 package com.github.leleact.jtest.spring.boot.validation;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.leleact.jtest.spring.boot.validation.constraintgroups.Replace;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.test.web.servlet.MockMvc;
 
 import javax.annotation.Resource;
-
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
+import javax.validation.constraints.NotNull;
+import javax.validation.groups.Default;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -72,6 +79,82 @@ class SpringBootValidationApplicationTests {
             mockMvc.perform(post("/login").content(objectMapper.writeValueAsString(form))
                                           .contentType(MediaType.APPLICATION_JSON))
                    .andExpect(status().is4xxClientError());
+        }
+    }
+
+    @Test
+    public void groupValidTest() {
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        Validator validator = factory.getValidator();
+        // +-------------+-----------------------------------+
+        // |             |                Validate           |
+        // + Pojo Group  +------------+------------+---------+
+        // |             |  Replace   |    Default |   null  |
+        // +-------------+------------+------------+---------+
+        // |   Replace   |     √      |      ×     |   ×     |
+        // +-------------+------------+------------+---------+
+        // |   Default   |     ×      |      √     |   √     |
+        // +-------------+------------+------------+---------+
+        // |   null      |     x      |      √     |   √     |
+        // +-------------+------------+------------+---------+
+        class Pojo1 {
+            @NotNull(message = "name 不能为空", groups = Replace.class)
+            String name;
+        }
+        class Pojo2 {
+            @NotNull(message = "name 不能为空", groups = Default.class)
+            String name;
+        }
+        class Pojo3 {
+            @NotNull(message = "name 不能为空")
+            String name;
+        }
+        {
+            {
+                Pojo1 pojo = new Pojo1();
+                Set<ConstraintViolation<Pojo1>> violations = validator.validate(pojo, Replace.class);
+                Assertions.assertEquals(1, violations.size());
+            }
+            {
+                Pojo1 pojo = new Pojo1();
+                Set<ConstraintViolation<Pojo1>> violations = validator.validate(pojo, Default.class);
+                Assertions.assertEquals(0, violations.size());
+            }
+            {
+                Pojo1 pojo = new Pojo1();
+                Set<ConstraintViolation<Pojo1>> violations = validator.validate(pojo);
+                Assertions.assertEquals(0, violations.size());
+            }
+            {
+                Pojo2 pojo = new Pojo2();
+                Set<ConstraintViolation<Pojo2>> violations = validator.validate(pojo, Replace.class);
+                Assertions.assertEquals(0, violations.size());
+            }
+            {
+                Pojo2 pojo = new Pojo2();
+                Set<ConstraintViolation<Pojo2>> violations = validator.validate(pojo, Default.class);
+                Assertions.assertEquals(1, violations.size());
+            }
+            {
+                Pojo2 pojo = new Pojo2();
+                Set<ConstraintViolation<Pojo2>> violations = validator.validate(pojo);
+                Assertions.assertEquals(1, violations.size());
+            }
+            {
+                Pojo3 pojo = new Pojo3();
+                Set<ConstraintViolation<Pojo3>> violations = validator.validate(pojo, Replace.class);
+                Assertions.assertEquals(0, violations.size());
+            }
+            {
+                Pojo3 pojo = new Pojo3();
+                Set<ConstraintViolation<Pojo3>> violations = validator.validate(pojo, Default.class);
+                Assertions.assertEquals(1, violations.size());
+            }
+            {
+                Pojo3 pojo = new Pojo3();
+                Set<ConstraintViolation<Pojo3>> violations = validator.validate(pojo);
+                Assertions.assertEquals(1, violations.size());
+            }
         }
     }
 }
