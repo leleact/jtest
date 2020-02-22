@@ -22,7 +22,7 @@ public class SameUrlController {
         return "same_url " + str;
     }
 
-    @GetMapping(value = {"/{str}", "/"})
+    @GetMapping(value = {"/{str}", "/", ""})
     public String query(@PathVariable(name = "str", required = false) String str) {
         return "same_url " + str;
     }

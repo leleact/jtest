@@ -30,9 +30,9 @@ public class SameUrlTests {
 
     @Test
     public void getTest() throws Exception {
-        mockMvc.perform(get("/same_url/"))
+        mockMvc.perform(get("/same_url"))
                .andExpect(status().is2xxSuccessful())
-               .andExpect(content().string("ok"));
+               .andExpect(content().string("same_url null"));
     }
 
 }
