@@ -20,6 +20,14 @@ public class JsonTests {
     }
 
     @Test
+    public void nullValueJsonSerializeTest() {
+        Assertions.assertDoesNotThrow(() -> {
+            String v = objectMapper.writeValueAsString(null);
+            log.info("v: [{}]", v);
+        }, "");
+    }
+
+    @Test
     public void serializeTest() throws JsonProcessingException {
 
         Pojo p = new Pojo();
@@ -50,7 +58,7 @@ public class JsonTests {
             String str = "{\"name\":\"a\"}";
             Pojo pojo = objectMapper.readValue(str.getBytes(), Pojo.class);
             log.info("pojo = {}", pojo);
-            log.info("c = {}", (int)pojo.getC());
+            log.info("c = {}", (int) pojo.getC());
             Assertions.assertEquals(0, pojo.getAge());
         }
     }
