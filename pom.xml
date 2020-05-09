@@ -14,7 +14,6 @@
     <module>design-pattern</module>
     <module>dubbo</module>
     <module>jdk</module>
-    <module>json</module>
     <module>logback</module>
     <module>lombok</module>
     <module>guava</module>
@@ -23,12 +22,11 @@
     <module>log4j2</module>
     <module>spring</module>
     <module>spring-cloud</module>
-    <module>fasterxml</module>
-    <module>xstream</module>
     <module>spring-boot</module>
     <module>unknown</module>
     <module>validator</module>
     <module>rx-java</module>
+    <module>serialize</module>
   </modules>
 
   <properties>
