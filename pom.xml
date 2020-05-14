@@ -27,6 +27,7 @@
     <module>validator</module>
     <module>rx-java</module>
     <module>serialize</module>
+    <module>log</module>
   </modules>
 
   <properties>
