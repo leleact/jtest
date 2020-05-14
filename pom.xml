@@ -14,12 +14,10 @@
     <module>design-pattern</module>
     <module>dubbo</module>
     <module>jdk</module>
-    <module>logback</module>
     <module>lombok</module>
     <module>guava</module>
     <module>maven</module>
     <module>mybatis</module>
-    <module>log4j2</module>
     <module>spring</module>
     <module>spring-cloud</module>
     <module>spring-boot</module>
