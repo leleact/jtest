@@ -26,9 +26,25 @@ class Reformat {
 
     @Test
     void parseTest() throws ParseException {
-        String s = "2017-10-13 16:24:48";
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        sdf.parse(s);
+        Assertions.assertDoesNotThrow(() -> {
+            String s = "2017-10-13 16:24:48";
+            {
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                sdf.parse(s);
+            }
+            {
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                Date date = sdf.parse(s);
+                log.info("{}", date);
+            }
+            {
+                Assertions.assertThrows(ParseException.class, () -> {
+                    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+                    Date date = sdf.parse(s);
+                    log.info("{}", date);
+                });
+            }
+        });
     }
 
     @Test
