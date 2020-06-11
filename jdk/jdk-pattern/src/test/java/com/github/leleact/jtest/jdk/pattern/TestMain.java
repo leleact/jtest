@@ -1,8 +1,8 @@
 package com.github.leleact.jtest.jdk.pattern;
 
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +11,8 @@ import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@Slf4j
 public class TestMain {
-
-    private static Logger log = LoggerFactory.getLogger(TestMain.class);
 
     @Test
     public void test1() throws Exception {

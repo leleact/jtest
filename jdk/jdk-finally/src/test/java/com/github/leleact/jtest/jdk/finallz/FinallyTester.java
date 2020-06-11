@@ -1,7 +1,7 @@
 package com.github.leleact.jtest.jdk.finallz;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class FinallyTester {
     private Integer m() {
@@ -17,6 +17,6 @@ public class FinallyTester {
     @Test
     public void returnTest() {
         int c = m();
-        Assert.assertEquals(1, c);
+        Assertions.assertEquals(1, c);
     }
 }

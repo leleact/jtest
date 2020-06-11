@@ -1,8 +1,7 @@
 package com.github.leleact.jtest.jdk.cipher.des;
 
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -10,14 +9,13 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import java.security.SecureRandom;
 
+@Slf4j
 public class DesTestor {
-
-    private static final Logger log = LoggerFactory.getLogger(DesTestor.class);
 
     @Test
     public void desTest() throws Exception {
         byte[] decryPwd = decrypt(hexStringToBytes("3cc6f2d3f5cd6f53414cfa53a5b6a835"), "59758c946c909c0797a5966d");
-System.out.println(new String(decryPwd));
+        System.out.println(new String(decryPwd));
     }
 
     public byte[] decrypt(byte[] src, String password) throws Exception {

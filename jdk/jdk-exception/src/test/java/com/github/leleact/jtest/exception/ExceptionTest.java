@@ -1,25 +1,23 @@
 package com.github.leleact.jtest.exception;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * RunTimeException 不需要throw或者catch
  */
-
+@Slf4j
 public class ExceptionTest {
-
-    private Logger log = LoggerFactory.getLogger(ExceptionTest.class);
 
     @Test
     public void uncheckedExceptionTest() {
         try {
             MethodThrowExceptions.methodThrowUncheckException(
-                    MethodThrowExceptions.ExceptionType.IndexOutOfBoundsExceptionType);
+                MethodThrowExceptions.ExceptionType.IndexOutOfBoundsExceptionType);
         } catch (Exception ex) {
-            Assert.assertTrue(ex instanceof RuntimeException);
+            Assertions.assertTrue(ex instanceof RuntimeException);
         }
     }
 
@@ -28,7 +26,7 @@ public class ExceptionTest {
         try {
             MethodThrowExceptions.methodThrowCheckEception();
         } catch (Exception ex) {
-            Assert.assertTrue(ex instanceof Exception);
+            Assertions.assertTrue(ex instanceof Exception);
         }
     }
 

@@ -1,18 +1,15 @@
 package com.github.leleact.jtest.jdk.anno;
 
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
 
 import java.lang.annotation.Annotation;
 
-public class AnnoTest {
-
-    private static final Logger log = LoggerFactory.getLogger(AnnoTest.class);
+@Slf4j
+public class AnnotationTests {
 
     @Test
-    public void annoTest() {
-
+    public void annotationTest() {
         AnnoC annoC = new AnnoC();
         Annotation[] ans = annoC.getClass().getAnnotations();
         for (Annotation an : ans) {
@@ -20,7 +17,7 @@ public class AnnoTest {
             Class<? extends Annotation> ab = an.annotationType();
             log.info("Class: [{}]", ab.toString());
             Annotation[] abi = ab.getAnnotations();
-            for(Annotation aaa : abi) {
+            for (Annotation aaa : abi) {
                 log.info("Annotation: [{}]", aaa.toString());
             }
         }

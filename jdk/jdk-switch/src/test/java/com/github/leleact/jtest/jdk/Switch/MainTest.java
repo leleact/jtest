@@ -1,12 +1,10 @@
 package com.github.leleact.jtest.jdk.Switch;
 
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
 
+@Slf4j
 public class MainTest {
-
-    private static Logger log = LoggerFactory.getLogger(MainTest.class);
 
     public static class Pojo {
 

@@ -7,6 +7,8 @@ import org.springframework.aop.support.AbstractBeanFactoryPointcutAdvisor;
 
 public class ExHandlerPointcut extends AbstractBeanFactoryPointcutAdvisor {
 
+    static final long serialVersionUID = 1L;
+
     public ExHandlerPointcut() {
         this.setAdvice(new ExHandlerInterceptor2());
     }

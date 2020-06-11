@@ -38,6 +38,11 @@ public class AnnotationClassOrMethodPointcut extends StaticMethodMatcherPointcut
         return ObjectUtils.nullSafeEquals(this.methodResolver, otherAdvisor.methodResolver);
     }
 
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
     private final class AnnotationClassOrMethodFilter extends AnnotationClassFilter {
 
         private final AnnotationMethodsResolver methodResolver;

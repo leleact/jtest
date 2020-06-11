@@ -1,6 +1,7 @@
 package com.github.leleact.jtest.jdk.mkdir;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 

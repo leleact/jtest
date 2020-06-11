@@ -10,11 +10,13 @@ import org.springframework.beans.factory.InitializingBean;
 
 public class ExHandlerAdvisor extends AbstractBeanFactoryAwareAdvisingPostProcessor implements InitializingBean {
 
+    private static final long serialVersionUID = 1L;
+
     @Override
     public void afterPropertiesSet() throws Exception {
         this.setProxyTargetClass(true);
         AbstractPointcutAdvisor advisor = new DefaultPointcutAdvisor(new AnnotationClassOrMethodPointcut(AopEx.class),
-                                                                     new ExHandlerInterceptor1());
+            new ExHandlerInterceptor1());
         // not effect
         advisor.setOrder(-1);
         this.advisor = advisor;

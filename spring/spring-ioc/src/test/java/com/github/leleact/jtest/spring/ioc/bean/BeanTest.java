@@ -46,7 +46,7 @@ class BeanTest {
 
         {
             String name = "com.github.leleact.jtest.spring.ioc.bean.serviceComponet.FooComponent";
-            String beanId = ((Component) AnnotationUtils.getAnnotation(Class.forName(name), Component.class)).value();
+            String beanId = (AnnotationUtils.getAnnotation(Class.forName(name), Component.class)).value();
             log.info("beanId=" + beanId);
             if (beanId != null && beanId.trim().length() != 0) {
                 FooComponent fooComponent = (FooComponent) applicationContext.getBean(beanId);
@@ -57,7 +57,7 @@ class BeanTest {
 
         {
             String name = "com.github.leleact.jtest.spring.ioc.bean.serviceComponet.FooService";
-            String beanId = ((Component) AnnotationUtils.getAnnotation(Class.forName(name), Component.class)).value();
+            String beanId = (AnnotationUtils.getAnnotation(Class.forName(name), Component.class)).value();
             if (beanId != null && beanId.trim().length() != 0) {
                 FooService fooService = (FooService) applicationContext.getBean(beanId);
             } else {

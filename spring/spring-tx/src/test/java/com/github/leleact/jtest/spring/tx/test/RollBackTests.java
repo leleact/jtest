@@ -3,8 +3,8 @@ package com.github.leleact.jtest.spring.tx.test;
 import com.github.leleact.jtest.spring.tx.bean.dto.T1;
 import com.github.leleact.jtest.spring.tx.bean.mapper.T1Mapper;
 import com.github.leleact.jtest.spring.tx.service.S;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(locations = {"classpath:spring-test-datasource.xml"})
-public class RollBackTestor {
+public class RollBackTests {
 
     @Resource
     private S s;
@@ -33,7 +33,7 @@ public class RollBackTestor {
 
         }
         T1 t = t1Mapper.selectByPrimaryKey("1");
-        Assert.assertNull(t);
+        Assertions.assertNull(t);
     }
 
     @Test
@@ -47,7 +47,7 @@ public class RollBackTestor {
 
         }
         T1 t = t1Mapper.selectByPrimaryKey("1");
-        Assert.assertNull(t);
+        Assertions.assertNull(t);
     }
 
     @Test
@@ -61,9 +61,8 @@ public class RollBackTestor {
 
         }
         T1 t = t1Mapper.selectByPrimaryKey("1");
-        Assert.assertNotNull(t);
-
-        Assert.assertEquals("不相等", "1", t.getF1());
-        Assert.assertEquals("不相等", "2", t.getF2());
+        Assertions.assertNotNull(t);
+        Assertions.assertEquals("不相等", "1", t.getF1());
+        Assertions.assertEquals("不相等", "2", t.getF2());
     }
 }

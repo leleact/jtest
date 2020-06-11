@@ -28,9 +28,9 @@ public class Pkcs12Tests {
         String base64Pri = null;
         KeyStore p12 = KeyStore.getInstance("pkcs12");
         p12.load(new FileInputStream(pfxPath), passwd.toCharArray());
-        Enumeration e = p12.aliases();
+        Enumeration<String> e = p12.aliases();
         while (e.hasMoreElements()) {
-            String alias = (String) e.nextElement();
+            String alias = e.nextElement();
             log.info("alias=[{}]", alias);
             PrivateKey key = (PrivateKey) p12.getKey(alias, passwd.toCharArray());
             if (key == null) {
@@ -47,8 +47,9 @@ public class Pkcs12Tests {
                     KeyStore.PrivateKeyEntry entry1 = (KeyStore.PrivateKeyEntry) entry;
                     log.info(
                         "private entry[" + alias + "]=[" + entry1.getPrivateKey() + "], [" + entry1.getCertificate() + "]");
-                    log.info("serialNumber: {}", ((X509Certificate)entry1.getCertificate()).getSerialNumber());
-                    log.info("certificate base64 encode: [{}]", new String(Base64.getEncoder().encode(entry1.getCertificate().getEncoded())));
+                    log.info("serialNumber: {}", ((X509Certificate) entry1.getCertificate()).getSerialNumber());
+                    log.info("certificate base64 encode: [{}]",
+                             new String(Base64.getEncoder().encode(entry1.getCertificate().getEncoded())));
                     log.info("PrivateKey Algorithm:" + entry1.getPrivateKey().getAlgorithm());
                     log.info("PrivateKey Format:" + entry1.getPrivateKey().getFormat());
                     base64Pri = new String(Base64.getEncoder().encode(entry1.getPrivateKey().getEncoded()));

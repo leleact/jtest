@@ -1,16 +1,14 @@
 package com.github.leleact.jtest.jdk.pattern;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RegexTestor {
-
-    private static final Logger log = LoggerFactory.getLogger(RegexTestor.class);
+@Slf4j
+public class RegexTests {
 
     @Test
     public void dataPatterTest() {
@@ -25,7 +23,7 @@ public class RegexTestor {
         for (int y = 1000; y <= 9999; y++) {
             for (int m = 1; m <= 12; m++) {
                 for (int d = 1; d <= 31; d++) {
-                    String yyyymmdd = String.format("%04d%02d%02d", y, m ,d);
+                    String yyyymmdd = String.format("%04d%02d%02d", y, m, d);
                     Matcher matcher = pattern.matcher(yyyymmdd);
                     if (!matcher.matches()) {
                         log.info("{} not matched", yyyymmdd);
@@ -55,9 +53,9 @@ public class RegexTestor {
         Pattern pattern = Pattern.compile(patternStr);
 
         String s1 = "s";
-        Assert.assertTrue( pattern.matcher(s1).matches());
+        Assertions.assertTrue(pattern.matcher(s1).matches());
 
         String s2 = "";
-        Assert.assertTrue( pattern.matcher(s2).matches());
+        Assertions.assertTrue(pattern.matcher(s2).matches());
     }
 }
