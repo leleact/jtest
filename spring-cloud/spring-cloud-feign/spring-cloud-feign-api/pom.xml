@@ -11,4 +11,12 @@
 
   <artifactId>spring-cloud-feign-api</artifactId>
 
+  <dependencies>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger2</artifactId>
+      <version>${swagger.version}</version>
+    </dependency>
+  </dependencies>
+
 </project>

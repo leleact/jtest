@@ -1,6 +1,6 @@
 <configuration scan="true" scanPeriod="1800 seconds">
 
-    <property name="BASE_DIR" value="logs" />
+    <property name="BASE_DIR" value="target" />
     <property name="LOG_NAME" value="app" />
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">

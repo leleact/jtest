@@ -12,6 +12,10 @@
   <artifactId>spring-cloud-feign</artifactId>
   <packaging>pom</packaging>
 
+  <properties>
+    <swagger.version>2.9.2</swagger.version>
+  </properties>
+
   <modules>
     <module>spring-cloud-feign-server</module>
     <module>spring-cloud-feign-client</module>
