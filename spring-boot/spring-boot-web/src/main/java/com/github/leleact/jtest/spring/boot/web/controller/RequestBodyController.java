@@ -23,7 +23,10 @@ public class RequestBodyController {
     }
 
     @PostMapping("/common")
-    public String debugAnnotationRequestBody(@RequestBody CommonRequest request) {
+    public String debugAnnotationRequestBody(/* HttpServletRequest httpRequest, */
+        @RequestBody CommonRequest request) {
+        // java.io.IOException: Stream closed
+        // <code>StreamUtils.copyToString(httpRequest.getInputStream(), StandardCharsets.UTF_8)</code>
         log.debug("request: [{}]", request);
         return "hello " + request.getName();
     }
