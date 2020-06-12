@@ -26,6 +26,7 @@
     <module>rx-java</module>
     <module>serialize</module>
     <module>log</module>
+    <module>build-tools</module>
   </modules>
 
   <properties>

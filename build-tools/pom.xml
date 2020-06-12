@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>jtest</artifactId>
+    <groupId>com.github.leleact.jtest</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>build-tools</artifactId>
+  <name>Build Tools</name>
+
+  <properties>
+    <!-- checkstyle start -->
+    <maven.checkstyle.plugin.version>3.0.0</maven.checkstyle.plugin.version>
+    <puppycrawl-tools-checkstyle.version>8.18</puppycrawl-tools-checkstyle.version>
+    <checkstyle.consoleOutput>true</checkstyle.consoleOutput>
+    <checkstyle.properties.location>config/checkstyle/checkstyle-checker.properties</checkstyle.properties.location>
+    <checkstyle.config.location>config/checkstyle/checkstyle.xml</checkstyle.config.location>
+    <checkstyle.suppressions.location>config/checkstyle/suppressions.xml</checkstyle.suppressions.location>
+    <!-- checkstyle end -->
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${maven.checkstyle.plugin.version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>com.puppycrawl.tools</groupId>
+            <artifactId>checkstyle</artifactId>
+            <version>${puppycrawl-tools-checkstyle.version}</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <id>checkstyle-validation</id>
+            <phase>validate</phase>
+            <inherited>true</inherited>
+            <configuration>
+              <configLocation>${checkstyle.config.location}</configLocation>
+              <suppressionsLocation>${checkstyle.suppressions.location}</suppressionsLocation>
+              <includeTestSourceDirectory>true</includeTestSourceDirectory>
+              <propertiesLocation>${checkstyle.properties.location}</propertiesLocation>
+              <consoleOutput>${checkstyle.consoleOutput}</consoleOutput>
+              <failsOnError>true</failsOnError>
+            </configuration>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
