@@ -5,7 +5,7 @@
 
 <module name = "Checker">
     <property name="charset" value="UTF-8"/>
-    <property name="severity" value="error"/>
+    <property name="severity" value="warning"/>
     <property name="fileExtensions" value="java, properties, xml"/>
     <module name="FileTabCharacter">
         <property name="eachLine" value="true"/>
@@ -25,10 +25,10 @@
             <property name="allowByTailComment" value="true"/>
             <property name="allowNonPrintableEscapes" value="true"/>
         </module>
-        <module name="LineLength">
-            <property name="max" value="200"/>
-            <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
-        </module>
+<!--        <module name="LineLength">-->
+<!--            <property name="max" value="200"/>-->
+<!--            <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>-->
+<!--        </module>-->
 
         <module name="UnusedImports"/>
         <module name="OneTopLevelClass"/>
@@ -214,9 +214,7 @@
         </module>
         <module name="JavadocMethod">
             <property name="scope" value="public"/>
-            <property name="minLineCount" value="3"/>
             <property name="allowedAnnotations" value="Override, Test, Bean, PreDestroy, RabbitListener"/>
-            <property name="allowThrowsTagsForSubclasses" value="true"/>
         </module>
         <module name="MethodName">
             <property name="format" value="^[a-z][a-z0-9][a-zA-Z0-9_]*$"/>

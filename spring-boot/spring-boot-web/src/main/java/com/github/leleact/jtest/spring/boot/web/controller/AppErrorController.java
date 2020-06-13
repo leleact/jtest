@@ -1,21 +1,23 @@
 package com.github.leleact.jtest.spring.boot.web.controller;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.web.error.ErrorAttributeOptions;
 import org.springframework.boot.web.servlet.error.ErrorAttributes;
-import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.ServletWebRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
+/**
+ * ErrorController interface Deprecated since 2.3.0.
+ */
 @RestController
 @ConditionalOnProperty(prefix = "web.error", name = "enabled", havingValue = "true")
-public class AppErrorController implements ErrorController {
+public class AppErrorController /* implements ErrorController */ {
 
     private ErrorAttributes errorAttributes;
 
@@ -23,27 +25,17 @@ public class AppErrorController implements ErrorController {
         this.errorAttributes = errorAttributes;
     }
 
-    @RequestMapping(value = "/error")
-    @ResponseBody
+    @GetMapping("/error")
     public ResponseEntity<Map<String, Object>> error(HttpServletRequest request) {
-        Map<String, Object> body = getErrorAttributes(request, getTraceParameter(request));
+        Map<String, Object> body = getErrorAttributes(request);
         HttpStatus status = getStatus(request);
         return new ResponseEntity<>(body, status);
     }
 
-    private boolean getTraceParameter(HttpServletRequest request) {
-        String parameter = request.getParameter("trace");
-        if (parameter == null) {
-            return false;
-        }
-        return !"false".equals(parameter.toLowerCase());
-    }
 
-    private Map<String, Object> getErrorAttributes(HttpServletRequest request,
-                                                   boolean includeStackTrace) {
+    private Map<String, Object> getErrorAttributes(HttpServletRequest request) {
         ServletWebRequest requestAttributes = new ServletWebRequest(request);
-        return this.errorAttributes.getErrorAttributes(requestAttributes,
-                                                       includeStackTrace);
+        return this.errorAttributes.getErrorAttributes(requestAttributes, ErrorAttributeOptions.of(ErrorAttributeOptions.Include.BINDING_ERRORS));
     }
 
     private HttpStatus getStatus(HttpServletRequest request) {
@@ -58,8 +50,10 @@ public class AppErrorController implements ErrorController {
         return HttpStatus.INTERNAL_SERVER_ERROR;
     }
 
+    /*
     @Override
     public String getErrorPath() {
         return "/error";
     }
+    */
 }
