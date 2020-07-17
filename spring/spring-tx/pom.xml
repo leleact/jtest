@@ -80,7 +80,7 @@
           </execution>
         </executions>
         <configuration>
-          <configurationFile>${basedir}/src/main/conf/generatorConfig.xml</configurationFile>
+          <configurationFile>config/generatorConfig.xml</configurationFile>
           <overwrite>true</overwrite>
           <verbose>true</verbose>
         </configuration>
