@@ -13,17 +13,8 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>spring-amqp</module>
-    <module>spring-aop</module>
-    <module>spring-ioc</module>
-    <module>spring-tx</module>
-    <module>spring-mvc</module>
-    <module>spring-oxm</module>
-    <module>spring-profile</module>
-    <module>spring-test</module>
-    <module>spring-test-mysql</module>
-    <module>spring-jdbc</module>
-    <module>spring-web</module>
-    <module>spring-schedule</module>
+    <module>spring-boot</module>
+    <module>spring-cloud</module>
+    <module>spring-framework</module>
   </modules>
 </project>

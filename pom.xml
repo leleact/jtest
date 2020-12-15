@@ -19,8 +19,6 @@
     <module>maven</module>
     <module>mybatis</module>
     <module>spring</module>
-    <module>spring-cloud</module>
-    <module>spring-boot</module>
     <module>unknown</module>
     <module>validator</module>
     <module>rx-java</module>
