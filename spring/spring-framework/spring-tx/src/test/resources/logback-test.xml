@@ -16,27 +16,11 @@
     </encoder>
   </appender>
 
-  <appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file>${BASE_DIR}/${LOG_NAME}.log</file>
-    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-      <fileNamePattern>${BASE_DIR}/backup/%d{yyyy-MM, aux}/${LOG_NAME}-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
-      <maxFileSize>100MB</maxFileSize>
-      <maxHistory>60</maxHistory>
-      <totalSizeCap>10GB</totalSizeCap>
-    </rollingPolicy>
-    <encoder>
-      <charset>UTF-8</charset>
-      <Pattern>${FILE_LOG_PATTERN}</Pattern>
-    </encoder>
-  </appender>
-
   <logger name="com.github.leleact.jtest" level="debug" additivity="false">
     <appender-ref ref="CONSOLE"/>
-    <appender-ref ref="ROLLING"/>
   </logger>
 
   <root level="info" additivity="false">
     <appender-ref ref="CONSOLE"/>
-    <appender-ref ref="ROLLING"/>
   </root>
 </configuration>

@@ -9,7 +9,7 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import javax.annotation.Resource;
 
-@SpringJUnitConfig(locations = {"classpath:spring-test-datasource.xml"})
+@SpringJUnitConfig(locations = {"classpath:spring/spring-test-datasource.xml"})
 public class RollBackTests {
 
     @Resource

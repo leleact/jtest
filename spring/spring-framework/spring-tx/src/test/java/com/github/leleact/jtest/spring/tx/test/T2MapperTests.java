@@ -13,7 +13,7 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import java.util.UUID;
 
 @Slf4j
-@SpringJUnitConfig(locations = {"classpath:spring-test-datasource.xml"})
+@SpringJUnitConfig(locations = {"classpath:spring/spring-test-datasource.xml"})
 public class T2MapperTests {
     @Autowired
     private T2Mapper t2Mapper;

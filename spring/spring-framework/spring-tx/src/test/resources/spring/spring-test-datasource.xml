@@ -15,7 +15,7 @@
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="mapperLocations" value="classpath*:com/github/leleact/jtest/spring/tx/bean/mapping/T1Mapper.xml"/>
+        <property name="mapperLocations" value="classpath*:mybatis/T1Mapper.xml"/>
     </bean>
 
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -31,8 +31,6 @@
     </bean>
 
     <context:component-scan base-package="com.github.leleact.jtest.spring.tx"/>
-
-    <tx:annotation-driven />
 
     <tx:advice id="txAdvice" >
         <tx:attributes>
