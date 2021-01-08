@@ -5,14 +5,11 @@ import com.github.leleact.jtest.spring.tx.bean.mapper.T1Mapper;
 import com.github.leleact.jtest.spring.tx.service.S;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import javax.annotation.Resource;
 
-@RunWith(SpringRunner.class)
-@ContextConfiguration(locations = {"classpath:spring-test-datasource.xml"})
+@SpringJUnitConfig(locations = {"classpath:spring-test-datasource.xml"})
 public class RollBackTests {
 
     @Resource

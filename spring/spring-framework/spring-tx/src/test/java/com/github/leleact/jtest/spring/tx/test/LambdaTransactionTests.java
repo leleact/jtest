@@ -3,18 +3,16 @@ package com.github.leleact.jtest.spring.tx.test;
 import com.github.leleact.jtest.spring.tx.bean.mapper.T1Mapper;
 import com.github.leleact.jtest.spring.tx.util.TransactionCall;
 import com.github.leleact.jtest.spring.tx.util.TransactionUtil;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import javax.annotation.Resource;
 
-@RunWith(SpringRunner.class)
-@ContextConfiguration(locations = {"classpath:spring-test-datasource.xml"})
+
+@SpringJUnitConfig(locations = {"classpath:spring-test-datasource.xml"})
 @Configuration
 public class LambdaTransactionTests {
 

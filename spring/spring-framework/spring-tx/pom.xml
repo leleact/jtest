@@ -10,15 +10,20 @@
   <modelVersion>4.0.0</modelVersion>
 
   <properties>
-    <mysql.connector.version>8.0.11</mysql.connector.version>
+    <mysql.connector.version>8.0.22</mysql.connector.version>
   </properties>
 
   <artifactId>spring-tx</artifactId>
+
   <dependencies>
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+    </dependency>
 
     <dependency>
-      <groupId>org.mybatis.spring.boot</groupId>
-      <artifactId>mybatis-spring-boot-starter</artifactId>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis-spring</artifactId>
     </dependency>
 
     <dependency>
@@ -46,11 +51,6 @@
       <artifactId>spring-aspects</artifactId>
     </dependency>
 
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
   <build>
     <resources>
