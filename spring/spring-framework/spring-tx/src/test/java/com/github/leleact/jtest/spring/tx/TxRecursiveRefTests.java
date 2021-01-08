@@ -29,7 +29,6 @@ class TxRecursiveRefTests {
         });
     }
 
-    // TODO transaction not work？？？
     @Test
     void txAopTest() {
         Assertions.assertDoesNotThrow(() -> {

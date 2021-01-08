@@ -16,16 +16,22 @@ import javax.annotation.Resource;
 @Service
 public class TxRecursiveRefService {
     @Resource
-    private TxRecursiveRefService txRecursiveRefService;
+    private TxRecursiveRefService refService;
 
     @Resource
     private T1Mapper t1Mapper;
 
+    /**
+     * use recursive reference service will take effect of transaction aop
+     */
     public void innerRefExecuteTx() {
         // have transaction
-        txRecursiveRefService.saveT1Data();
+        refService.saveT1Data();
     }
 
+    /**
+     * method in same class invoke inner Transaction method won't take effect of the transaction aop
+     */
     public void innerExecuteTx() {
         // no transaction
         saveT1Data();
