@@ -11,7 +11,6 @@
        http://www.springframework.org/schema/jdbc
        http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 
-  <!-- TODO Driver for test database type [H2] is not available -->
   <jdbc:embedded-database id="dataSource" generate-name="true" type="H2">
     <jdbc:script location="classpath:schema.sql"/>
     <jdbc:script location="classpath:test-data.sql"/>
@@ -26,6 +25,8 @@
     <property name="dataSource" ref="dataSource"/>
   </bean>
 
+  <tx:annotation-driven transaction-manager="transactionManager" mode="aspectj" />
+
   <bean class="org.springframework.transaction.support.TransactionTemplate">
     <property name="transactionManager" ref="transactionManager"/>
   </bean>
@@ -35,5 +36,4 @@
   </bean>
 
   <context:component-scan base-package="com.github.leleact.jtest.spring.tx"/>
-  <tx:annotation-driven mode="aspectj"/>
 </beans>
