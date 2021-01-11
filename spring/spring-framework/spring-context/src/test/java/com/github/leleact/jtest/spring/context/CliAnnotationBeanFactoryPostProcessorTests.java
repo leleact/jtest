@@ -4,10 +4,13 @@ import com.github.leleact.jtest.spring.context.annotation.MyCli;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.type.filter.AnnotationTypeFilter;
@@ -27,6 +30,25 @@ import java.util.LinkedHashSet;
 @SpringJUnitConfig(value = CliAnnotationBeanFactoryPostProcessorTests.class)
 @ComponentScan(value = {"com.github.leleact.jtest.spring.context"})
 class CliAnnotationBeanFactoryPostProcessorTests {
+    public static class MyCliFactoryBean<T> implements FactoryBean<T>, ApplicationContextAware {
+        private ApplicationContext applicationContext;
+
+        @Override
+        public T getObject() throws Exception {
+            return null;
+        }
+
+        @Override
+        public Class<?> getObjectType() {
+            return null;
+        }
+
+        @Override
+        public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+            this.applicationContext = applicationContext;
+        }
+    }
+
     @Component
     public static class CliBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
         @Override
@@ -49,6 +71,9 @@ class CliAnnotationBeanFactoryPostProcessorTests {
             scanner.addIncludeFilter(new AnnotationTypeFilter(MyCli.class));
             candidateComponents.addAll(scanner.findCandidateComponents("com.github.leleact.jtest.spring.context"));
             log.info("candidateComponents: {}", candidateComponents);
+            candidateComponents.forEach(beanDefinition -> {
+                beanDefinition.setBeanClassName(MyCliFactoryBean.class.getName());
+            });
             // TODO generate bean
         }
     }
