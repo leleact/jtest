@@ -4,6 +4,7 @@ import com.github.leleact.jtest.mockito.entity.MockitoEntity;
 import com.github.leleact.jtest.mockito.service.MockitoDependService;
 import com.github.leleact.jtest.mockito.service.impl.MockitoServiceImpl;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -36,9 +37,10 @@ class MockitoServiceTests {
     void invokedMethodTest() {
         MockitoEntity entity = new MockitoEntity();
         entity.setName(this.getClass().getName());
-        Mockito.doNothing().when(mockitoDependService).dependMethod(Mockito.anyObject());
+        Mockito.doNothing().when(mockitoDependService).dependMethod(Mockito.any());
         mockitoService.invokedMethod(entity);
-        Mockito.verify(mockitoDependService).dependMethod(captor.capture());
+        Mockito.verify(mockitoDependService, Mockito.times(1)).dependMethod(captor.capture());
         log.info("captor entity {}", captor.getAllValues());
+        Assertions.assertEquals(MockitoServiceImpl.class.getName(), captor.getValue().getName());
     }
 }
