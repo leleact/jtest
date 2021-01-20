@@ -14,7 +14,7 @@ import javax.annotation.Resource;
  * @author leleact
  * @since 2021-01-09
  */
-@SpringJUnitConfig(locations = {"classpath*:spring/spring-context-h2.xml"})
+@SpringJUnitConfig(locations = {"classpath*:META-INF/spring/spring-context-h2.xml"})
 class MapperTests {
     @Resource
     private T1Mapper t1Mapper;

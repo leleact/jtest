@@ -25,6 +25,7 @@
     <module>serialize</module>
     <module>log</module>
     <module>build-tools</module>
+      <module>mockito</module>
   </modules>
 
   <properties>
