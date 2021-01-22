@@ -45,6 +45,7 @@
     <module>jdk-assert</module>
     <module>jdk-optional</module>
     <module>jdk-byte</module>
+    <module>jdk-classloader</module>
   </modules>
 
   <dependencies>
@@ -57,7 +58,6 @@
     <dependency>
       <groupId>org.awaitility</groupId>
       <artifactId>awaitility</artifactId>
-      <version>3.1.6</version>
       <scope>test</scope>
     </dependency>
 
