@@ -26,6 +26,7 @@
     <module>log</module>
     <module>build-tools</module>
       <module>mockito</module>
+    <module>algorithm</module>
   </modules>
 
   <properties>
