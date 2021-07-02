@@ -9,7 +9,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>dp</artifactId>
+  <artifactId>leetcode-binary</artifactId>
 
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
