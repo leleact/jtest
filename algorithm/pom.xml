@@ -13,6 +13,7 @@
   <packaging>pom</packaging>
   <modules>
     <module>leetcode</module>
+    <module>algorithm-common</module>
   </modules>
 
   <properties>

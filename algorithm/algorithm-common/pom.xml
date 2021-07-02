@@ -9,16 +9,10 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>leetcode</artifactId>
+  <artifactId>algorithm-common</artifactId>
   <packaging>pom</packaging>
   <modules>
-    <module>list</module>
-    <module>graph</module>
-    <module>dp</module>
-    <module>sort</module>
-    <module>binary</module>
-    <module>array</module>
-    <module>tree</module>
+    <module>algorithm-tree</module>
   </modules>
 
   <properties>
