@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
  * @since 2021-06-15
  */
 @Slf4j
-class ClosedNumberTest {
+class ClosedNumberTests {
     @Test
     void solutionTest() {
     }
