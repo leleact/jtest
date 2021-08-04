@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
  * @since 2021-06-17
  */
 @Slf4j
-class GameOfLifeTest {
+class GameOfLifeTests {
     @Test
     void solutionTest() {
         int[][] board = new int[][]{
