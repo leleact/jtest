@@ -1,6 +1,5 @@
 package com.github.leleact.jtest.exception;
 
-
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -30,13 +29,18 @@ public class ExceptionTest {
         }
     }
 
-
     @Test
     public void tryFinallyBlockTest() {
         String res = tryFinallyMethod();
         log.debug(res);
     }
 
+    @Test
+    public void staticFiledLinkError() {
+        Assertions.assertThrows(ExceptionInInitializerError.class, () -> {
+            String path = NotExistFilePath.PATH;
+        });
+    }
 
     private String tryFinallyMethod() {
 
@@ -47,6 +51,5 @@ public class ExceptionTest {
             log.debug("entry finally block");
             // return "345";
         }
-
     }
 }
