@@ -2,94 +2,94 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <parent>
-    <artifactId>jtest</artifactId>
-    <groupId>com.github.leleact.jtest</groupId>
-    <version>1.0-SNAPSHOT</version>
-  </parent>
-  <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>jtest</artifactId>
+        <groupId>com.github.leleact.jtest</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>dubbo</artifactId>
-  <packaging>pom</packaging>
+    <artifactId>dubbo</artifactId>
+    <packaging>pom</packaging>
 
-  <properties>
-    <dubbo.default.version>2.7.3</dubbo.default.version>
-    <dubbo.starter.version>2.7.3</dubbo.starter.version>
-    <curator.version>4.2.0</curator.version>
-  </properties>
-  <modules>
-    <module>dubbo-provider</module>
-    <module>dubbo-consumer</module>
-    <module>dubbo-api</module>
-    <module>dubbo-reference</module>
-    <module>dubbo-starter</module>
-    <module>dubbo-compatibility</module>
-    <module>dubbo-generic</module>
-    <module>dubbo-multiple-interface</module>
-  </modules>
+    <properties>
+        <dubbo.version>3.0.4</dubbo.version>
+        <dubbo.starter.version>3.0.4</dubbo.starter.version>
+        <curator.version>4.2.0</curator.version>
+    </properties>
+    <modules>
+        <module>dubbo-provider</module>
+        <module>dubbo-consumer</module>
+        <module>dubbo-api</module>
+        <module>dubbo-reference</module>
+        <module>dubbo-starter</module>
+        <module>dubbo-compatibility</module>
+        <module>dubbo-generic</module>
+        <module>dubbo-multiple-interface</module>
+    </modules>
 
-  <dependencyManagement>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>${dubbo.starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-framework</artifactId>
+                <version>${curator.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-recipes</artifactId>
+                <version>${curator.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
-      <dependency>
-        <groupId>org.apache.dubbo</groupId>
-        <artifactId>dubbo-spring-boot-starter</artifactId>
-        <version>${dubbo.starter.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.dubbo</groupId>
-        <artifactId>dubbo</artifactId>
-        <version>${dubbo.default.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.apache.curator</groupId>
-        <artifactId>curator-framework</artifactId>
-        <version>${curator.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-
-      <dependency>
-        <groupId>org.apache.curator</groupId>
-        <artifactId>curator-recipes</artifactId>
-        <version>${curator.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
-  </dependencyManagement>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <scope>provided</scope>
-    </dependency>
-  </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <failOnWarning>false</failOnWarning>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <failOnWarning>false</failOnWarning>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
