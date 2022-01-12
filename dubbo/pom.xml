@@ -13,7 +13,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <dubbo.version>3.0.4</dubbo.version>
+        <dubbo.version>3.0.5</dubbo.version>
         <dubbo.starter.version>3.0.4</dubbo.starter.version>
         <curator.version>4.2.0</curator.version>
     </properties>
