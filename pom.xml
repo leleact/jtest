@@ -49,6 +49,9 @@
         <checkstyle.suppressions.location>checkstyle/suppressions.xml</checkstyle.suppressions.location>
         <maven-checkstyle-plugin.failsOnError>true</maven-checkstyle-plugin.failsOnError>
         <maven-checkstyle-plugin.failOnViolation>true</maven-checkstyle-plugin.failOnViolation>
+
+        <xstream.version>1.4.19</xstream.version>
+        <mysql.version>8.0.28</mysql.version>
     </properties>
 
     <dependencyManagement>
