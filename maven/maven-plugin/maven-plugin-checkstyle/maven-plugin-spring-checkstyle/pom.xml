@@ -12,11 +12,7 @@
     <artifactId>maven-plugin-spring-checkstyle</artifactId>
 
     <properties>
-
-        <maven.checkstyle.plugin.version>3.0.0</maven.checkstyle.plugin.version>
-        <puppycrawl-tools-checkstyle.version>8.18</puppycrawl-tools-checkstyle.version>
         <spring-javaformat.version>0.0.9</spring-javaformat.version>
-
         <checkstyle.config.location>io/spring/javaformat/checkstyle/spring-checkstyle.xml</checkstyle.config.location>
         <checkstyle.consoleOutput>true</checkstyle.consoleOutput>
         <checkstyle.properties.location>src/main/checkstyle/checkstyle-checker.properties</checkstyle.properties.location>

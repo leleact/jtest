@@ -12,8 +12,6 @@
     <artifactId>maven-plugin-google-checkstyle</artifactId>
 
     <properties>
-        <maven.checkstyle.plugin.version>3.0.0</maven.checkstyle.plugin.version>
-        <puppycrawl-tools-checkstyle.version>8.18</puppycrawl-tools-checkstyle.version>
         <checkstyle.config.location>google_checks.xml</checkstyle.config.location>
         <checkstyle.consoleOutput>true</checkstyle.consoleOutput>
         <checkstyle.violationSeverity>warning</checkstyle.violationSeverity>
