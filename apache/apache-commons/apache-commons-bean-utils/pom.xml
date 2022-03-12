@@ -21,7 +21,7 @@
         <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
-            <version>1.9.2</version>
+            <version>${apache.commons.beanutils.version}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>commons-logging</artifactId>

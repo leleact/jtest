@@ -53,6 +53,9 @@
         <xstream.version>1.4.19</xstream.version>
         <mysql.version>8.0.28</mysql.version>
         <guava.version>31.1-jre</guava.version>
+
+        <apache.commons.io.version>2.11.0</apache.commons.io.version>
+        <apache.commons.beanutils.version>1.9.4</apache.commons.beanutils.version>
     </properties>
 
     <dependencyManagement>
