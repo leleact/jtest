@@ -11,11 +11,6 @@
 
   <artifactId>dubbo-compatibility-provider</artifactId>
 
-
-  <properties>
-    <zookeeper.version>3.4.11</zookeeper.version>
-  </properties>
-
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>

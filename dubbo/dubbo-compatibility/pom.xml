@@ -16,5 +16,4 @@
         <module>dubbo-compatibility-consumer</module>
         <module>dubbo-compatibility-api</module>
     </modules>
-
 </project>

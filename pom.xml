@@ -54,6 +54,10 @@
         <mysql.version>8.0.28</mysql.version>
         <guava.version>31.1-jre</guava.version>
 
+        <dubbo.version>3.0.6</dubbo.version>
+        <curator.version>5.2.0</curator.version>
+        <zookeeper.version>3.8.0</zookeeper.version>
+
         <apache.commons.io.version>2.11.0</apache.commons.io.version>
         <apache.commons.beanutils.version>1.9.4</apache.commons.beanutils.version>
     </properties>

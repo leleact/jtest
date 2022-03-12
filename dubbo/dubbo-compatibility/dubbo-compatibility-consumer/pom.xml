@@ -10,10 +10,6 @@
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>dubbo-compatibility-consumer</artifactId>
-  
-  <properties>
-    <zookeeper.version>3.4.11</zookeeper.version>
-  </properties>
 
   <dependencies>
     <dependency>

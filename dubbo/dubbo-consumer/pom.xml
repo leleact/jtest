@@ -10,11 +10,6 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>dubbo-consumer</artifactId>
 
-  <properties>
-    <curator.version>4.0.1</curator.version>
-    <zookeeper.version>3.4.11</zookeeper.version>
-  </properties>
-
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
