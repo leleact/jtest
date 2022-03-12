@@ -18,11 +18,10 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>29.0-jre</version>
+                <version>${guava.version}</version>
             </dependency>
 
             <dependency>
@@ -32,5 +31,4 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
 </project>
