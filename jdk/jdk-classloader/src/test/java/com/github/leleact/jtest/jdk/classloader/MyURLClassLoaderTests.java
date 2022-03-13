@@ -3,7 +3,6 @@ package com.github.leleact.jtest.jdk.classloader;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import sun.net.www.ParseUtil;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -42,7 +41,7 @@ class MyURLClassLoaderTests {
         }
         URL[] urls = new URL[files.length];
         for (int i = 0; i < files.length; i++) {
-            urls[i] = ParseUtil.fileToEncodedURL(files[i]);
+            urls[i] = files[i].toURI().toURL();
         }
 
         for (URL url : urls) {

@@ -3,18 +3,15 @@ package com.github.leleact.jtest.dubbo.starter;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.github.leleact.jtest.dubbo.starter.dubbo.model.HasMapModel;
 import com.github.leleact.jtest.dubbo.starter.dubbo.service.MapTransisService;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 public class TestDubboStarterApplicationTests {
 
@@ -36,11 +33,11 @@ public class TestDubboStarterApplicationTests {
 
         HasMapModel resp = mapTransisService.transis(mapModel);
 
-        Assert.assertEquals(name, resp.getName());
-        Assert.assertEquals(age, resp.getAge());
+        Assertions.assertEquals(name, resp.getName());
+        Assertions.assertEquals(age, resp.getAge());
         Map<String, String> remm = resp.getMm();
-        Assert.assertNotNull(remm);
-        Assert.assertEquals(name, remm.get("name"));
+        Assertions.assertNotNull(remm);
+        Assertions.assertEquals(name, remm.get("name"));
     }
 
 }
