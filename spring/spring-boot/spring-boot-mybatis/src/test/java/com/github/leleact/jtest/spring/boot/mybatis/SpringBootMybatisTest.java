@@ -6,8 +6,8 @@ import com.github.leleact.jtest.spring.boot.mybatis.bean.dto.T2;
 import com.github.leleact.jtest.spring.boot.mybatis.bean.mapper.T1Mapper;
 import com.github.leleact.jtest.spring.boot.mybatis.bean.mapper.T2Mapper;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
@@ -27,7 +27,7 @@ public class SpringBootMybatisTest {
         String f1 = "1";
         T1 t1 = t1Mapper.selectByPrimaryKey(f1);
         log.info("{}", t1);
-        Assert.assertNotNull(t1);
+        Assertions.assertNotNull(t1);
     }
 
     @Test
@@ -35,7 +35,7 @@ public class SpringBootMybatisTest {
         String f1 = "1";
         T2 t2 = t2Mapper.selectByPrimaryKey(f1);
         log.info("{}", t2);
-        Assert.assertNull(t2);
+        Assertions.assertNull(t2);
     }
 
     @Test

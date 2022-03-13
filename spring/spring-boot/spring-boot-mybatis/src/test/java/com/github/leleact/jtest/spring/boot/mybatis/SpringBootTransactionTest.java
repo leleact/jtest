@@ -4,20 +4,17 @@ package com.github.leleact.jtest.spring.boot.mybatis;
 import com.github.leleact.jtest.spring.boot.mybatis.bean.dto.T1;
 import com.github.leleact.jtest.spring.boot.mybatis.bean.mapper.T1Mapper;
 import com.github.leleact.jtest.spring.boot.mybatis.service.TransactionService;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(classes = SpringBootMybatisApplication.class)
 public class SpringBootTransactionTest {
 
@@ -29,7 +26,7 @@ public class SpringBootTransactionTest {
     @Resource
     private T1Mapper t1Mapper;
 
-    @Before
+    @BeforeEach
     public void before() {
         long count = t1Mapper.deleteAll();
         log.info("delete {} counts", count);

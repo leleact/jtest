@@ -33,7 +33,7 @@ public class Producer {
         }
 
         String realMessage = message;
-        if (StringUtils.isEmpty(realMessage)) {
+        if (StringUtils.hasText(realMessage)) {
             realMessage = "hello";
         }
 

@@ -12,11 +12,6 @@
   <artifactId>spring-framework</artifactId>
   <packaging>pom</packaging>
 
-  <properties>
-    <maven.compiler.source>8</maven.compiler.source>
-    <maven.compiler.target>8</maven.compiler.target>
-  </properties>
-
   <modules>
     <module>spring-amqp</module>
     <module>spring-aop</module>

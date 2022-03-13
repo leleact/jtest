@@ -17,4 +17,11 @@
     <module>spring-cloud</module>
     <module>spring-framework</module>
   </modules>
+
+  <dependencies>
+    <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>javax.annotation-api</artifactId>
+    </dependency>
+  </dependencies>
 </project>

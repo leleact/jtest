@@ -1,20 +1,17 @@
 package com.github.leleact.jtest.spring.oxm;
 
 import com.github.leleact.jtest.spring.oxm.bean.A;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.oxm.xstream.XStreamMarshaller;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 public class TestOxmApplicationTests {
 

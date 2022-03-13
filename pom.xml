@@ -55,11 +55,18 @@
     <mysql.version>8.0.28</mysql.version>
     <guava.version>31.1-jre</guava.version>
 
+    <!-- dubbo: start -->
     <dubbo.version>3.0.6</dubbo.version>
     <curator.version>5.2.0</curator.version>
     <zookeeper.version>3.8.0</zookeeper.version>
+    <!-- dubbo: end -->
 
     <javassist.version>3.28.0-GA</javassist.version>
+
+    <!-- mybatis, mysql, transaction, datasource: start-->
+    <mybatis.spring.version>2.0.7</mybatis.spring.version>
+    <mybatis.version>3.5.9</mybatis.version>
+    <!-- mybatis, mysql, transaction, datasource: end-->
 
     <apache.commons.io.version>2.11.0</apache.commons.io.version>
     <apache.commons.beanutils.version>1.9.4</apache.commons.beanutils.version>

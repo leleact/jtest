@@ -2,21 +2,18 @@ package com.github.leleact.jtest.spring.boot.mybatis;
 
 import com.github.leleact.jtest.spring.boot.mybatis.bean.dto.T1;
 import com.github.leleact.jtest.spring.boot.mybatis.bean.mapper.T1Mapper;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(classes = SpringBootMybatisApplication.class)
 public class TestSprintBootMybatisTests {
 
@@ -25,7 +22,7 @@ public class TestSprintBootMybatisTests {
     @Autowired
     private T1Mapper t1Mapper;
 
-    @Before
+    @BeforeEach
     public void clearAllData() {
         int count = t1Mapper.deleteAll();
         log.info("clear {} records", count);
@@ -44,6 +41,6 @@ public class TestSprintBootMybatisTests {
         }
         int record = t1Mapper.insertBatchSelective(t1List);
         log.debug("insert {} recode", record);
-        Assert.assertEquals(10, record);
+        Assertions.assertEquals(10, record);
     }
 }
