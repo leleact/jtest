@@ -5,7 +5,7 @@ public enum E {
     AB("00"),
     AC("10");
 
-    private String value;
+    private final String value;
 
     E(String value) {
         this.value = value;
