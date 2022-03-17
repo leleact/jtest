@@ -9,26 +9,27 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
+    <module>algorithm</module>
     <module>apache</module>
     <module>build</module>
+    <module>build-tools</module>
+    <module>ddd-template</module>
     <module>design-pattern</module>
     <module>dubbo</module>
-    <module>jdk</module>
-    <module>lombok</module>
     <module>guava</module>
+    <module>javassist</module>
+    <module>jdk</module>
+    <module>log</module>
+    <module>lombok</module>
+    <module>mapstruct</module>
     <module>maven</module>
+    <module>mockito</module>
     <module>mybatis</module>
+    <module>rx-java</module>
+    <module>serialize</module>
     <module>spring</module>
     <module>unknown</module>
     <module>validator</module>
-    <module>rx-java</module>
-    <module>serialize</module>
-    <module>log</module>
-    <module>build-tools</module>
-    <module>mockito</module>
-    <module>algorithm</module>
-    <module>javassist</module>
-    <module>mapstruct</module>
   </modules>
 
   <properties>
