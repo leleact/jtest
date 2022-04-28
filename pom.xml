@@ -30,6 +30,7 @@
     <module>spring</module>
     <module>unknown</module>
     <module>validator</module>
+      <module>crypto</module>
   </modules>
 
   <properties>
