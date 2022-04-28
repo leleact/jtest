@@ -24,6 +24,7 @@ import java.security.spec.ECGenParameterSpec;
  * SM2 Test
  *
  * @author leleact
+ * @see <a href="https://github.com/JulongChain/julongchain/blob/master/src/main/java/org/bcia/julongchain/csp/gm/dxct/sm2/SM2.java">SM2 Example</a>
  * @since 2022-04-29
  */
 @Slf4j
