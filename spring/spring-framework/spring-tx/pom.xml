@@ -9,23 +9,19 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <properties>
-    <mysql.connector.version>8.0.22</mysql.connector.version>
-  </properties>
-
   <artifactId>spring-tx</artifactId>
 
   <dependencies>
     <dependency>
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis-spring</artifactId>
-      <version>2.0.6</version>
+      <version>${mybatis.spring.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis</artifactId>
-      <version>3.5.6</version>
+      <version>${mybatis.version}</version>
     </dependency>
 
     <dependency>
@@ -77,27 +73,11 @@
       <plugin>
         <groupId>org.mybatis.generator</groupId>
         <artifactId>mybatis-generator-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>Generate MyBatis Artifacts</id>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-            <phase>none</phase>
-          </execution>
-        </executions>
         <configuration>
           <configurationFile>config/generatorConfig.xml</configurationFile>
           <overwrite>true</overwrite>
           <verbose>true</verbose>
         </configuration>
-        <dependencies>
-          <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.connector.version}</version>
-          </dependency>
-        </dependencies>
       </plugin>
     </plugins>
   </build>
