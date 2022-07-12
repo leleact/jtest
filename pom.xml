@@ -13,6 +13,7 @@
     <module>apache</module>
     <module>build</module>
     <module>build-tools</module>
+    <module>crypto</module>
     <module>ddd-template</module>
     <module>design-pattern</module>
     <module>dubbo</module>
@@ -30,7 +31,6 @@
     <module>spring</module>
     <module>unknown</module>
     <module>validator</module>
-    <module>crypto</module>
   </modules>
 
   <properties>
