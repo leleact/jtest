@@ -1,6 +1,7 @@
 package com.github.leleact.jtest.lombok;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -46,5 +47,26 @@ public class LombokBuilderInheritTests {
         Assertions.assertEquals(0, io.getId());
         Assertions.assertEquals("a", io.getName());
         Assertions.assertEquals("a1", io.getCategory());
+    }
+
+    @Builder(builderMethodName = "hiddenBuilder")
+    public static class Pojo1 {
+        private String name;
+
+        private Integer age;
+
+        private String address;
+
+        public static Pojo1Builder builder(String name) {
+            return hiddenBuilder().name(name);
+        }
+    }
+
+    @Test
+    public void requiredArgsTest() {
+        Pojo1 pojo = Pojo1.builder("a").age(1).address("ABC").build();
+        Assertions.assertEquals("a", pojo.name);
+        Assertions.assertEquals(1, pojo.age);
+        Assertions.assertEquals("ABC", pojo.address);
     }
 }
