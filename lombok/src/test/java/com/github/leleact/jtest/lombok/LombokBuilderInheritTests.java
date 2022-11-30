@@ -1,9 +1,6 @@
 package com.github.leleact.jtest.lombok;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
@@ -66,6 +63,33 @@ public class LombokBuilderInheritTests {
     public void requiredArgsTest() {
         Pojo1 pojo = Pojo1.builder("a").age(1).address("ABC").build();
         Assertions.assertEquals("a", pojo.name);
+        Assertions.assertEquals(1, pojo.age);
+        Assertions.assertEquals("ABC", pojo.address);
+    }
+
+
+    @Setter
+    @Getter
+    public static class Base1 {
+        protected String name;
+    }
+
+    @Builder(builderMethodName = "hiddenBuilder", access = AccessLevel.PROTECTED)
+    public static class Pojo2 extends Base1 {
+        private Integer age;
+        private String address;
+
+        public static Pojo2Builder builder(String name) {
+            // can't build parent field
+            // return hiddenBuilder().name(name);
+            return hiddenBuilder();
+        }
+    }
+
+    @Test
+    public void protectedFieldBuilderTest() {
+        Pojo2 pojo = Pojo2.builder("a").age(1).address("ABC").build();
+        Assertions.assertNull(pojo.name);
         Assertions.assertEquals(1, pojo.age);
         Assertions.assertEquals("ABC", pojo.address);
     }
