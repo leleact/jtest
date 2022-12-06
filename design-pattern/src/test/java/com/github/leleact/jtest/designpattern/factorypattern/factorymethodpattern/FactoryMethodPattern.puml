@@ -2,13 +2,14 @@
 'https://plantuml.com/class-diagram
 
 interface Factory {
-  +Product factoryMethod1();
-  +Product factoryMethod2();
+  +Product factoryMethod1()
+  +Product factoryMethod2()
 }
 interface Product {
-  +void method();
+  +void method()
 }
-class ConcreteFactory;
+class ConcreteFactory
+
 Factory <|-- ConcreteFactory
 Product <|-- Product1
 Product <|-- Product2

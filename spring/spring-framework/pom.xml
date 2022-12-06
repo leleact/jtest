@@ -22,6 +22,7 @@
     <module>spring-profile</module>
     <module>spring-schedule</module>
     <module>spring-test</module>
+    <module>spring-test-mockito</module>
     <module>spring-test-mysql</module>
     <module>spring-tx</module>
     <module>spring-web</module>
