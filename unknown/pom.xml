@@ -12,7 +12,7 @@
   <artifactId>unknown</artifactId>
 
   <properties>
-    <puppycrawl-tools-checkstyle.version>8.29</puppycrawl-tools-checkstyle.version>
+    <puppycrawl-tools-checkstyle.version>8.30</puppycrawl-tools-checkstyle.version>
   </properties>
 
   <dependencies>
