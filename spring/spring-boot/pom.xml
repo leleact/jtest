@@ -12,15 +12,16 @@
   <artifactId>spring-boot</artifactId>
   <packaging>pom</packaging>
   <modules>
-    <module>spring-boot-validation</module>
-    <module>spring-boot-web</module>
-    <module>spring-boot-mybatis</module>
     <module>spring-boot-amqp</module>
+    <module>spring-boot-aop</module>
     <module>spring-boot-context</module>
+    <module>spring-boot-mybatis</module>
     <module>spring-boot-propertysource</module>
+    <module>spring-boot-test</module>
     <module>spring-boot-uploadfile</module>
     <module>spring-boot-urlmap</module>
-    <module>spring-boot-aop</module>
+    <module>spring-boot-validation</module>
+    <module>spring-boot-web</module>
   </modules>
 
   <dependencies>
