@@ -6,7 +6,7 @@ import org.junit.jupiter.api.RepeatedTest;
 /**
  * generate log.
  *
- * @author Cai Pan
+ * @author leleact
  * @since 1.0
  */
 @Slf4j

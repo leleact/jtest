@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 /**
  * logger test.
  *
- * @author Cai Pan
+ * @author leleact
  * @since 1.0
  */
 @Slf4j

@@ -14,7 +14,7 @@ import static org.hamcrest.Matchers.equalTo;
 /**
  * ArrayBlockingQueue test.
  *
- * @author Cai Pan
+ * @author leleact
  * @since 1.0
  */
 @Slf4j
