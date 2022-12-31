@@ -55,7 +55,7 @@
     <maven-checkstyle-plugin.failsOnError>true</maven-checkstyle-plugin.failsOnError>
     <maven-checkstyle-plugin.failOnViolation>true</maven-checkstyle-plugin.failOnViolation>
 
-    <xstream.version>1.4.19</xstream.version>
+    <xstream.version>1.4.20</xstream.version>
     <mysql.version>8.0.28</mysql.version>
     <guava.version>31.1-jre</guava.version>
 

@@ -1,23 +1,20 @@
 package com.github.leleact.jtest.jdk.zip;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.util.Base64;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+@Slf4j
 public class ZipTests {
 
-    private final String fileName = "C:\\Users\\vacp\\Desktop\\1.txt";
+    private final String fileName = ZipTests.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "1.txt";
 
-    private final String zipFileName = "C:\\Users\\vacp\\Desktop\\1.zip";
+    private final String zipFileName = ZipTests.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "1.zip";
 
     @BeforeEach
     public void createFile() throws IOException {
@@ -28,11 +25,7 @@ public class ZipTests {
 
     @Test
     public void zipTest() {
-        try (
-            FileInputStream input = new FileInputStream(fileName);
-            ZipOutputStream output = new ZipOutputStream(new FileOutputStream(zipFileName))
-
-        ) {
+        try (FileInputStream input = new FileInputStream(fileName); ZipOutputStream output = new ZipOutputStream(new FileOutputStream(zipFileName))) {
             byte[] buffer = new byte[4096];
             int n = 0;
             output.putNextEntry(new ZipEntry("heihei"));
@@ -40,8 +33,6 @@ public class ZipTests {
                 output.write(buffer, 0, n);
             }
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -50,10 +41,7 @@ public class ZipTests {
     @Test
     public void zipTestToBase64() {
         ByteArrayOutputStream bos = new ByteArrayOutputStream(4096);
-        try (
-            FileInputStream input = new FileInputStream(fileName);
-            ZipOutputStream output = new ZipOutputStream(bos)
-        ) {
+        try (FileInputStream input = new FileInputStream(fileName); ZipOutputStream output = new ZipOutputStream(bos)) {
             byte[] buffer = new byte[4096];
             int n = 0;
             output.putNextEntry(new ZipEntry("heihei"));
@@ -61,8 +49,6 @@ public class ZipTests {
                 output.write(buffer, 0, n);
             }
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
