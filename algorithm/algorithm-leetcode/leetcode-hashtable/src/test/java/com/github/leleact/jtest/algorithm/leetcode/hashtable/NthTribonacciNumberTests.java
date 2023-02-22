@@ -1,7 +1,5 @@
 package com.github.leleact.jtest.algorithm.leetcode.hashtable;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,7 +9,6 @@ import java.util.Map;
  * @author leleact
  * @since 2021-08-08
  */
-@Slf4j
 public class NthTribonacciNumberTests {
     public static class Solution {
         private Map<Integer, Integer> store = new HashMap<>();

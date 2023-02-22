@@ -1,14 +1,13 @@
 package com.github.leleact.jtest.spring.aop.test;
 
 
-import com.github.leleact.jtest.spring.aop.Executor;
-import lombok.extern.slf4j.Slf4j;
+import javax.annotation.Resource;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.test.context.ContextConfiguration;
 
-import javax.annotation.Resource;
+import com.github.leleact.jtest.spring.aop.Executor;
 
-@Slf4j
 @ContextConfiguration(locations = {"classpath:/test/config/spring/aop/around/spring-around-no-args.xml"})
 class AopRoundWithNoArgsTest {
 

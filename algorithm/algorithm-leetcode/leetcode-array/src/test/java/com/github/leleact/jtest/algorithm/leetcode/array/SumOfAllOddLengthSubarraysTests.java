@@ -1,6 +1,5 @@
 package com.github.leleact.jtest.algorithm.leetcode.array;
 
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +11,6 @@ import org.junit.jupiter.api.Test;
  * @author leleact
  * @since 2021-08-29
  */
-@Slf4j
 public class SumOfAllOddLengthSubarraysTests {
     public static class Solution {
         public int sumOddLengthSubarrays(int[] arr) {

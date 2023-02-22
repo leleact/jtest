@@ -1,6 +1,5 @@
 package com.github.leleact.jtest.algorithm.leetcode.binary;
 
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -9,7 +8,6 @@ import org.junit.jupiter.api.Test;
  * @author leleact
  * @since 2021-06-15
  */
-@Slf4j
 class ClosedNumberTests {
     @Test
     void solutionTest() {

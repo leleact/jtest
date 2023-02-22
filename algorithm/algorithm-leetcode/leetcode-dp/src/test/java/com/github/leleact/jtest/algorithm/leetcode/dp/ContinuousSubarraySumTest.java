@@ -1,10 +1,9 @@
 package com.github.leleact.jtest.algorithm.leetcode.dp;
 
-import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Test;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Continuous Subarray Sum
@@ -14,7 +13,6 @@ import java.util.Map;
  * @author leleact
  * @since 2021-06-16
  */
-@Slf4j
 class ContinuousSubarraySumTest {
     @Test
     void solutionTest() {

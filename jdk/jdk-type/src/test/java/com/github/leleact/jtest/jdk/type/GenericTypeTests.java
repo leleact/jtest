@@ -1,11 +1,10 @@
 package com.github.leleact.jtest.jdk.type;
 
-import com.github.leleact.jtest.jdk.type.request.SubRequest;
-import com.github.leleact.jtest.jdk.type.response.SubResponse;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
-@Slf4j
+import com.github.leleact.jtest.jdk.type.request.SubRequest;
+import com.github.leleact.jtest.jdk.type.response.SubResponse;
+
 public class GenericTypeTests {
 
     @Test

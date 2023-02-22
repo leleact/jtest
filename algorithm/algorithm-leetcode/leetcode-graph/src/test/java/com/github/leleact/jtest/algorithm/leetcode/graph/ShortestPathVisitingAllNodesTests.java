@@ -1,11 +1,10 @@
 package com.github.leleact.jtest.algorithm.leetcode.graph;
 
-import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 import java.util.LinkedList;
 import java.util.Queue;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * Shortest Path Visiting All Nodes
@@ -15,7 +14,6 @@ import java.util.Queue;
  * @author leleact
  * @since 2021-08-06
  */
-@Slf4j
 public class ShortestPathVisitingAllNodesTests {
     public static class Solution {
         public int shortestPathLength(int[][] graph) {

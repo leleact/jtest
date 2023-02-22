@@ -1,10 +1,9 @@
 package com.github.leleact.jtest.algorithm.leetcode.list;
 
-import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * FrontMiddleBackQueue test
@@ -12,7 +11,6 @@ import java.util.List;
  * @author leleact
  * @since 2021-06-13
  */
-@Slf4j
 class FrontMiddleBackQueueTest {
     public static class FrontMiddleBackQueue {
 

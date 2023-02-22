@@ -1,6 +1,5 @@
 package com.github.leleact.jtest.algorithm.leetcode.array;
 
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -11,7 +10,6 @@ import org.junit.jupiter.api.Test;
  * @author leleact
  * @since 2021-06-17
  */
-@Slf4j
 class GameOfLifeTests {
     @Test
     void solutionTest() {

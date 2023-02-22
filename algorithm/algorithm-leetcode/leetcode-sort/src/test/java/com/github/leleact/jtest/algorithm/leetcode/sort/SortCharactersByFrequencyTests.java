@@ -100,7 +100,6 @@ public class SortCharactersByFrequencyTests {
             List<Character> list = new ArrayList<Character>(countMap.keySet());
             list.sort((a, b) -> countMap.get(b) - countMap.get(a));
             StringBuilder sb = new StringBuilder();
-            int size = list.size();
             for (char c : list) {
                 int frequency = countMap.get(c);
                 sb.append(String.valueOf(c).repeat(Math.max(0, frequency)));
