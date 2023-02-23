@@ -17,7 +17,7 @@ class BeanTest {
     @Test
     void Application() {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
-            "classpath:/spring/bean/spring-beans.xml");
+                "classpath:/spring/bean/spring-beans.xml");
         String[] beanNames = applicationContext.getBeanDefinitionNames();
         for (String s : beanNames) {
             log.debug("Bean Name: {}", s);
@@ -28,7 +28,7 @@ class BeanTest {
     @Test
     void beanPostProcessorTest() {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
-            "classpath:/spring/beanPostProcessor/spring-beans.xml");
+                "classpath:/spring/beanPostProcessor/spring-beans.xml");
         String[] beanNames = applicationContext.getBeanDefinitionNames();
         for (String s : beanNames) {
             log.debug("Bean Name: {}", s);
@@ -38,7 +38,7 @@ class BeanTest {
     @Test
     void serviceComponentTest() throws ClassNotFoundException {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
-            "classpath:/spring/bean/spring-service-component.xml");
+                "classpath:/spring/bean/spring-service-component.xml");
         String[] beanNames = applicationContext.getBeanDefinitionNames();
         for (String s : beanNames) {
             log.debug("Bean Name: {}", s);
@@ -69,7 +69,7 @@ class BeanTest {
     @Test
     void beanMapTest() {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
-            "classpath:/spring/bean/spring-mapBean.xml");
+                "classpath:/spring/bean/spring-mapBean.xml");
         MapBean mapBean = (MapBean) applicationContext.getBean("mapBean");
         Map<String, String> map = mapBean.getStringMap();
         for (Map.Entry<String, String> entry : map.entrySet()) {

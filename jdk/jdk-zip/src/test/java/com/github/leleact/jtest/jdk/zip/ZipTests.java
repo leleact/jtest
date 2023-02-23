@@ -1,15 +1,17 @@
 package com.github.leleact.jtest.jdk.zip;
 
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.Base64;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-@Slf4j
 public class ZipTests {
 
     private final String fileName = ZipTests.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "1.txt";
