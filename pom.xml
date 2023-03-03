@@ -28,6 +28,7 @@
     <module>mybatis</module>
     <module>rx-java</module>
     <module>serialize</module>
+    <module>servicecomb</module>
     <module>spring</module>
     <module>unknown</module>
     <module>validator</module>
