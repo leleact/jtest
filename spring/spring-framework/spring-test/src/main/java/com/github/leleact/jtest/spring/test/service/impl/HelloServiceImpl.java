@@ -4,7 +4,7 @@ import com.github.leleact.jtest.spring.test.repository.HelloRepository;
 import com.github.leleact.jtest.spring.test.service.HelloService;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * hello service implements.

@@ -5,12 +5,12 @@ import com.github.leleact.jtest.spring.boot.mybatis.bean.dto.T1;
 import com.github.leleact.jtest.spring.boot.mybatis.bean.dto.T2;
 import com.github.leleact.jtest.spring.boot.mybatis.bean.mapper.T1Mapper;
 import com.github.leleact.jtest.spring.boot.mybatis.bean.mapper.T2Mapper;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.annotation.Resource;
 
 @Slf4j
 @SpringBootTest

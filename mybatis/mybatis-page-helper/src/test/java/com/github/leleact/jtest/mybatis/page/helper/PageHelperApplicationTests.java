@@ -4,13 +4,13 @@ import com.github.leleact.jtest.mybatis.page.helper.entity.T1;
 import com.github.leleact.jtest.mybatis.page.helper.mapper.T1Mapper;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.page.PageMethod;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 
-import javax.annotation.Resource;
 import java.util.Date;
 
 @Slf4j

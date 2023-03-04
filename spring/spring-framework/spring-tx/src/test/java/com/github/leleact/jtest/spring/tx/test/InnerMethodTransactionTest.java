@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 @SpringJUnitConfig(locations = {"classpath:spring/spring-test-datasource.xml"})
 public class InnerMethodTransactionTest {

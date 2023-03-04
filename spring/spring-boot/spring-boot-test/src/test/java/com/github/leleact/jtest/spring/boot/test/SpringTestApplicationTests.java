@@ -2,13 +2,12 @@ package com.github.leleact.jtest.spring.boot.test;
 
 import com.github.leleact.jtest.spring.boot.test.service.MyDependency1Service;
 import com.github.leleact.jtest.spring.boot.test.service.MyService;
+import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-
-import javax.annotation.Resource;
 
 /**
  * spring boot test

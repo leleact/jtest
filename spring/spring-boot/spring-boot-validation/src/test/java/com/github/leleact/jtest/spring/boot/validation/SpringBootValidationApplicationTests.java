@@ -2,6 +2,13 @@ package com.github.leleact.jtest.spring.boot.validation;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.leleact.jtest.spring.boot.validation.constraintgroups.Replace;
+import jakarta.annotation.Resource;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+import jakarta.validation.ValidatorFactory;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.groups.Default;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -10,13 +17,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import javax.annotation.Resource;
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
-import javax.validation.constraints.NotNull;
-import javax.validation.groups.Default;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -44,8 +44,7 @@ class SpringBootValidationApplicationTests {
 
     @Test
     public void loginTest() throws Exception {
-        mockMvc.perform(post("/login").content("{\"name\":\"aaa\"}").contentType(MediaType.APPLICATION_JSON))
-               .andExpect(status().is4xxClientError());
+        mockMvc.perform(post("/login").content("{\"name\":\"aaa\"}").contentType(MediaType.APPLICATION_JSON)).andExpect(status().is4xxClientError());
     }
 
     @Test
@@ -58,9 +57,7 @@ class SpringBootValidationApplicationTests {
         detail.setAge(1);
         list.add(detail);
         form.setDetails(list);
-        mockMvc.perform(post("/login").content(objectMapper.writeValueAsString(form))
-                                      .contentType(MediaType.APPLICATION_JSON))
-               .andExpect(status().is4xxClientError());
+        mockMvc.perform(post("/login").content(objectMapper.writeValueAsString(form)).contentType(MediaType.APPLICATION_JSON)).andExpect(status().is4xxClientError());
     }
 
     @Test
@@ -76,9 +73,7 @@ class SpringBootValidationApplicationTests {
             detail.setName("a");
             list.add(detail);
             form.setDetails(list);
-            mockMvc.perform(post("/login").content(objectMapper.writeValueAsString(form))
-                                          .contentType(MediaType.APPLICATION_JSON))
-                   .andExpect(status().is4xxClientError());
+            mockMvc.perform(post("/login").content(objectMapper.writeValueAsString(form)).contentType(MediaType.APPLICATION_JSON)).andExpect(status().is4xxClientError());
         }
     }
 
@@ -98,16 +93,13 @@ class SpringBootValidationApplicationTests {
         // |   null      |     x      |      √     |   √     |
         // +-------------+------------+------------+---------+
         class Pojo1 {
-            @NotNull(message = "name 不能为空", groups = Replace.class)
-            String name;
+            @NotNull(message = "name 不能为空", groups = Replace.class) String name;
         }
         class Pojo2 {
-            @NotNull(message = "name 不能为空", groups = Default.class)
-            String name;
+            @NotNull(message = "name 不能为空", groups = Default.class) String name;
         }
         class Pojo3 {
-            @NotNull(message = "name 不能为空")
-            String name;
+            @NotNull(message = "name 不能为空") String name;
         }
         {
             {

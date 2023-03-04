@@ -5,7 +5,7 @@ import com.github.leleact.jtest.spring.tx.bean.mapper.T1Mapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * recursive tx ref
@@ -44,5 +44,4 @@ public class TxRecursiveRefService {
         t1.setF2("a");
         t1Mapper.insert(t1);
     }
-
 }

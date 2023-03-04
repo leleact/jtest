@@ -55,6 +55,9 @@
               <version>${org.mapstruct.version}</version>
             </path>
           </annotationProcessorPaths>
+          <compilerArgs>
+            <arg>-implicit:class</arg>
+          </compilerArgs>
         </configuration>
       </plugin>
     </plugins>

@@ -2,10 +2,10 @@ package com.github.leleact.jtest.spring.boot.mybatis.service;
 
 import com.github.leleact.jtest.spring.boot.mybatis.bean.dto.T1;
 import com.github.leleact.jtest.spring.boot.mybatis.bean.mapper.T1Mapper;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
 
 @Service
 public class TransactionService {

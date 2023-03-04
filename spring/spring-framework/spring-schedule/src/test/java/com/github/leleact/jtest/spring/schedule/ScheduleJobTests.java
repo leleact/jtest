@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.scheduling.support.CronTrigger;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import static org.awaitility.Awaitility.await;
 

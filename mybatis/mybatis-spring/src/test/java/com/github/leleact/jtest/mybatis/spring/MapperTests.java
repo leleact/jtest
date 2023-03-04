@@ -2,11 +2,10 @@ package com.github.leleact.jtest.mybatis.spring;
 
 import com.github.leleact.jtest.mybatis.spring.db.entity.T1;
 import com.github.leleact.jtest.mybatis.spring.db.mapper.T1Mapper;
+import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
-
-import javax.annotation.Resource;
 
 /**
  * mapper tests

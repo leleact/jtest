@@ -3,9 +3,9 @@ package com.github.leleact.jtest.spring.boot.test.service.impl;
 import com.github.leleact.jtest.spring.boot.test.service.MyDependency1Service;
 import com.github.leleact.jtest.spring.boot.test.service.MyDependency2Service;
 import com.github.leleact.jtest.spring.boot.test.service.MyService;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 
 /**
  * my service implement

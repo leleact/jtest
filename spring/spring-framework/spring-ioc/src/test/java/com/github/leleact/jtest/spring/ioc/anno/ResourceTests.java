@@ -1,5 +1,6 @@
 package com.github.leleact.jtest.spring.ioc.anno;
 
+import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -9,10 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import javax.annotation.Resource;
-
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = { ResourceTests.class })
+@ContextConfiguration(classes = {ResourceTests.class})
 @Configuration
 public class ResourceTests {
 

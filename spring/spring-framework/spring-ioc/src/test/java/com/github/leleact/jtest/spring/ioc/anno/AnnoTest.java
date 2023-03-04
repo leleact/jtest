@@ -1,5 +1,6 @@
 package com.github.leleact.jtest.spring.ioc.anno;
 
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -9,8 +10,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-
-import javax.annotation.Resource;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = {"classpath:spring/anno/spring-annotation-test.xml"})

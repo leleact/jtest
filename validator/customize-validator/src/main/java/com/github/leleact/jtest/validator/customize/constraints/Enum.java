@@ -2,9 +2,9 @@ package com.github.leleact.jtest.validator.customize.constraints;
 
 import com.github.leleact.jtest.validator.customize.constraintvalidators.EnumValidator;
 
-import javax.validation.Constraint;
-import javax.validation.Payload;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.Constraint;
+import jakarta.validation.Payload;
+import jakarta.validation.constraints.NotNull;
 import java.lang.annotation.*;
 
 import static java.lang.annotation.ElementType.*;
@@ -30,7 +30,7 @@ public @interface Enum {
 
     boolean isStaticMethod() default false;
 
-    @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE })
+    @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})
     @Retention(RUNTIME)
     @Documented
     public @interface List {

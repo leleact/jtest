@@ -1,9 +1,9 @@
 package com.github.leleact.jtest.spring.boot.validation.constraintvalidators;
 
 import com.github.leleact.jtest.spring.boot.validation.constraints.Enum;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 

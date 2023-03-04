@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.GetMapping;
 public interface HierarchyServiceApi {
 
     @GetMapping("/hierarchy")
-    String hierarchy(@SpringQueryMap(encoded = true) HierarchyRequest request);
+    String hierarchy(@SpringQueryMap HierarchyRequest request);
 }

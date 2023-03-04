@@ -3,7 +3,7 @@ package com.github.leleact.jtest.validator.customize.bean;
 import com.github.leleact.jtest.validator.customize.enums.E;
 import com.github.leleact.jtest.validator.customize.constraints.Enum;
 
-import javax.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotEmpty;
 
 public class A {
 

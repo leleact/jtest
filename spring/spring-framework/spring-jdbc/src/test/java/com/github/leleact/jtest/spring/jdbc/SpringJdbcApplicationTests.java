@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 @SpringBootTest
 public class SpringJdbcApplicationTests {
@@ -23,7 +23,6 @@ public class SpringJdbcApplicationTests {
             LOGGER.debug("{}, {}", rs.getInt(1), rowNum);
             return null;
         });
-
     }
 
     @Test

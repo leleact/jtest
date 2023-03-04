@@ -2,10 +2,10 @@ package com.github.leleact.jtest.spring.boot.mybatis.service;
 
 import com.github.leleact.jtest.spring.boot.mybatis.bean.dto.T1;
 import com.github.leleact.jtest.spring.boot.mybatis.bean.mapper.T1Mapper;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;

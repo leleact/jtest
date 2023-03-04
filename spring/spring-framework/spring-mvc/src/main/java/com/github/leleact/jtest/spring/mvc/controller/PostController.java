@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
@@ -20,14 +20,12 @@ public class PostController {
     private static final Logger logger = LoggerFactory.getLogger(PostController.class);
 
     @RequestMapping("/map")
-    public Map<String, String> echo(HttpServletRequest request, @RequestParam Map<String, String> map) throws
-            IOException {
+    public Map<String, String> echo(HttpServletRequest request, @RequestParam Map<String, String> map) throws IOException {
 
         logger.info("request map: [{}]", request.getParameterMap());
         logger.info("map: [{}]", map);
         if (logger.isInfoEnabled()) {
-            logger.info("request stream: [{}]",
-                    StreamUtils.copyToString(request.getInputStream(), StandardCharsets.UTF_8));
+            logger.info("request stream: [{}]", StreamUtils.copyToString(request.getInputStream(), StandardCharsets.UTF_8));
         }
 
         Map<String, String> response = new HashMap<>();

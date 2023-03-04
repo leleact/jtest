@@ -10,5 +10,5 @@ import org.springframework.web.bind.annotation.GetMapping;
 public interface GenericServiceApi {
 
     @GetMapping("/generic")
-    String generic(@SpringQueryMap(encoded = true) GenericRequest<ComplexRequest> request);
+    String generic(@SpringQueryMap GenericRequest<ComplexRequest> request);
 }

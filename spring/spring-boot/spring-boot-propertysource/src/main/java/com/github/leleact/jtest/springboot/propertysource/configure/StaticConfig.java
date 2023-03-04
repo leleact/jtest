@@ -1,14 +1,14 @@
 package com.github.leleact.jtest.springboot.propertysource.configure;
 
+import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 
 @Component
-public class  StaticConfig {
+public class StaticConfig {
 
     private static final Logger log = LoggerFactory.getLogger(StaticConfig.class);
 

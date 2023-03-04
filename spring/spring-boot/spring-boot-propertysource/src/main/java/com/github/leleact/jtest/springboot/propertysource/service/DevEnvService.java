@@ -1,12 +1,12 @@
 package com.github.leleact.jtest.springboot.propertysource.service;
 
+import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 
 @Service
 @Profile("dev")
@@ -17,6 +17,7 @@ public class DevEnvService {
     public DevEnvService() {
         log.info("===============");
     }
+
     // 可以直接从 System property总获取
     @Value("${environmentToken}")
     private String environmentToken;

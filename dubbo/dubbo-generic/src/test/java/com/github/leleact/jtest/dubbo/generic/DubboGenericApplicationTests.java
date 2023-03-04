@@ -1,5 +1,6 @@
 package com.github.leleact.jtest.dubbo.generic;
 
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.ReferenceConfig;
@@ -9,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 
-import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,9 +36,7 @@ public class DubboGenericApplicationTests {
         param.put("name", "a");
         param.put("age", "111");
 
-        Map<String, String> object = (Map<String, String>) genericService.$invoke("invoke",
-                                                                                  new String[]{"com.github.leleact.jtest.dubbo.provider.bean.request.GenericRequest"},
-                                                                                  new Object[]{param});
+        Map<String, String> object = (Map<String, String>) genericService.$invoke("invoke", new String[]{"com.github.leleact.jtest.dubbo.provider.bean.request.GenericRequest"}, new Object[]{param});
         log.info("result: [{}]", object.toString());
     }
 }

@@ -4,7 +4,7 @@ import com.github.leleact.jtest.spring.tx.bean.dto.T1;
 import com.github.leleact.jtest.spring.tx.bean.mapper.T1Mapper;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 @Service
 public class InnterTransaction {

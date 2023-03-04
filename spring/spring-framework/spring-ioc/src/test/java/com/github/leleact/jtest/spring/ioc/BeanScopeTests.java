@@ -1,5 +1,6 @@
 package com.github.leleact.jtest.spring.ioc;
 
+import jakarta.annotation.PreDestroy;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.Logger;
@@ -13,8 +14,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-
-import javax.annotation.PreDestroy;
 
 import static org.springframework.test.annotation.DirtiesContext.HierarchyMode.CURRENT_LEVEL;
 

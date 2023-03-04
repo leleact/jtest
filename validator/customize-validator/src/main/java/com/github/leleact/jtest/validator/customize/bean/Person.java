@@ -1,6 +1,6 @@
 package com.github.leleact.jtest.validator.customize.bean;
 
-import javax.validation.constraints.Size;
+import jakarta.validation.constraints.Size;
 
 public class Person {
 

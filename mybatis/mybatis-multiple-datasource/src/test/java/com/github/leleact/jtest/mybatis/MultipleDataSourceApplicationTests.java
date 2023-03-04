@@ -2,10 +2,9 @@ package com.github.leleact.jtest.mybatis;
 
 import com.github.leleact.jtest.mybatis.db1.mapper.DbMapper;
 import com.github.leleact.jtest.mybatis.db2.mapper.UserMapper;
+import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import javax.annotation.Resource;
 
 @SpringBootTest
 public class MultipleDataSourceApplicationTests {

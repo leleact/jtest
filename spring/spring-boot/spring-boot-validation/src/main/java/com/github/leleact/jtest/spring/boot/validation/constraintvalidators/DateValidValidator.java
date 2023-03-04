@@ -1,10 +1,10 @@
 package com.github.leleact.jtest.spring.boot.validation.constraintvalidators;
 
 import com.github.leleact.jtest.spring.boot.validation.constraints.DateValid;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
