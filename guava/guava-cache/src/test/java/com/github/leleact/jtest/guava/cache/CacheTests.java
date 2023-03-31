@@ -51,21 +51,15 @@ class CacheTests {
         }
     }
 
-
     @Test
     void createCacheTest() throws ExecutionException, InterruptedException {
 
-        LoadingCache<Integer, Employee> empCache = CacheBuilder.newBuilder()
-                                                               .maximumSize(100)
-                                                               .expireAfterWrite(10, TimeUnit.MINUTES)
-                                                               .build(
-                                                                   new CacheLoader<Integer, Employee>() {
-                                                                       @Override
-                                                                       public Employee load(Integer id) throws Exception {
-                                                                           return getEmployeeById(id);
-                                                                       }
-                                                                   }
-                                                               );
+        LoadingCache<Integer, Employee> empCache = CacheBuilder.newBuilder().maximumSize(100).expireAfterWrite(10, TimeUnit.MINUTES).build(new CacheLoader<>() {
+            @Override
+            public Employee load(Integer id) {
+                return getEmployeeById(id);
+            }
+        });
 
         log.info(empCache.get(1).getName());
 
