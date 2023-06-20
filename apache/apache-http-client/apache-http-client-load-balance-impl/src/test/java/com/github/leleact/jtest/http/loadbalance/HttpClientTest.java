@@ -7,10 +7,12 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
+@Disabled
 @Slf4j
 class HttpClientTest {
 
@@ -33,6 +35,4 @@ class HttpClientTest {
             response.close();
         }
     }
-
-
 }

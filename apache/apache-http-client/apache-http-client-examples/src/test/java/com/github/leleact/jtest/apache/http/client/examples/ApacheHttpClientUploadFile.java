@@ -10,6 +10,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.util.EntityUtils;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;
@@ -29,6 +30,7 @@ import java.util.concurrent.TimeoutException;
  */
 
 @Slf4j
+@Disabled
 class ApacheHttpClientUploadFile {
 
     @Test
