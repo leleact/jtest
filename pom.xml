@@ -30,6 +30,7 @@
     <module>serialize</module>
     <module>servicecomb</module>
     <module>spring</module>
+    <module>swagger</module>
     <module>unknown</module>
     <module>validator</module>
   </modules>
@@ -59,8 +60,8 @@
     <maven-checkstyle-plugin.failOnViolation>true</maven-checkstyle-plugin.failOnViolation>
 
     <xstream.version>1.4.20</xstream.version>
-    <mysql.connector.version>8.0.32</mysql.connector.version>
     <guava.version>31.1-jre</guava.version>
+    <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
 
     <!-- dubbo: start -->
     <dubbo.version>3.0.6</dubbo.version>
@@ -71,6 +72,7 @@
     <javassist.version>3.28.0-GA</javassist.version>
 
     <!-- mybatis, mysql, transaction, datasource: start-->
+    <mysql.connector.version>8.0.32</mysql.connector.version>
     <mybatis.spring.version>3.0.1</mybatis.spring.version>
     <mybatis.version>3.5.12</mybatis.version>
     <!-- mybatis, mysql, transaction, datasource: end-->
@@ -79,8 +81,6 @@
     <apache.commons.io.version>2.11.0</apache.commons.io.version>
     <apache.commons.beanutils.version>1.9.4</apache.commons.beanutils.version>
     <!-- apache commons: end-->
-
-    <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
   </properties>
 
   <dependencyManagement>
