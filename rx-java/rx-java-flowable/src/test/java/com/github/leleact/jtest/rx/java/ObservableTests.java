@@ -18,8 +18,7 @@ public class ObservableTests {
         Observable<String> observable = Observable.fromArray(letters);
         observable.publish().refCount();
         final String[] result = new String[]{""};
-        observable.subscribe(
-            i -> {
+        observable.subscribe(i -> {
                 log.info("i = {}", i);
                 result[0] += i;
             },  //OnNext
@@ -36,13 +35,11 @@ public class ObservableTests {
     public void multipleObsTest() {
         Observable<String> observable = Observable.fromArray(new String[]{"a", "b", "c"});
         ConnectableObservable<String> connObs = observable.publish();
-        connObs.subscribe(i -> log.info("{}", i),
-                          error -> log.error(error.getMessage(), error),
-                          () -> log.info("__complete 0"));
+        connObs.subscribe(i -> log.info("{}", i), error -> log.error(error.getMessage(), error),
+            () -> log.info("__complete 0"));
 
-        connObs.subscribe(i -> log.info("{}", i),
-                          error -> log.error(error.getMessage(), error),
-                          () -> log.info("__complete 1"));
+        connObs.subscribe(i -> log.info("{}", i), error -> log.error(error.getMessage(), error),
+            () -> log.info("__complete 1"));
         connObs.connect();
     }
 }
