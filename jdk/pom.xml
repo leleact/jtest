@@ -46,6 +46,7 @@
     <module>jdk-optional</module>
     <module>jdk-byte</module>
     <module>jdk-classloader</module>
+    <module>jdk-runtime</module>
     <module>jdk-stream</module>
   </modules>
 

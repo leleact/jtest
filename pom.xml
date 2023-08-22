@@ -26,12 +26,12 @@
     <module>maven</module>
     <module>mockito</module>
     <module>mybatis</module>
+    <module>quick-test</module>
     <module>rx-java</module>
     <module>serialize</module>
     <module>servicecomb</module>
     <module>spring</module>
     <module>swagger</module>
-    <module>unknown</module>
     <module>validator</module>
   </modules>
 
