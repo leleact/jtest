@@ -33,6 +33,7 @@
     <module>spring</module>
     <module>swagger</module>
     <module>validator</module>
+    <module>grpc</module>
   </modules>
 
   <properties>
