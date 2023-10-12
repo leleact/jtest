@@ -6,8 +6,6 @@ import io.grpc.stub.StreamObserver;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.concurrent.CountDownLatch;
-
 /**
  * double stream service
  *
@@ -17,20 +15,22 @@ import java.util.concurrent.CountDownLatch;
 @Slf4j
 public class DoubleStreamService extends DoubleStreamServiceGrpc.DoubleStreamServiceImplBase {
 
-    private static CountDownLatch countDownLatch = new CountDownLatch(1);
-
     @SneakyThrows
     public static void main(String[] args) {
-        startGrpcServer();
-        countDownLatch.await();
+        int serverPort = 10881;
+        Server server = ServerBuilder.forPort(serverPort).addService(new DoubleStreamService()).build();
+        server.start();
+        log.info("OrderServerBoot started, listening on:" + serverPort);
+        server.awaitTermination();
     }
 
     @Override
     public StreamObserver<RequestMessage> doubleWayStreamFun(StreamObserver<ResponseMessage> responseObserver) {
+        log.info("[DoubleStreamService] connected: {}", responseObserver);
         return new StreamObserver<RequestMessage>() {
             @Override
-            public void onNext(RequestMessage chatRequest) {
-                String msg = chatRequest.getReqMsg();
+            public void onNext(RequestMessage request) {
+                String msg = request.getReqMsg();
                 String respMsg = "[RESP]" + msg;
                 log.info("[DoubleStreamService] Client MSG: {}, RESP MSG: {}", msg, respMsg);
                 responseObserver.onNext(ResponseMessage.newBuilder().setRspMsg(respMsg).build());
@@ -43,16 +43,9 @@ public class DoubleStreamService extends DoubleStreamServiceGrpc.DoubleStreamSer
 
             @Override
             public void onCompleted() {
+                log.info("[DoubleStreamService] completed");
                 responseObserver.onCompleted();
             }
         };
-    }
-
-    @SneakyThrows
-    private static void startGrpcServer() {
-        int serverPort = 10881;
-        Server server = ServerBuilder.forPort(serverPort).addService(new DoubleStreamService()).build();
-        server.start();
-        log.info("OrderServerBoot started, listening on:" + serverPort);
     }
 }

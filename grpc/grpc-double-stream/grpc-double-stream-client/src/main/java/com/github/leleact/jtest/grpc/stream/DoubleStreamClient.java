@@ -38,20 +38,23 @@ public class DoubleStreamClient {
 
         DoubleStreamServiceGrpc.DoubleStreamServiceStub doubleStreamServiceStub = DoubleStreamServiceGrpc.newStub(
             channel);
-        StreamObserver<RequestMessage> chatRequestStreamObserver = doubleStreamServiceStub.doubleWayStreamFun(
-            chatResponseStreamObserver);
 
-        Scanner scanner = new Scanner(System.in);
-        for (; true; ) {
-            String str = scanner.nextLine();
-            if (str.equals("EOF")) {
-                chatRequestStreamObserver.onCompleted();
-                break;
-            }
-            try {
-                chatRequestStreamObserver.onNext(RequestMessage.newBuilder().setReqMsg(scanner.nextLine()).build());
-            } catch (Exception e) {
-                log.error(e.getMessage(), e);
+        while (true) {
+            StreamObserver<RequestMessage> requestStreamObserver = doubleStreamServiceStub.doubleWayStreamFun(
+                chatResponseStreamObserver);
+
+            Scanner scanner = new Scanner(System.in);
+            for (; true; ) {
+                String str = scanner.nextLine();
+                if (str.equals("EOF")) {
+                    requestStreamObserver.onCompleted();
+                    break;
+                }
+                try {
+                    requestStreamObserver.onNext(RequestMessage.newBuilder().setReqMsg(str).build());
+                } catch (Exception e) {
+                    log.error(e.getMessage(), e);
+                }
             }
         }
     }
