@@ -16,14 +16,16 @@ public class AnnotationClassOrMethodPointcut extends StaticMethodMatcherPointcut
 
     private final MethodMatcher methodResolver;
 
+    private final AnnotationClassFilter classFilter;
+
     public AnnotationClassOrMethodPointcut(Class<? extends Annotation> annotationType) {
         this.methodResolver = new AnnotationMethodMatcher(annotationType);
-        setClassFilter(new AnnotationClassOrMethodFilter(annotationType));
+        classFilter = new AnnotationClassOrMethodFilter(annotationType);
     }
 
     @Override
     public boolean matches(Method method, Class<?> targetClass) {
-        return getClassFilter().matches(targetClass) || this.methodResolver.matches(method, targetClass);
+        return classFilter.matches(targetClass) || this.methodResolver.matches(method, targetClass);
     }
 
     @Override
@@ -31,10 +33,9 @@ public class AnnotationClassOrMethodPointcut extends StaticMethodMatcherPointcut
         if (this == other) {
             return true;
         }
-        if (!(other instanceof AnnotationClassOrMethodPointcut)) {
+        if (!(other instanceof AnnotationClassOrMethodPointcut otherAdvisor)) {
             return false;
         }
-        AnnotationClassOrMethodPointcut otherAdvisor = (AnnotationClassOrMethodPointcut) other;
         return ObjectUtils.nullSafeEquals(this.methodResolver, otherAdvisor.methodResolver);
     }
 
@@ -43,7 +44,7 @@ public class AnnotationClassOrMethodPointcut extends StaticMethodMatcherPointcut
         return super.hashCode();
     }
 
-    private final class AnnotationClassOrMethodFilter extends AnnotationClassFilter {
+    private static final class AnnotationClassOrMethodFilter extends AnnotationClassFilter {
 
         private final AnnotationMethodsResolver methodResolver;
 
@@ -58,31 +59,18 @@ public class AnnotationClassOrMethodPointcut extends StaticMethodMatcherPointcut
         }
     }
 
-    private static class AnnotationMethodsResolver {
-
-        private Class<? extends Annotation> annotationType;
-
-        public AnnotationMethodsResolver(Class<? extends Annotation> annotationType) {
-            this.annotationType = annotationType;
-        }
-
+    private record AnnotationMethodsResolver(Class<? extends Annotation> annotationType) {
         public boolean hasAnnotatedMethods(Class<?> clazz) {
             final AtomicBoolean found = new AtomicBoolean(false);
-            ReflectionUtils.doWithMethods(clazz,
-                                          new ReflectionUtils.MethodCallback() {
-                                              @Override
-                                              public void doWith(Method method) throws IllegalArgumentException,
-                                                  IllegalAccessException {
-                                                  if (found.get()) {
-                                                      return;
-                                                  }
-                                                  Annotation annotation = AnnotationUtils.findAnnotation(method,
-                                                                                                         annotationType);
-                                                  if (annotation != null) {
-                                                      found.set(true);
-                                                  }
-                                              }
-                                          });
+            ReflectionUtils.doWithMethods(clazz, method -> {
+                if (found.get()) {
+                    return;
+                }
+                Annotation annotation = AnnotationUtils.findAnnotation(method, annotationType);
+                if (annotation != null) {
+                    found.set(true);
+                }
+            });
             return found.get();
         }
     }
