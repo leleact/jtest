@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.statemachine.StateMachine;
+import reactor.core.publisher.Mono;
 
 /**
  * spring state machine application
@@ -23,7 +25,7 @@ public class SpringStateMachineApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        stateMachine.sendEvent(Events.E1);
-        stateMachine.sendEvent(Events.E2);
+        stateMachine.sendEvent(Mono.just(MessageBuilder.withPayload(Events.E1).build())).blockFirst();
+        stateMachine.sendEvent(Mono.just(MessageBuilder.withPayload(Events.E2).build())).blockFirst();
     }
 }
