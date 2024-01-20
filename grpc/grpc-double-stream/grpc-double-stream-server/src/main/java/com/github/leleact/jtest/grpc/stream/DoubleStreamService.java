@@ -18,7 +18,10 @@ public class DoubleStreamService extends DoubleStreamServiceGrpc.DoubleStreamSer
     @SneakyThrows
     public static void main(String[] args) {
         int serverPort = 10881;
-        Server server = ServerBuilder.forPort(serverPort).addService(new DoubleStreamService()).build();
+        Server server = ServerBuilder.forPort(serverPort)
+                                     .intercept(new LogServerInterceptor())
+                                     .addService(new DoubleStreamService())
+                                     .build();
         server.start();
         log.info("OrderServerBoot started, listening on:" + serverPort);
         server.awaitTermination();
@@ -27,7 +30,7 @@ public class DoubleStreamService extends DoubleStreamServiceGrpc.DoubleStreamSer
     @Override
     public StreamObserver<RequestMessage> doubleWayStreamFun(StreamObserver<ResponseMessage> responseObserver) {
         log.info("[DoubleStreamService] connected: {}", responseObserver);
-        return new StreamObserver<RequestMessage>() {
+        return new StreamObserver<>() {
             @Override
             public void onNext(RequestMessage request) {
                 String msg = request.getReqMsg();
@@ -37,8 +40,8 @@ public class DoubleStreamService extends DoubleStreamServiceGrpc.DoubleStreamSer
             }
 
             @Override
-            public void onError(Throwable throwable) {
-                log.warn("[DoubleStreamService] gRPC dealing error");
+            public void onError(Throwable t) {
+                log.warn("[DoubleStreamService] gRPC dealing error", t);
             }
 
             @Override

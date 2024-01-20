@@ -16,7 +16,9 @@ import java.util.Scanner;
 @Slf4j
 public class DoubleStreamClient {
     public static void main(String[] args) {
-        ManagedChannelBuilder<?> channelBuilder = ManagedChannelBuilder.forAddress("localhost", 10881).usePlaintext();
+        ManagedChannelBuilder<?> channelBuilder = ManagedChannelBuilder.forAddress("localhost", 10881)
+                                                                       .usePlaintext()
+                                                                       .intercept(new LogClientInterceptor());
         ManagedChannel channel = channelBuilder.build();
         StreamObserver<ResponseMessage> chatResponseStreamObserver = new StreamObserver<ResponseMessage>() {
 
@@ -26,8 +28,8 @@ public class DoubleStreamClient {
             }
 
             @Override
-            public void onError(Throwable throwable) {
-                log.warn("[DoubleStreamClient] gRPC request error");
+            public void onError(Throwable t) {
+                log.warn("[DoubleStreamClient] gRPC request error", t);
             }
 
             @Override
