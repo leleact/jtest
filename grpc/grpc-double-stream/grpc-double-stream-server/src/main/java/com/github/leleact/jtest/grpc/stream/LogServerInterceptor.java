@@ -2,6 +2,7 @@ package com.github.leleact.jtest.grpc.stream;
 
 import io.grpc.*;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.MDC;
 
 /**
  * log interceptor
@@ -17,8 +18,7 @@ public class LogServerInterceptor implements ServerInterceptor {
     @Override
     public <ReqT, RespT> ServerCall.Listener<ReqT> interceptCall(ServerCall<ReqT, RespT> call, Metadata headers, ServerCallHandler<ReqT, RespT> next) {
         String traceId = headers.get(TRACE_ID_KEY);
-        // TODO: Add traceId to sleuth
-        log.warn("traceId from client: {}. TODO: Add traceId to sleuth", traceId);
+        MDC.put("traceId", traceId);
 
         GrpcServerCall<ReqT, RespT> grpcServerCall = new GrpcServerCall<>(call);
 
@@ -26,9 +26,41 @@ public class LogServerInterceptor implements ServerInterceptor {
 
         return new GrpcForwardingServerCallListener<>(call.getMethodDescriptor(), listener) {
             @Override
+            public void onReady() {
+                log.info("Stage: {} begin, Method: {}", "onReady", methodName);
+                super.onReady();
+                log.info("Stage: {} end, Method: {}", "onReady", methodName);
+            }
+
+            @Override
             public void onMessage(ReqT message) {
-                log.info("Method: {}, Message: {}", methodName, message);
+                // receive message from client
+                log.info("Stage: {} begin, Method: {}, Message: {}", "onMessage", methodName, message);
                 super.onMessage(message);
+                log.info("Stage: {} end, Method: {}, Message: {}", "onMessage", methodName, message);
+            }
+
+            @Override
+            public void onHalfClose() {
+                log.info("Stage: {} begin, Method: {}", "onHalfClose", methodName);
+                super.onHalfClose();
+                log.info("Stage: {} end, Method: {}", "onHalfClose", methodName);
+            }
+
+            @Override
+            public void onComplete() {
+                log.info("Stage: {} begin, Method: {}", "onComplete", methodName);
+                super.onComplete();
+                log.info("Stage: {} end, Method: {}", "onComplete", methodName);
+                MDC.clear();
+            }
+
+            @Override
+            public void onCancel() {
+                log.info("Stage: {} begin, Method: {}", "onCancel", methodName);
+                super.onCancel();
+                log.info("Stage: {} end, Method: {}", "onCancel", methodName);
+                MDC.clear();
             }
         };
     }
@@ -53,8 +85,11 @@ public class LogServerInterceptor implements ServerInterceptor {
 
         @Override
         public void sendMessage(R message) {
-            log.info("Method: {}, Response: {}", serverCall.getMethodDescriptor().getFullMethodName(), message);
+            log.info("State: {} begin, Method: {}, Response: {}", "sendMessage",
+                serverCall.getMethodDescriptor().getFullMethodName(), message);
             serverCall.sendMessage(message);
+            log.info("State: {} end, Method: {}, Response: {}", "sendMessage",
+                serverCall.getMethodDescriptor().getFullMethodName(), message);
         }
 
         @Override

@@ -3,6 +3,8 @@ package com.github.leleact.jtest.grpc.stream;
 import io.grpc.*;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.UUID;
+
 /**
  * log interceptor
  *
@@ -27,8 +29,7 @@ public class LogClientInterceptor implements ClientInterceptor {
 
             @Override
             public void start(Listener<RespT> responseListener, Metadata headers) {
-                // TODO: Use the sleuth traceId instead of 999
-                headers.put(TRACE_ID_KEY, "999");
+                headers.put(TRACE_ID_KEY, UUID.randomUUID().toString());
 
                 BackendListener<RespT> backendListener = new BackendListener<>(methodName, responseListener);
                 super.start(backendListener, headers);

@@ -1,5 +1,8 @@
 package com.github.leleact.jtest.grpc.stream;
 
+import com.github.leleact.jtest.grpc.api.GrpcStreamServiceGrpc;
+import com.github.leleact.jtest.grpc.api.RequestMessage;
+import com.github.leleact.jtest.grpc.api.ResponseMessage;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
@@ -13,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
  * @since 2023-10-12
  */
 @Slf4j
-public class DoubleStreamService extends DoubleStreamServiceGrpc.DoubleStreamServiceImplBase {
+public class DoubleStreamService extends GrpcStreamServiceGrpc.GrpcStreamServiceImplBase {
 
     @SneakyThrows
     public static void main(String[] args) {
@@ -28,7 +31,7 @@ public class DoubleStreamService extends DoubleStreamServiceGrpc.DoubleStreamSer
     }
 
     @Override
-    public StreamObserver<RequestMessage> doubleWayStreamFun(StreamObserver<ResponseMessage> responseObserver) {
+    public StreamObserver<RequestMessage> bidirectionalStreamRpc(StreamObserver<ResponseMessage> responseObserver) {
         log.info("[DoubleStreamService] connected: {}", responseObserver);
         return new StreamObserver<>() {
             @Override
@@ -37,6 +40,7 @@ public class DoubleStreamService extends DoubleStreamServiceGrpc.DoubleStreamSer
                 String respMsg = "[RESP]" + msg;
                 log.info("[DoubleStreamService] Client MSG: {}, RESP MSG: {}", msg, respMsg);
                 responseObserver.onNext(ResponseMessage.newBuilder().setRspMsg(respMsg).build());
+                responseObserver.onNext(ResponseMessage.newBuilder().setRspMsg(respMsg + 1).build());
             }
 
             @Override

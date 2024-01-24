@@ -1,5 +1,8 @@
 package com.github.leleact.jtest.grpc.stream;
 
+import com.github.leleact.jtest.grpc.api.GrpcStreamServiceGrpc;
+import com.github.leleact.jtest.grpc.api.RequestMessage;
+import com.github.leleact.jtest.grpc.api.ResponseMessage;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
@@ -21,7 +24,6 @@ public class DoubleStreamClient {
                                                                        .intercept(new LogClientInterceptor());
         ManagedChannel channel = channelBuilder.build();
         StreamObserver<ResponseMessage> chatResponseStreamObserver = new StreamObserver<ResponseMessage>() {
-
             @Override
             public void onNext(ResponseMessage chatResponse) {
                 log.info("[DoubleStreamClient] onNext...MSG: {}", chatResponse.getRspMsg());
@@ -38,11 +40,10 @@ public class DoubleStreamClient {
             }
         };
 
-        DoubleStreamServiceGrpc.DoubleStreamServiceStub doubleStreamServiceStub = DoubleStreamServiceGrpc.newStub(
-            channel);
+        GrpcStreamServiceGrpc.GrpcStreamServiceStub bidirectionalStreamStub = GrpcStreamServiceGrpc.newStub(channel);
 
         while (true) {
-            StreamObserver<RequestMessage> requestStreamObserver = doubleStreamServiceStub.doubleWayStreamFun(
+            StreamObserver<RequestMessage> requestStreamObserver = bidirectionalStreamStub.bidirectionalStreamRpc(
                 chatResponseStreamObserver);
 
             Scanner scanner = new Scanner(System.in);
