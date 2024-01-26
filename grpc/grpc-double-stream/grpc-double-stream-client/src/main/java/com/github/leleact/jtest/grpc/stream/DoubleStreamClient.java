@@ -42,11 +42,16 @@ public class DoubleStreamClient {
 
         GrpcStreamServiceGrpc.GrpcStreamServiceStub bidirectionalStreamStub = GrpcStreamServiceGrpc.newStub(channel);
 
+        Scanner scanner = new Scanner(System.in);
         while (true) {
-            StreamObserver<RequestMessage> requestStreamObserver = bidirectionalStreamStub.bidirectionalStreamRpc(
-                chatResponseStreamObserver);
+            String start = scanner.nextLine();
+            StreamObserver<RequestMessage> requestStreamObserver = null;
+            if (start.equals("S")) {
+                requestStreamObserver = bidirectionalStreamStub.bidirectionalStreamRpc(chatResponseStreamObserver);
+            } else {
+                continue;
+            }
 
-            Scanner scanner = new Scanner(System.in);
             for (; true; ) {
                 String str = scanner.nextLine();
                 if (str.equals("EOF")) {

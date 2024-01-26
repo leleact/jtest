@@ -22,17 +22,20 @@ public class LogClientInterceptor implements ClientInterceptor {
             next.newCall(method, callOptions/*.withDeadlineAfter(10000, TimeUnit.MILLISECONDS)*/)) {
 
             @Override
-            public void sendMessage(ReqT message) {
-                log.info("Method: {}, Message: {}", methodName, message);
-                super.sendMessage(message);
+            public void start(Listener<RespT> responseListener, Metadata headers) {
+                log.info("Stage: {} begin, Method: {}, headers: {}", "start", method.getFullMethodName(), headers);
+                headers.put(TRACE_ID_KEY, UUID.randomUUID().toString());
+                BackendListener<RespT> backendListener = new BackendListener<>(methodName, responseListener);
+                super.start(backendListener, headers);
+                log.info("Stage: {} end, Method: {}, headers: {}", "start", method.getFullMethodName(), headers);
             }
 
             @Override
-            public void start(Listener<RespT> responseListener, Metadata headers) {
-                headers.put(TRACE_ID_KEY, UUID.randomUUID().toString());
-
-                BackendListener<RespT> backendListener = new BackendListener<>(methodName, responseListener);
-                super.start(backendListener, headers);
+            public void sendMessage(ReqT message) {
+                log.info("Stage: {} begin, Method: {}, message: {}", "sendMessage", method.getFullMethodName(),
+                    message);
+                super.sendMessage(message);
+                log.info("Stage: {} end, Method: {}, message: {}", "sendMessage", method.getFullMethodName(), message);
             }
         };
     }
@@ -49,24 +52,32 @@ public class LogClientInterceptor implements ClientInterceptor {
         }
 
         @Override
-        public void onMessage(ReqT message) {
-            log.info("Method: {}, Response: {}", methodName, message);
-            responseListener.onMessage(message);
+        public void onHeaders(Metadata headers) {
+            log.info("Stage: {} begin, Method: {}, headers: {}", "onHeaders", methodName, headers);
+            // TODO 对一个长连接,多次发送header,是追加还是替换
+            responseListener.onHeaders(headers);
+            log.info("Stage: {} begin, Method: {}, headers: {}", "onHeaders", methodName, headers);
         }
 
         @Override
-        public void onHeaders(Metadata headers) {
-            responseListener.onHeaders(headers);
+        public void onMessage(ReqT message) {
+            log.info("Stage: {} begin, Method: {}, message: {}", "onMessage", methodName, message);
+            responseListener.onMessage(message);
+            log.info("Stage: {} end, Method: {}, message: {}", "onMessage", methodName, message);
         }
 
         @Override
         public void onClose(Status status, Metadata trailers) {
+            log.info("Stage: {} begin, Method: {}, status: {} trailers: {}", "onClose", methodName, status, trailers);
             responseListener.onClose(status, trailers);
+            log.info("Stage: {} end, Method: {}, status: {},trailers: {}", "onClose", methodName, status, trailers);
         }
 
         @Override
         public void onReady() {
+            log.info("Stage: {} begin, Method: {}", "onReady", methodName);
             responseListener.onReady();
+            log.info("Stage: {} end, Method: {}", "onReady", methodName);
         }
     }
 

@@ -45,6 +45,7 @@ public class LogServerInterceptor implements ServerInterceptor {
                 log.info("Stage: {} begin, Method: {}", "onHalfClose", methodName);
                 super.onHalfClose();
                 log.info("Stage: {} end, Method: {}", "onHalfClose", methodName);
+                MDC.clear();
             }
 
             @Override
@@ -52,7 +53,6 @@ public class LogServerInterceptor implements ServerInterceptor {
                 log.info("Stage: {} begin, Method: {}", "onComplete", methodName);
                 super.onComplete();
                 log.info("Stage: {} end, Method: {}", "onComplete", methodName);
-                MDC.clear();
             }
 
             @Override
@@ -60,7 +60,6 @@ public class LogServerInterceptor implements ServerInterceptor {
                 log.info("Stage: {} begin, Method: {}", "onCancel", methodName);
                 super.onCancel();
                 log.info("Stage: {} end, Method: {}", "onCancel", methodName);
-                MDC.clear();
             }
         };
     }
@@ -80,15 +79,21 @@ public class LogServerInterceptor implements ServerInterceptor {
 
         @Override
         public void sendHeaders(Metadata headers) {
+            headers.put(TRACE_ID_KEY, "a");
+            log.info("Stage: {} begin, Method: {}, headers: {}", "sendHeaders",
+                serverCall.getMethodDescriptor().getFullMethodName(), headers);
             serverCall.sendHeaders(headers);
+            log.info("Stage: {} end, Method: {}, headers: {}", "sendHeaders",
+                serverCall.getMethodDescriptor().getFullMethodName(), headers);
         }
 
+        // send to client
         @Override
         public void sendMessage(R message) {
-            log.info("State: {} begin, Method: {}, Response: {}", "sendMessage",
+            log.info("Stage: {} begin, Method: {}, message: {}", "sendMessage",
                 serverCall.getMethodDescriptor().getFullMethodName(), message);
             serverCall.sendMessage(message);
-            log.info("State: {} end, Method: {}, Response: {}", "sendMessage",
+            log.info("Stage: {} end, Method: {}, message: {}", "sendMessage",
                 serverCall.getMethodDescriptor().getFullMethodName(), message);
         }
 
