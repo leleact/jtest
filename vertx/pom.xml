@@ -45,4 +45,35 @@
       <version>${vertx-version}</version>
     </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <showWarnings>true</showWarnings>
+          <showDeprecation>true</showDeprecation>
+          <failOnWarning>false</failOnWarning>
+          <compilerArgs>
+            <arg>-Xlint:all</arg>
+            <!-- disable annotation process warning -->
+            <arg>-Xlint:-processing</arg>
+          </compilerArgs>
+          <annotationProcessorPaths>
+            <annotationProcessorPath>
+              <groupId>io.vertx</groupId>
+              <artifactId>vertx-codegen</artifactId>
+              <version>${vertx-version}</version>
+              <classifier>processor</classifier>
+            </annotationProcessorPath>
+            <annotationProcessorPath>
+              <groupId>io.vertx</groupId>
+              <artifactId>vertx-service-proxy</artifactId>
+              <version>${vertx-version}</version>
+            </annotationProcessorPath>
+          </annotationProcessorPaths>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
