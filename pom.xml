@@ -34,6 +34,7 @@
     <module>swagger</module>
     <module>validator</module>
     <module>grpc</module>
+    <module>vertx</module>
   </modules>
 
   <properties>

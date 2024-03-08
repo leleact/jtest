@@ -55,4 +55,16 @@ public class DoubleStreamService extends GrpcStreamServiceGrpc.GrpcStreamService
             }
         };
     }
+
+    @Override
+    public void unaryRpc(RequestMessage request, StreamObserver<ResponseMessage> responseObserver) {
+        log.info("[DoubleStreamService] unaryRpc: {}", responseObserver);
+        try {
+            Thread.sleep(3000L);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        responseObserver.onNext(ResponseMessage.newBuilder().setRspMsg(request.getReqMsg() + 1).build());
+        responseObserver.onCompleted();
+    }
 }
