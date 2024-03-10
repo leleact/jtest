@@ -5,16 +5,17 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.github.leleact.jtest</groupId>
-    <artifactId>grpc</artifactId>
+    <artifactId>grpc-double-stream</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>grpc-double-stream</artifactId>
-  <packaging>pom</packaging>
-  <modules>
-    <module>grpc-double-stream-api</module>
-    <module>grpc-double-stream-client</module>
-    <module>grpc-double-stream-server</module>
-    <module>grpc-double-stream-server-transfer</module>
-  </modules>
+  <artifactId>grpc-double-stream-server-transfer</artifactId>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.github.leleact.jtest</groupId>
+      <artifactId>grpc-double-stream-api</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
 </project>

@@ -1,0 +1,21 @@
+<configuration scan="true" scanPeriod="15 minutes">
+  <property name="CONSOLE_LOG_PATTERN"
+            value="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) %magenta(${PID}) [%15.15t] %cyan(%-40.40C{1}) %green([%-20.40F:%4.4L]) : %m|%X|%n%xEx"/>
+
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+      <charset>UTF-8</charset>
+      <layout class="ch.qos.logback.classic.PatternLayout">
+        <Pattern>${CONSOLE_LOG_PATTERN}</Pattern>
+      </layout>
+    </encoder>
+  </appender>
+
+  <logger name="com.github.leleact.jtest" level="debug" additivity="false">
+    <appender-ref ref="CONSOLE"/>
+  </logger>
+
+  <root level="info" additivity="false">
+    <appender-ref ref="CONSOLE"/>
+  </root>
+</configuration>

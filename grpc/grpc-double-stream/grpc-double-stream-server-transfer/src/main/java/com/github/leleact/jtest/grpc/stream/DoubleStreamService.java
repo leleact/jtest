@@ -3,11 +3,19 @@ package com.github.leleact.jtest.grpc.stream;
 import com.github.leleact.jtest.grpc.api.GrpcStreamServiceGrpc;
 import com.github.leleact.jtest.grpc.api.RequestMessage;
 import com.github.leleact.jtest.grpc.api.ResponseMessage;
+import com.google.common.util.concurrent.ListenableFuture;
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.Objects;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 /**
  * double stream service
@@ -18,9 +26,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class DoubleStreamService extends GrpcStreamServiceGrpc.GrpcStreamServiceImplBase {
 
+    private GrpcStreamServiceGrpc.GrpcStreamServiceFutureStub futureStub;
+
     @SneakyThrows
     public static void main(String[] args) {
-        int serverPort = 10882;
+        int serverPort = 10881;
         Server server = ServerBuilder.forPort(serverPort)
                                      .intercept(new LogServerInterceptor())
                                      .addService(new DoubleStreamService())
@@ -28,6 +38,14 @@ public class DoubleStreamService extends GrpcStreamServiceGrpc.GrpcStreamService
         server.start();
         log.info("OrderServerBoot started, listening on:" + serverPort);
         server.awaitTermination();
+    }
+
+    public DoubleStreamService() {
+        ManagedChannelBuilder<?> channelBuilder = ManagedChannelBuilder.forAddress("localhost", 10882)
+                                                                       .usePlaintext()
+                                                                       .intercept(new LogClientInterceptor());
+        ManagedChannel channel = channelBuilder.build();
+        futureStub = GrpcStreamServiceGrpc.newFutureStub(channel);
     }
 
     @Override
@@ -59,12 +77,16 @@ public class DoubleStreamService extends GrpcStreamServiceGrpc.GrpcStreamService
     @Override
     public void unaryRpc(RequestMessage request, StreamObserver<ResponseMessage> responseObserver) {
         log.info("[DoubleStreamService] unaryRpc: {}", responseObserver);
+        ListenableFuture<ResponseMessage> resFuture = futureStub.unaryRpc(request);
+        ResponseMessage res = null;
         try {
-            Thread.sleep(3000L);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            res = resFuture.get(3, TimeUnit.SECONDS);
+        } catch (InterruptedException | ExecutionException | TimeoutException e) {
+            log.error(e.getMessage(), e);
+            // throw new RuntimeException(e);
         }
-        responseObserver.onNext(ResponseMessage.newBuilder().setRspMsg(request.getReqMsg() + 1).build());
+        responseObserver.onNext(
+            Objects.requireNonNullElseGet(res, () -> ResponseMessage.newBuilder().setRspMsg("Timeout").build()));
         responseObserver.onCompleted();
     }
 }
