@@ -26,6 +26,7 @@
     <module>maven</module>
     <module>mockito</module>
     <module>mybatis</module>
+    <module>netty</module>
     <module>quick-test</module>
     <module>rx-java</module>
     <module>serialize</module>
@@ -40,16 +41,16 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>21</maven.compiler.release>
-    <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
+    <maven.compiler.plugin.version>3.12.1</maven.compiler.plugin.version>
     <maven.war.plugin.version>3.3.2</maven.war.plugin.version>
-    <maven.source.plugin.version>3.2.0</maven.source.plugin.version>
-    <maven.surefire.plugin.version>3.1.2</maven.surefire.plugin.version>
+    <maven.source.plugin.version>3.3.0</maven.source.plugin.version>
+    <maven.surefire.plugin.version>3.2.5</maven.surefire.plugin.version>
     <maven.checkstyle.plugin.version>3.3.0</maven.checkstyle.plugin.version>
     <maven.dependency.plugin.version>3.6.0</maven.dependency.plugin.version>
     <mybatis.generator.maven.plugin.version>1.3.7</mybatis.generator.maven.plugin.version>
     <log4j.version>2.20.0</log4j.version>
-    <spring-boot.version>3.1.5</spring-boot.version>
-    <spring-cloud.version>2022.0.4</spring-cloud.version>
+    <spring-boot.version>3.2.3</spring-boot.version>
+    <spring-cloud.version>2023.0.0</spring-cloud.version>
     <spring-statemachine.version>3.2.1</spring-statemachine.version>
     <mybatis.spring.boot.version>3.0.2</mybatis.spring.boot.version>
     <puppycrawl-tools-checkstyle.version>10.12.0</puppycrawl-tools-checkstyle.version>
