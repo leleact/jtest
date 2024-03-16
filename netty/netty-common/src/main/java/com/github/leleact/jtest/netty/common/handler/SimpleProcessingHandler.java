@@ -16,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
  * @since 2024-03-16
  */
 @Slf4j
+@SuppressWarnings("unused")
 public class SimpleProcessingHandler extends ChannelInboundHandlerAdapter {
     private ByteBuf tmp;
 

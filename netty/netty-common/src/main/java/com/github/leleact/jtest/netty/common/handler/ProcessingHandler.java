@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ProcessingHandler extends ChannelInboundHandlerAdapter {
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+    public void channelRead(ChannelHandlerContext ctx, Object msg) {
         RequestData requestData = (RequestData) msg;
         ResponseData responseData = new ResponseData();
         responseData.setIntValue(requestData.getIntValue() * 2);

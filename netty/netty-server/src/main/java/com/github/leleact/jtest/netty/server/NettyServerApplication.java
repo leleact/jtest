@@ -43,7 +43,7 @@ public class NettyServerApplication {
              .channel(NioServerSocketChannel.class)
              .childHandler(new ChannelInitializer<SocketChannel>() {
                  @Override
-                 public void initChannel(SocketChannel ch) throws Exception {
+                 public void initChannel(SocketChannel ch) {
                      ch.pipeline()
                        .addLast(new RequestDecoder(), new ResponseDataEncoder(), new ProcessingHandler(),
                            new LoggingHandler(LogLevel.TRACE));

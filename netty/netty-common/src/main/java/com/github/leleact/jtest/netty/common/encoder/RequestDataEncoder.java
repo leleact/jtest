@@ -18,7 +18,7 @@ public class RequestDataEncoder extends MessageToByteEncoder<RequestData> {
     private final Charset charset = StandardCharsets.UTF_8;
 
     @Override
-    protected void encode(ChannelHandlerContext ctx, RequestData msg, ByteBuf out) throws Exception {
+    protected void encode(ChannelHandlerContext ctx, RequestData msg, ByteBuf out) {
         out.writeInt(msg.getIntValue());
         out.writeInt(msg.getStringValue().length());
         out.writeCharSequence(msg.getStringValue(), charset);

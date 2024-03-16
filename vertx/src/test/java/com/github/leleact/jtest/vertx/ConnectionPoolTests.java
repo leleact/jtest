@@ -14,6 +14,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.function.Function;
 
 /**
  * connection pool test
@@ -81,12 +82,10 @@ public class ConnectionPoolTests {
         CountDownLatch startServerLatch = new CountDownLatch(1);
 
         server.listen(SocketAddress.inetSocketAddress(DEFAULT_PORT, DEFAULT_HOST),
-            new Handler<AsyncResult<HttpServer>>() {
-                @Override
-                public void handle(AsyncResult<HttpServer> event) {
-                    startServerLatch.countDown();
-                }
-            });
+            new CommonHandler<>(httpServerAsyncResult -> {
+                startServerLatch.countDown();
+                return null;
+            }));
         startServerLatch.await();
         LOG.info("Started server");
 
@@ -108,5 +107,19 @@ public class ConnectionPoolTests {
         serverCloseLatch.await();
 
         //   HttpClientImpl.EXPIRED_CHECKER = oldChecker;
+    }
+
+    private static class CommonHandler<T> implements Handler<AsyncResult<T>> {
+
+        Function<T, Void> f;
+
+        public CommonHandler(Function<T, Void> f) {
+            this.f = f;
+        }
+
+        @Override
+        public void handle(AsyncResult<T> event) {
+            f.apply(event.result());
+        }
     }
 }

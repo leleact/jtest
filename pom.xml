@@ -67,7 +67,7 @@
     <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
 
     <!-- dubbo: start -->
-    <dubbo.version>3.2.5</dubbo.version>
+    <dubbo.version>3.2.11</dubbo.version>
     <!-- dubbo: end -->
 
     <javassist.version>3.28.0-GA</javassist.version>

@@ -53,7 +53,7 @@ public class SM2Tests {
 
     @Test
     public void keyPair1Test() {
-        int length = 0;
+        int length;
         byte[] privateKey;
         byte[] publicKey;
         do {
