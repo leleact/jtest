@@ -10,6 +10,7 @@ import org.springframework.scheduling.concurrent.ConcurrentTaskScheduler;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledFuture;
 
 @EnableScheduling
@@ -21,12 +22,12 @@ public class ScheduleJobApplication {
 
     @Bean
     public TaskScheduler taskScheduler() {
-        return new ConcurrentTaskScheduler();
+        return new ConcurrentTaskScheduler(Executors.newSingleThreadScheduledExecutor());
     }
 
     public Job addJob(String name, Trigger trigger) {
         Job job = new Job(name);
-        ScheduledFuture<?> future = taskScheduler().schedule(job , trigger);
+        ScheduledFuture<?> future = taskScheduler().schedule(job, trigger);
         futures.put(name, future);
         return job;
     }
