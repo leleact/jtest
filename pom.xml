@@ -73,15 +73,19 @@
     <javassist.version>3.28.0-GA</javassist.version>
 
     <!-- mybatis, mysql, transaction, datasource: start-->
-    <mysql.connector.version>8.0.32</mysql.connector.version>
+    <mysql.connector.version>8.3.0</mysql.connector.version>
     <mybatis.spring.version>3.0.1</mybatis.spring.version>
-    <mybatis.version>3.5.12</mybatis.version>
+    <mybatis.version>3.5.15</mybatis.version>
     <!-- mybatis, mysql, transaction, datasource: end-->
 
     <!-- apache commons: start-->
     <apache.commons.io.version>2.11.0</apache.commons.io.version>
     <apache.commons.beanutils.version>1.9.4</apache.commons.beanutils.version>
     <!-- apache commons: end-->
+
+    <!-- security: start -->
+    <bouncycastle.version>1.77</bouncycastle.version>
+    <!-- security: end-->
   </properties>
 
   <dependencyManagement>

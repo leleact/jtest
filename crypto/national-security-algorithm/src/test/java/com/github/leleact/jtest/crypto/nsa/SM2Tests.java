@@ -38,7 +38,8 @@ public class SM2Tests {
         PublicKey publicKey = keyPair.getPublic();
         PrivateKey privateKey = keyPair.getPrivate();
 
-        Signature signature = Signature.getInstance(GMObjectIdentifiers.sm2sign_with_sm3.toString(), new BouncyCastleProvider());
+        Signature signature = Signature.getInstance(GMObjectIdentifiers.sm2sign_with_sm3.toString(),
+            new BouncyCastleProvider());
         signature.initSign(privateKey);
         byte[] plainText = "Hello world".getBytes(StandardCharsets.UTF_8);
         signature.update(plainText);
@@ -58,7 +59,8 @@ public class SM2Tests {
         do {
             ECKeyPairGenerator gen = new ECKeyPairGenerator();
             X9ECParameters secNameCurves = SECNamedCurves.getByName("secp256k1");
-            ECDomainParameters ecParams = new ECDomainParameters(secNameCurves.getCurve(), secNameCurves.getG(), secNameCurves.getN(), secNameCurves.getH());
+            ECDomainParameters ecParams = new ECDomainParameters(secNameCurves.getCurve(), secNameCurves.getG(),
+                secNameCurves.getN(), secNameCurves.getH());
             ECKeyGenerationParameters keyGenParam = new ECKeyGenerationParameters(ecParams, new SecureRandom());
             gen.init(keyGenParam);
             AsymmetricCipherKeyPair kp = gen.generateKeyPair();
@@ -75,8 +77,10 @@ public class SM2Tests {
     @Test
     public void genKeyPair2Test() {
         X9ECParameters secNameCurves = SECNamedCurves.getByName("secp256k1");
-        ECDomainParameters ecParams = new ECDomainParameters(secNameCurves.getCurve(), secNameCurves.getG(), secNameCurves.getN(), secNameCurves.getH());
-        ECKeyGenerationParameters ecKeyGenerationParameters = new ECKeyGenerationParameters(ecParams, new SecureRandom());
+        ECDomainParameters ecParams = new ECDomainParameters(secNameCurves.getCurve(), secNameCurves.getG(),
+            secNameCurves.getN(), secNameCurves.getH());
+        ECKeyGenerationParameters ecKeyGenerationParameters = new ECKeyGenerationParameters(ecParams,
+            new SecureRandom());
         ECKeyPairGenerator keyPairGenerator = new ECKeyPairGenerator();
         keyPairGenerator.init(ecKeyGenerationParameters);
         AsymmetricCipherKeyPair kp = keyPairGenerator.generateKeyPair();

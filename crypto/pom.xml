@@ -15,10 +15,6 @@
     <module>national-security-algorithm</module>
   </modules>
 
-  <properties>
-    <bouncycastle.version>1.70</bouncycastle.version>
-  </properties>
-
   <dependencies>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -45,7 +41,7 @@
 
     <dependency>
       <groupId>org.bouncycastle</groupId>
-      <artifactId>bcprov-jdk15on</artifactId>
+      <artifactId>bcprov-jdk18on</artifactId>
       <version>${bouncycastle.version}</version>
     </dependency>
   </dependencies>
