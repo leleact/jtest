@@ -63,14 +63,14 @@
     <maven-checkstyle-plugin.failOnViolation>true</maven-checkstyle-plugin.failOnViolation>
 
     <xstream.version>1.4.20</xstream.version>
-    <guava.version>32.1.2-jre</guava.version>
+    <guava.version>33.1.0-jre</guava.version>
     <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
 
     <!-- dubbo: start -->
     <dubbo.version>3.2.11</dubbo.version>
     <!-- dubbo: end -->
 
-    <javassist.version>3.28.0-GA</javassist.version>
+    <javassist.version>3.30.2-GA</javassist.version>
 
     <!-- mybatis, mysql, transaction, datasource: start-->
     <mysql.connector.version>8.3.0</mysql.connector.version>
