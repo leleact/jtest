@@ -33,4 +33,47 @@ public class CompletableFutureTests {
         Assertions.assertEquals(2, value);
         log.info("End async job.");
     }
+
+    @Test
+    public void whenCompleteTest() {
+        CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> 1, executor).whenComplete((r, t) -> {
+            log.info("Print value of async job: {}.", r);
+            Assertions.assertEquals(1, r);
+        }).whenComplete((r, t) -> {
+            log.info("Print value of async job: {}.", r);
+            Assertions.assertEquals(1, r);
+        });
+        future.join();
+    }
+
+    @Test
+    public void combinedTest() {
+        CompletableFuture<Integer> future1 = CompletableFuture.supplyAsync(() -> {
+            try {
+                Thread.sleep(1000L);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            return 1;
+        }, executor);
+        CompletableFuture<Integer> future2 = CompletableFuture.supplyAsync(() -> {
+            try {
+                Thread.sleep(1000L);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            return 2;
+        }, executor);
+
+        CompletableFuture<Void> future = CompletableFuture.allOf(future1, future2).whenComplete((v, e) -> {
+            if (e != null) {
+                throw new RuntimeException(e);
+            } else {
+                log.info("Print value of combined job: {}.", v);
+                Assertions.assertNull(v);
+            }
+        });
+
+        future.join();
+    }
 }
