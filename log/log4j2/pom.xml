@@ -12,9 +12,10 @@
   <artifactId>log4j2</artifactId>
   <packaging>pom</packaging>
   <modules>
-    <module>log4j2-template</module>
     <module>log4j2-auto-delete</module>
+    <module>log4j2-async</module>
     <module>log4j2-performance</module>
+    <module>log4j2-template</module>
   </modules>
 
   <dependencies>
@@ -28,22 +29,5 @@
       <artifactId>junit-jupiter-engine</artifactId>
       <scope>test</scope>
     </dependency>
-
-    <!--
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-1.2-api</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-jcl</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-jul</artifactId>
-    </dependency>
-    -->
   </dependencies>
 </project>
