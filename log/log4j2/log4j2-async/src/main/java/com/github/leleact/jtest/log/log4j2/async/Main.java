@@ -5,16 +5,16 @@ import org.apache.logging.log4j.core.config.Configurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.InputStream;
+import java.net.URL;
 
 public class Main {
 
     static {
         try {
-            InputStream inputStream = Main.class.getClassLoader().getResourceAsStream("log4j2-test-async-logger.xml");
-            assert inputStream != null;
-            ConfigurationSource source = new ConfigurationSource(inputStream);
-            Configurator.initialize(null, source);
+            URL url = Main.class.getClassLoader().getResource("log4j2-test-async-logger.xml");
+            assert url != null;
+            // log4j2 XmlConfiguration监听文件需要传入url或者file对象
+            Configurator.initialize(null, ConfigurationSource.fromUri(url.toURI()));
         } catch (Exception e) {
             System.out.println("Error initializing log4j2-test-async-logger.xml");
         }
