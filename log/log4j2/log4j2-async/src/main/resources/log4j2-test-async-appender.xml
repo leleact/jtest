@@ -29,31 +29,35 @@
         </Delete>
       </DefaultRolloverStrategy>
     </RollingFile>
+
+    <Async name="AsyncConsole" bufferSize="1" includeLocation="false">
+      <AppenderRef ref="Console"/>
+    </Async>
+
+    <Async name="AsyncRollingFile" bufferSize="1" includeLocation="true">
+      <AppenderRef ref="RollingFile"/>
+    </Async>
   </Appenders>
   <Loggers>
     <Root level="info">
-      <AppenderRef ref="Console"/>
-      <AppenderRef ref="RollingFile"/>
+      <AppenderRef ref="AsyncConsole"/>
+      <AppenderRef ref="AsyncRollingFile"/>
     </Root>
 
-    <AsyncLogger name="com.github.leleact.jtest" level="trace" additivity="false">
+    <Logger name="com.github.leleact.jtest" level="trace" additivity="false" includeLocation="false">
       <AppenderRef ref="Console"/>
       <AppenderRef ref="RollingFile"/>
-    </AsyncLogger>
+    </Logger>
 
-    <AsyncLogger name="com.github.leleact.jtest.log.log4j2.async.AsyncLoggerMain.a" level="trace" additivity="false">
-      <AppenderRef ref="Console"/>
-      <AppenderRef ref="RollingFile"/>
-    </AsyncLogger>
+    <Logger name="com.github.leleact.jtest.log.log4j2.async.AsyncAppenderMain.a" level="trace" additivity="false"
+            includeLocation="false">
+      <AppenderRef ref="AsyncConsole"/>
+      <AppenderRef ref="AsyncRollingFile"/>
+    </Logger>
 
-    <AsyncLogger name="com.github.leleact.jtest.log.log4j2.async.AsyncLoggerMain.b" level="trace" additivity="false">
-      <AppenderRef ref="Console"/>
-      <AppenderRef ref="RollingFile"/>
-    </AsyncLogger>
-
-    <AsyncLogger name="org.springframework" level="trace" additivity="false">
-      <AppenderRef ref="Console"/>
-      <AppenderRef ref="RollingFile"/>
-    </AsyncLogger>
+    <Logger name="com.github.leleact.jtest.log.log4j2.async.AsyncAppenderMain.b" level="trace" additivity="false">
+      <AppenderRef ref="AsyncConsole"/>
+      <AppenderRef ref="AsyncRollingFile"/>
+    </Logger>
   </Loggers>
 </Configuration>

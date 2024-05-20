@@ -7,11 +7,11 @@ import org.slf4j.LoggerFactory;
 
 import java.net.URL;
 
-public class Main {
+public class AsyncLoggerMain {
 
     static {
         try {
-            URL url = Main.class.getClassLoader().getResource("log4j2-test-async-logger.xml");
+            URL url = AsyncLoggerMain.class.getClassLoader().getResource("log4j2-test-async-logger.xml");
             assert url != null;
             // log4j2 XmlConfiguration监听文件需要传入url或者file对象
             Configurator.initialize(null, ConfigurationSource.fromUri(url.toURI()));
@@ -20,12 +20,12 @@ public class Main {
         }
     }
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AsyncLoggerMain.class);
 
     public static void main(String[] args) throws InterruptedException {
         LOGGER.info("xxx");
         Thread a = new Thread(new Runnable() {
-            final Logger LoggerA = LoggerFactory.getLogger(Main.class.getName() + ".a");
+            final Logger LoggerA = LoggerFactory.getLogger(AsyncLoggerMain.class.getName() + ".a");
 
             @Override
             public void run() {
@@ -35,7 +35,7 @@ public class Main {
             }
         });
         Thread b = new Thread(new Runnable() {
-            final Logger LoggerB = LoggerFactory.getLogger(Main.class.getName() + ".b");
+            final Logger LoggerB = LoggerFactory.getLogger(AsyncLoggerMain.class.getName() + ".b");
 
             @Override
             public void run() {
