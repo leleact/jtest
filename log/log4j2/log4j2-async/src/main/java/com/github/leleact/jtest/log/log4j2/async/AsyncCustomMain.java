@@ -30,13 +30,13 @@ public class AsyncCustomMain {
 
     private static void test() {
         long start = System.currentTimeMillis();
-        for (int i = 0; i < 6000000; i++) {
+        for (int i = 0; i < 100000; i++) {
             LOGGER_B.info("Main");
         }
         long end = System.currentTimeMillis();
         LOGGER.info("B: {} ms", end - start);
         start = System.currentTimeMillis();
-        for (int i = 0; i < 6000000; i++) {
+        for (int i = 0; i < 100000; i++) {
             LOGGER_A.info("Main");
         }
         end = System.currentTimeMillis();

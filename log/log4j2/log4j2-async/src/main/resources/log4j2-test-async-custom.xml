@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN" monitorInterval="300" packages="com.github.leleact.jtest.log.log4j2.async">
+<Configuration status="WARN" monitorInterval="300">
 
   <Properties>
     <Property name="baseDir">target/logs</Property>
@@ -13,13 +13,26 @@
         pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{-%5p}{FATAL=red blink, ERROR=red, WARN=yellow bold, INFO=green, DEBUG=green bold, TRACE=blue} %style{%pid}{magenta} [%15.15t] %style{%-40.40C{1.}}{cyan} %style{[%-20.40file:%4.4line]}{green} : %m%n%xEx"/>
     </Console>
 
-    <MyCustomAppender name="CustomFile">
+
+    <MyCustomAppender name="CustomFile" fileName="${rollingFileName}"
+                      filePattern="${LOG_PATH}/backup/${rollingFileName}-%d{yyyy-MM-dd}-%i.log.gz">
       <PatternLayout>
-        <Pattern>%d %-5p [%15.15t] %-40.40C{1.} [%-20.40file:%4.4line] : %m%n</Pattern>
+        <Pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [%t] %level %class{36} [%M:%L] - %msg%xEx%n</Pattern>
       </PatternLayout>
+      <Policies>
+        <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+        <SizeBasedTriggeringPolicy size="1 GB"/>
+      </Policies>
+
+      <DefaultRolloverStrategy fileIndex="max" max="20">
+        <Delete basePath="${LOG_PATH}" maxDepth="3">
+          <IfFileName glob="**/*.log.gz"/>
+          <IfLastModified age="30d"/>
+        </Delete>
+      </DefaultRolloverStrategy>
     </MyCustomAppender>
 
-    <Async name="AsyncCustomFile" bufferSize="10240000" includeLocation="false">
+    <Async name="AsyncCustomFile" bufferSize="10240000" includeLocation="true">
       <AppenderRef ref="CustomFile"/>
     </Async>
   </Appenders>
