@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/jdbc
+       http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+  <bean class="com.github.leleact.jtest.mybatis.spring.system.SpringInit"/>
+
+  <bean id="Druid-CP-Create" class="java.util.concurrent.ScheduledThreadPoolExecutor">
+    <constructor-arg value="3" index="0"/>
+  </bean>
+  <bean id="Druid-CP-Destroy" class="java.util.concurrent.ScheduledThreadPoolExecutor">
+    <constructor-arg value="3" index="0"/>
+  </bean>
+  <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+    <!-- 基本属性 url、user、password -->
+    <property name="url" value="jdbc:mysql://10.0.1.3:3306/test"/>
+    <property name="username" value="root"/>
+    <property name="password" value="root"/>
+    <!-- 配置初始化大小、最小、最大 -->
+    <property name="initialSize" value="20"/>
+    <property name="minIdle" value="20"/>
+    <property name="maxActive" value="40"/>
+    <!-- 配置获取连接等待超时的时间 -->
+    <property name="maxWait" value="300000"/>
+    <property name="createScheduler" ref="Druid-CP-Create"/>
+    <property name="destroyScheduler" ref="Druid-CP-Destroy"/>
+    <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+    <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+    <property name="timeBetweenEvictionRunsMillis" value="1000"/>
+    <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+    <property name="minEvictableIdleTimeMillis" value="60000"/>
+    <!-- 空闲连接保活 -->
+    <property name="keepAlive" value="true"/>
+    <!-- 检测语句强制用执行SQL（规避网关的假连接，参考启动属性：-Ddruid.mysql.usePingMethod=false） -->
+    <property name="validationQuery" value="SELECT 1"/>
+    <property name="testWhileIdle" value="true"/>
+    <property name="testOnBorrow" value="true"/>
+    <property name="testOnReturn" value="false"/>
+    <!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+    <property name="poolPreparedStatements" value="false"/>
+    <!-- 使用MySQL 低版本驱动时指定连接使用utf8mb4,以便于支持4字节的emoji字符和GB18030-2022规范所要求的生僻字  -->
+    <property name="connectionInitSqls">
+      <list>
+        <value>set NAMES 'utf8mb4'</value>
+      </list>
+    </property>
+    <property name="connectProperties">
+      <props>
+        <prop key="MySQLIndexMergeOff">true</prop>
+      </props>
+    </property>
+    <!-- 配置监控统计拦截的filters -->
+    <property name="filters" value="stat,slf4j"/>
+    <!-- 配置监控统计filters -->
+    <property name="proxyFilters">
+      <list>
+        <ref bean="stat-filter"/>
+      </list>
+    </property>
+  </bean>
+
+  <!-- 自定义扩展增强的 stat filter-->
+  <bean id="stat-filter" class="com.alibaba.druid.filter.stat.MergeStatFilter">
+    <!-- SQL 慢查询的时长 -->
+    <property name="slowSqlMillis" value="200"/>
+    <property name="logSlowSql" value="true"/>
+    <property name="mergeSql" value="true"/>
+    <!--    <property name="maxSampleCountPerMergeSql" value="10"/>-->
+    <!--    <property name="maxUpdateCountNeedWarning" value="1000"/>-->
+    <!--    <property name="maxQueryFetchCountNeedWarning" value="1000"/>-->
+    <!--    <property name="maxQueryPacketSizeNeedWarning" value="512000"/>-->
+    <!--    <property name="slowTransactionnMillis" value="500"/>-->
+  </bean>
+
+  <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <property name="dataSource" ref="dataSource"/>
+    <property name="mapperLocations" value="classpath*:mybatis/*.xml"/>
+  </bean>
+
+  <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <property name="dataSource" ref="dataSource"/>
+  </bean>
+
+  <tx:annotation-driven proxy-target-class="true"/>
+
+  <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <property name="basePackage" value="com.github.leleact.jtest.mybatis.spring.db.mapper"/>
+    <property name="annotationClass" value="org.apache.ibatis.annotations.Mapper"/>
+  </bean>
+
+  <context:component-scan base-package="com.github.leleact.jtest.mybatis.spring"/>
+</beans>

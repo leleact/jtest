@@ -19,9 +19,13 @@ public interface T1Mapper {
 
     T1 selectByPrimaryKey(String f1);
 
+    T1 selectByPrimaryKeyForUpdate(String f1);
+
     int updateByPrimaryKeySelective(T1 record);
 
     int updateByPrimaryKey(T1 record);
 
     T1 selectByF2(String f2);
+
+    int createTable();
 }
