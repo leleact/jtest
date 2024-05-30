@@ -1,4 +1,4 @@
-package com.github.leleact.jtest.rx.java;
+package com.github.leleact.jtest.reactive.rx.java;
 
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.observables.ConnectableObservable;

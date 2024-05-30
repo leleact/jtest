@@ -28,7 +28,7 @@
     <module>mybatis</module>
     <module>netty</module>
     <module>quick-test</module>
-    <module>rx-java</module>
+    <module>reactive</module>
     <module>serialize</module>
     <module>servicecomb</module>
     <module>spring</module>

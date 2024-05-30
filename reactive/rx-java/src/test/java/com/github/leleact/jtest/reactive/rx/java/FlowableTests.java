@@ -1,4 +1,4 @@
-package com.github.leleact.jtest.rx.java;
+package com.github.leleact.jtest.reactive.rx.java;
 
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
@@ -11,7 +11,7 @@ public class FlowableTests {
     @Test
     public void helloWorldTest() {
         log.info("Thread Name");
-        Flowable.just("Hello world").subscribe(log::info);
+        Flowable.just("Hello world").subscribe(log::info).dispose();
     }
 
     @Test
