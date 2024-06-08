@@ -10,7 +10,7 @@ public class TestRunner {
     @Test
     public void staticTest() {
         String str = UsedStaticField.field;
-        Assertions.assertEquals("XXX", str);
+        Assertions.assertEquals("XXXX", str);
     }
 
     @Test

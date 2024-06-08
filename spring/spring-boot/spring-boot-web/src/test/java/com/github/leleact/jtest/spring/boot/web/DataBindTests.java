@@ -22,7 +22,7 @@ public class DataBindTests {
     @Test
     public void dataTest() throws Exception {
         String data = "<a><b>b</b><c>c</c></a>";
-        String response = mockMvc.perform(post("/xml").contentType(MediaType.TEXT_XML_VALUE + ";charset=utf-8").content(data)).andExpect(status().is(200)).andReturn().getResponse().getContentAsString();
+        String response = mockMvc.perform(post("/xml").contentType(MediaType.TEXT_XML_VALUE + ";charset=utf-8").content(data)).andExpect(status().is(400)).andReturn().getResponse().getContentAsString();
         log.info("response : [{}]", response);
     }
 

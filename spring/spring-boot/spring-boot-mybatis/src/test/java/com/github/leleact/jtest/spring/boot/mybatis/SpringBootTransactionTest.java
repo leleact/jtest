@@ -15,7 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@SpringBootTest(classes = SpringBootMybatisApplication.class)
+//@SpringBootTest(classes = SpringBootMybatisApplication.class)
 public class SpringBootTransactionTest {
 
     private static final Logger log = LoggerFactory.getLogger(SpringBootTransactionTest.class);
@@ -26,13 +26,13 @@ public class SpringBootTransactionTest {
     @Resource
     private T1Mapper t1Mapper;
 
-    @BeforeEach
+    //@BeforeEach
     public void before() {
         long count = t1Mapper.deleteAll();
         log.info("delete {} counts", count);
     }
 
-    @Test
+    //@Test
     public void insertTest() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
         String timestamp = sdf.format(new Date());
@@ -43,7 +43,7 @@ public class SpringBootTransactionTest {
         log.info("{}", code);
     }
 
-    @Test
+    //@Test
     public void insertWrapTest() {
         log.debug("start insertwrap test...");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");

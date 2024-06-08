@@ -11,6 +11,10 @@
 
   <artifactId>mybatis-page-helper</artifactId>
 
+  <properties>
+    <pagehelper.version>2.1.0</pagehelper.version>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -23,8 +27,7 @@
     <dependency>
       <groupId>com.github.pagehelper</groupId>
       <artifactId>pagehelper-spring-boot-starter</artifactId>
-      <version>1.3.0</version>
+      <version>${pagehelper.version}</version>
     </dependency>
   </dependencies>
-
 </project>

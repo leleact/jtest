@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import jakarta.annotation.Resource;
+import java.util.UUID;
 
 /**
  * recursive tx ref
@@ -40,7 +41,7 @@ public class TxRecursiveRefService {
     @Transactional
     public void saveT1Data() {
         T1 t1 = new T1();
-        t1.setF1("1");
+        t1.setF1(UUID.randomUUID().toString().replaceAll("-", ""));
         t1.setF2("a");
         t1Mapper.insert(t1);
     }

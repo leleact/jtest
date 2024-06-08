@@ -1,6 +1,7 @@
 package com.github.leleact.jtest.spring.oxm;
 
 import com.github.leleact.jtest.spring.oxm.bean.A;
+import com.thoughtworks.xstream.security.AnyTypePermission;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -18,6 +19,7 @@ public class TestOxmApplication {
         Map<String, Object> map = new HashMap<>();
         map.put("AA", A.class);
         xStreamMarshaller.setAliases(map);
+        xStreamMarshaller.setTypePermissions(AnyTypePermission.ANY);
         return xStreamMarshaller;
     }
 

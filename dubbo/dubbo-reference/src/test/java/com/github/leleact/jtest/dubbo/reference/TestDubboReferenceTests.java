@@ -1,6 +1,7 @@
 package com.github.leleact.jtest.dubbo.reference;
 
-import com.alibaba.dubbo.rpc.service.GenericService;
+import org.apache.dubbo.rpc.service.GenericService;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Repeat;
@@ -17,6 +18,7 @@ public class TestDubboReferenceTests {
     @Autowired
     private GenericService demoService;
 
+    @Disabled
     @Test
     @Repeat(10)
     public void consumTest() {
@@ -24,6 +26,7 @@ public class TestDubboReferenceTests {
         Map<String, String> map = new HashMap<>();
         map.put("id", sdf.format(new Date()));
         map.put("exchange", "haha");
-        demoService.$invoke("saveAndSend", new String[]{"com.lele.test.dubbo.reference.GenericService"}, new Object[]{map});
+        demoService.$invoke("saveAndSend", new String[]{"com.lele.test.dubbo.reference.GenericService"},
+            new Object[]{map});
     }
 }

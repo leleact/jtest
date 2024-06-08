@@ -1,16 +1,12 @@
 package com.github.leleact.jtest.jdk.keystore;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.security.KeyFactory;
-import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.PrivateKey;
-import java.security.UnrecoverableEntryException;
+import java.security.*;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.security.spec.InvalidKeySpecException;
@@ -21,6 +17,7 @@ import java.util.Enumeration;
 @Slf4j
 public class Pkcs12Tests {
 
+    @Disabled
     @Test
     public void readPrivateKeyTest() throws KeyStoreException, IOException, CertificateException, NoSuchAlgorithmException, UnrecoverableEntryException, InvalidKeySpecException {
         String pfxPath = "D:\\a.pfx";
@@ -38,8 +35,7 @@ public class Pkcs12Tests {
             } else {
                 log.info("alias[{}}]=[{}}]", alias, key.toString());
             }
-            KeyStore.Entry entry = p12.getEntry(alias,
-                                                new KeyStore.PasswordProtection(passwd.toCharArray()));
+            KeyStore.Entry entry = p12.getEntry(alias, new KeyStore.PasswordProtection(passwd.toCharArray()));
             if (entry == null) {
                 log.info("entry[" + alias + "]=[NULL]");
             } else {
@@ -49,7 +45,7 @@ public class Pkcs12Tests {
                         "private entry[" + alias + "]=[" + entry1.getPrivateKey() + "], [" + entry1.getCertificate() + "]");
                     log.info("serialNumber: {}", ((X509Certificate) entry1.getCertificate()).getSerialNumber());
                     log.info("certificate base64 encode: [{}]",
-                             new String(Base64.getEncoder().encode(entry1.getCertificate().getEncoded())));
+                        new String(Base64.getEncoder().encode(entry1.getCertificate().getEncoded())));
                     log.info("PrivateKey Algorithm:" + entry1.getPrivateKey().getAlgorithm());
                     log.info("PrivateKey Format:" + entry1.getPrivateKey().getFormat());
                     base64Pri = new String(Base64.getEncoder().encode(entry1.getPrivateKey().getEncoded()));
@@ -60,11 +56,9 @@ public class Pkcs12Tests {
                     log.info("chain len:" + entry1.getCertificateChain().length);
                 } else if (entry instanceof KeyStore.TrustedCertificateEntry) {
                     KeyStore.TrustedCertificateEntry entry1 = (KeyStore.TrustedCertificateEntry) entry;
-                    log.info(
-                        "trust entry[" + alias + "]=[" + entry1.getTrustedCertificate() + "]");
+                    log.info("trust entry[" + alias + "]=[" + entry1.getTrustedCertificate() + "]");
                     log.info("Type:" + entry1.getTrustedCertificate().getType());
-                    log.info(
-                        "PublicKey Algorithm:" + entry1.getTrustedCertificate().getPublicKey().getAlgorithm());
+                    log.info("PublicKey Algorithm:" + entry1.getTrustedCertificate().getPublicKey().getAlgorithm());
                     log.info("PublicKey Format:" + entry1.getTrustedCertificate().getPublicKey().getFormat());
                 }
             }

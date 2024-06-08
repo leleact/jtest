@@ -12,16 +12,12 @@ import java.util.Set;
 
 @Slf4j
 class PersonTest {
-
+    private static final ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 
     @Test
     void validatorNullDataForSizeAnnotation() {
-
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
-
         Person p = new Person();
-
         Set<ConstraintViolation<Person>> violations = validator.validate(p);
         for (ConstraintViolation<Person> constraintViolation : violations) {
             log.info("{}", constraintViolation.getMessage());
@@ -31,13 +27,9 @@ class PersonTest {
 
     @Test
     void validatorNotNullDataForSizeAnnotation() {
-
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
-
         Person p = new Person();
         p.setName("A");
-
         Set<ConstraintViolation<Person>> violations = validator.validate(p);
         for (ConstraintViolation<Person> constraintViolation : violations) {
             log.info("constraintViolation constraintDescriptor {}", constraintViolation.getConstraintDescriptor());
@@ -49,5 +41,4 @@ class PersonTest {
         }
         Assertions.assertEquals(1, violations.size());
     }
-
 }

@@ -12,8 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = { AutoWiredTests.class })
-@Configuration
+@ContextConfiguration(classes = {AutoWiredTests.class, AutoWiredTests.TestHelloInterfaceImpl1.class, AutoWiredTests.TestHelloInterfaceImpl2.class})
 public class AutoWiredTests {
 
     interface TestHelloInterface {
@@ -56,5 +55,4 @@ public class AutoWiredTests {
         String s = testHello.hello("111");
         Assertions.assertEquals("Hello 111 1", s);
     }
-
 }

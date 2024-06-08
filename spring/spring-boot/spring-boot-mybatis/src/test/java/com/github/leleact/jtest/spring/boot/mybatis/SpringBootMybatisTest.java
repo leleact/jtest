@@ -13,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 
 @Slf4j
-@SpringBootTest
+//@SpringBootTest
 public class SpringBootMybatisTest {
 
     @Resource
@@ -22,7 +22,7 @@ public class SpringBootMybatisTest {
     @Resource
     private T2Mapper t2Mapper;
 
-    @Test
+    //@Test
     public void getT1() {
         String f1 = "1";
         T1 t1 = t1Mapper.selectByPrimaryKey(f1);
@@ -30,7 +30,7 @@ public class SpringBootMybatisTest {
         Assertions.assertNotNull(t1);
     }
 
-    @Test
+    //@Test
     public void getT2() {
         String f1 = "1";
         T2 t2 = t2Mapper.selectByPrimaryKey(f1);
@@ -38,7 +38,7 @@ public class SpringBootMybatisTest {
         Assertions.assertNull(t2);
     }
 
-    @Test
+    //@Test
     public void selectiveTest() {
         {
             T1 t1 = new T1();

@@ -6,6 +6,7 @@ import io.vertx.core.Vertx;
 import io.vertx.core.http.*;
 import io.vertx.core.net.SocketAddress;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,6 +54,7 @@ public class ConnectionPoolTests {
         }
     }
 
+    @Disabled
     @Test
     public void vertxConnectionPoolTest() throws InterruptedException {
         AtomicLong msAdjuster = new AtomicLong(1000);

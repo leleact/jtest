@@ -10,7 +10,7 @@ public class AnotherLoggingAspect {
         log.debug("执行前");
     }
 
-    public String logAroundWithArgs(JoinPoint joinPoint, String arg1, int arg2) {
+    public String logAroundWithArgs(JoinPoint joinPoint, String arg1, Integer arg2) {
         log.debug("log arund");
         return arg1 + arg2;
     }

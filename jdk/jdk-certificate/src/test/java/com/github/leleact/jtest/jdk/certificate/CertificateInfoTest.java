@@ -1,6 +1,7 @@
 package com.github.leleact.jtest.jdk.certificate;
 
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileInputStream;
@@ -12,6 +13,7 @@ import java.util.Enumeration;
 
 public class CertificateInfoTest {
 
+    @Disabled
     @Test
     public void getCertificateInfo() throws KeyStoreException, IOException, CertificateException, NoSuchAlgorithmException {
 

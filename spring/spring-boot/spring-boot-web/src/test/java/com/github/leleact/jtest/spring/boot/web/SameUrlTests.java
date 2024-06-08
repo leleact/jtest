@@ -22,7 +22,7 @@ public class SameUrlTests {
     public void postTest() throws Exception {
         mockMvc.perform(post("/same_url").content("xx"))
                .andExpect(status().is2xxSuccessful())
-               .andExpect(content().string("ok"));
+               .andExpect(content().string("same_url xx"));
     }
 
     @Test

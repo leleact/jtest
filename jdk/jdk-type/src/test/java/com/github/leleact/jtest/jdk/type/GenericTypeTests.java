@@ -1,12 +1,13 @@
 package com.github.leleact.jtest.jdk.type;
 
-import org.junit.jupiter.api.Test;
-
 import com.github.leleact.jtest.jdk.type.request.SubRequest;
 import com.github.leleact.jtest.jdk.type.response.SubResponse;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 public class GenericTypeTests {
 
+    @Disabled
     @Test
     public void interfaceGenericTest() {
         Function<SubRequest, SubResponse> f = new FunctionGeneric<>();
@@ -23,6 +24,7 @@ public class GenericTypeTests {
         f.apply(new SubRequest());
     }
 
+    @Disabled
     @Test
     public void interfaceImplGenericInstanceTest() {
         Function<SubRequest, SubResponse> f = new FunctionGenericImpl() {

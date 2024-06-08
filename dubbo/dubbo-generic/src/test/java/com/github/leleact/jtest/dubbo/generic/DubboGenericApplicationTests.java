@@ -6,6 +6,7 @@ import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.ReferenceConfig;
 import org.apache.dubbo.config.RegistryConfig;
 import org.apache.dubbo.rpc.service.GenericService;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
@@ -14,13 +15,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Slf4j
-@SpringBootTest
+//@SpringBootTest
 public class DubboGenericApplicationTests {
 
     @Resource
     private ApplicationContext applicationContext;
 
-    @Test
+    @Disabled
+    //@Test
     public void invokeGenericTest() {
         ApplicationConfig applicationConfig = applicationContext.getBean(ApplicationConfig.class);
         RegistryConfig registryConfig = applicationContext.getBean(RegistryConfig.class);

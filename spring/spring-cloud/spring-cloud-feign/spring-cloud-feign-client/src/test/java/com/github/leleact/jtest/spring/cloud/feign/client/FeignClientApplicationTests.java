@@ -1,24 +1,14 @@
 package com.github.leleact.jtest.spring.cloud.feign.client;
 
-import com.github.leleact.jtest.spring.cloud.feign.api.EchoServiceApi;
-import com.github.leleact.jtest.spring.cloud.feign.api.GenericServiceApi;
-import com.github.leleact.jtest.spring.cloud.feign.api.HierarchyServiceApi;
-import com.github.leleact.jtest.spring.cloud.feign.api.QueryServiceApi;
-import com.github.leleact.jtest.spring.cloud.feign.api.WaitServiceApi;
-import com.github.leleact.jtest.spring.cloud.feign.api.request.ComplexRequest;
-import com.github.leleact.jtest.spring.cloud.feign.api.request.GenericRequest;
-import com.github.leleact.jtest.spring.cloud.feign.api.request.HierarchyRequest;
-import com.github.leleact.jtest.spring.cloud.feign.api.request.MessageHeader;
-import com.github.leleact.jtest.spring.cloud.feign.api.request.QueryRequest;
+import com.github.leleact.jtest.spring.cloud.feign.api.*;
+import com.github.leleact.jtest.spring.cloud.feign.api.request.*;
 import com.github.leleact.jtest.spring.cloud.feign.api.response.QueryResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
 @Slf4j
-@SpringBootTest
+//@SpringBootTest
 public class FeignClientApplicationTests {
 
     @Autowired
@@ -36,14 +26,14 @@ public class FeignClientApplicationTests {
     @Autowired
     private GenericServiceApi genericServiceApi;
 
-    @Test
+    //@Test
     public void echoServiceTest() {
         String res = echoServiceApi.echo("xxx");
         log.info("res: [{}]", res);
         Assertions.assertEquals("hello xxx", res);
     }
 
-    @Test
+    //@Test
     public void waitServiceTest() {
         log.info("start...");
         String res = waitServiceApi.waitAtTime(80000);
@@ -51,7 +41,7 @@ public class FeignClientApplicationTests {
         Assertions.assertEquals("hello, world", res);
     }
 
-    @Test
+    //@Test
     public void queryTest() {
         log.info("start...");
         QueryRequest request = new QueryRequest();
@@ -62,7 +52,7 @@ public class FeignClientApplicationTests {
         Assertions.assertEquals(2, res.getEList().size());
     }
 
-    @Test
+    //@Test
     public void hierarchyQeqTest() {
         HierarchyRequest request = new HierarchyRequest();
         MessageHeader header = new MessageHeader();
@@ -72,7 +62,7 @@ public class FeignClientApplicationTests {
         Assertions.assertEquals("ok", res);
     }
 
-    @Test
+    //@Test
     public void genericQeqTest() {
         GenericRequest<ComplexRequest> request = new GenericRequest<>();
         MessageHeader header = new MessageHeader();

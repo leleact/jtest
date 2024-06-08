@@ -5,25 +5,23 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="logAspect" class="com.github.leleact.jtest.spring.aop.LoggingAspect"/>
+  <bean id="logAspect" class="com.github.leleact.jtest.spring.aop.LoggingAspect"/>
+  <bean id="anotherlogAspect" class="com.github.leleact.jtest.spring.aop.AnotherLoggingAspect"/>
+  <context:component-scan base-package="com.github.leleact.jtest.spring.aop"/>
+  <aop:aspectj-autoproxy/>
+  <aop:config>
+    <aop:aspect id="aspectLoggging" ref="logAspect">
+      <!-- @Before -->
+      <aop:pointcut id="pointCutAround"
+                    expression="execution(* com.github.leleact.jtest.spring.aop.Executor.execute1(..))"/>
+      <aop:around method="logAroundNoArgs" pointcut-ref="pointCutAround"/>
+    </aop:aspect>
 
-    <bean id="anotherlogAspect" class="com.github.leleact.jtest.spring.aop.AnotherLoggingAspect"/>
-
-    <context:component-scan base-package="com.github.leleact.jtest.spring.aop"/>
-    <aop:aspectj-autoproxy/>
-    <aop:config>
-        <aop:aspect id="aspectLoggging" ref="logAspect">
-            <!-- @Before -->
-            <aop:pointcut id="pointCutAround"
-                          expression="execution(* com.github.leleact.jtest.spring.aop.Executor.execute1(..))"/>
-            <aop:around method="logAroundNoArgs" pointcut-ref="pointCutAround"/>
-        </aop:aspect>
-
-        <aop:aspect id="aspectLoggging11" ref="anotherlogAspect">
-            <!-- @Before -->
-            <aop:pointcut id="pointCutArond11"
-                          expression="execution(* com.github.leleact.jtest.spring.aop.Executor.execute1(..))"/>
-            <aop:around method="logAroundNoArgs" pointcut-ref="pointCutArond11"/>
-        </aop:aspect>
-    </aop:config>
+    <aop:aspect id="aspectLoggging11" ref="anotherlogAspect">
+      <!-- @Before -->
+      <aop:pointcut id="pointCutArond11"
+                    expression="execution(* com.github.leleact.jtest.spring.aop.Executor.execute1(..))"/>
+      <aop:around method="logAroundNoArgs" pointcut-ref="pointCutArond11"/>
+    </aop:aspect>
+  </aop:config>
 </beans>

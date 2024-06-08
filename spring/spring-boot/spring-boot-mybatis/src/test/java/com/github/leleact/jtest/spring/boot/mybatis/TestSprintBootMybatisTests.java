@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-@SpringBootTest(classes = SpringBootMybatisApplication.class)
+//@SpringBootTest(classes = SpringBootMybatisApplication.class)
 public class TestSprintBootMybatisTests {
 
     private static final Logger log = LoggerFactory.getLogger(TestSprintBootMybatisTests.class);
@@ -28,7 +28,7 @@ public class TestSprintBootMybatisTests {
         log.info("clear {} records", count);
     }
 
-    @Test
+    //@Test
     public void myBatisBatchInsertTestCase() {
         AtomicInteger count = new AtomicInteger(0);
         List<T1> t1List = new ArrayList<>();

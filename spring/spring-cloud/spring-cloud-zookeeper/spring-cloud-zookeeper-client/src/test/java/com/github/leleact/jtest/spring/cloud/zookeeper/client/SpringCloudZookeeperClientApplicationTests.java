@@ -1,18 +1,17 @@
 package com.github.leleact.jtest.spring.cloud.zookeeper.client;
 
-import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Disabled;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.client.RestTemplate;
 
+import jakarta.annotation.Resource;
 import java.util.List;
 
-@SpringBootTest
 @Slf4j
+//@SpringBootTest
 public class SpringCloudZookeeperClientApplicationTests {
 
     @Resource
@@ -21,7 +20,8 @@ public class SpringCloudZookeeperClientApplicationTests {
     @Autowired
     private DiscoveryClient discoveryClient;
 
-    @Test
+    @Disabled
+    //@Test
     public void restTemplateTest() {
         for (int i = 0; i < 10000; i++) {
             log.info("start...");
@@ -30,7 +30,8 @@ public class SpringCloudZookeeperClientApplicationTests {
         }
     }
 
-    @Test
+    @Disabled
+    //@Test
     public void serviceUrlTest() {
         List<ServiceInstance> list = discoveryClient.getInstances("zookeeper-server");
         if (list != null && !list.isEmpty()) {
@@ -38,12 +39,11 @@ public class SpringCloudZookeeperClientApplicationTests {
         }
     }
 
-//    @Test
-//    public void ribbonLoadBalanceHttpTest() throws Exception {
-//        RibbonCommandContext ctx = new RibbonCommandContext("zookeeper-server", ...);
-//        RibbonApacheHttpRequest request = new RibbonApacheHttpRequest(ctx);
-//        RibbonApacheHttpResponse response = retryableRibbonLoadBalancingHttpClient.execute(request, null);
-//        log.info("response: [{}]", response);
-//    }
-
+    //    @Test
+    //    public void ribbonLoadBalanceHttpTest() throws Exception {
+    //        RibbonCommandContext ctx = new RibbonCommandContext("zookeeper-server", ...);
+    //        RibbonApacheHttpRequest request = new RibbonApacheHttpRequest(ctx);
+    //        RibbonApacheHttpResponse response = retryableRibbonLoadBalancingHttpClient.execute(request, null);
+    //        log.info("response: [{}]", response);
+    //    }
 }

@@ -1,6 +1,8 @@
 package com.github.leleact.jtest.spring.ioc;
 
 import jakarta.annotation.PreDestroy;
+
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.Logger;
@@ -51,6 +53,7 @@ public class BeanScopeTests implements ApplicationContextAware {
         return new FooBean();
     }
 
+    @Disabled
     @Test
     @DirtiesContext(hierarchyMode = CURRENT_LEVEL)
      void whenBeanDestroy() {

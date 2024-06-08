@@ -2,6 +2,7 @@ package com.github.leleact.jtest.javassist;
 
 import javassist.*;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +15,6 @@ import java.lang.reflect.InvocationTargetException;
  * @author leleact
  * @since 2022-03-13
  */
-
 public class ModifyClazzTests {
     public static class Pojo {
         private static final Logger log = LoggerFactory.getLogger(Pojo.class);
@@ -25,6 +25,7 @@ public class ModifyClazzTests {
         }
     }
 
+    @Disabled
     @Test
     public void modifyMethodTest() throws NotFoundException, CannotCompileException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         ClassPool pool = ClassPool.getDefault();

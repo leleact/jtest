@@ -38,13 +38,13 @@ public class InnerMethodTransactionTest {
     public void directInvokeTransactionAnnotationMethodTest() {
         try {
             T1 t1 = new T1();
-            t1.setF1("1");
-            t1.setF2("2");
+            t1.setF1("3");
+            t1.setF2("4");
             innterTransaction.intertInnter(t1);
         } catch (RuntimeException e) {
 
         }
-        T1 t = t1Mapper.selectByPrimaryKey("1");
+        T1 t = t1Mapper.selectByPrimaryKey("3");
         Assertions.assertNull(t);
     }
 }

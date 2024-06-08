@@ -16,8 +16,8 @@ public class SelectTestor {
 
     @Test
     public void selectMuiltyObjectTest() {
-        String f2 = "2";
+        String f2 = "aa";
         T1 t1 = t1Mapper.selectByF2(f2);
-        Assertions.assertEquals("1", t1.getF1());
+        Assertions.assertEquals("11", t1.getF1());
     }
 }

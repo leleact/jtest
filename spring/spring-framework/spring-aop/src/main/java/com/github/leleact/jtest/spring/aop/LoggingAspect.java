@@ -11,7 +11,7 @@ public class LoggingAspect {
         log.debug("执行前");
     }
 
-    public String logAroundWithArgs(ProceedingJoinPoint joinPoint, String arg1, int arg2) {
+    public String logAroundWithArgs(ProceedingJoinPoint joinPoint, String arg1, Integer arg2) {
         log.debug("log arund");
         log.debug("arg1:" + arg1);
         log.debug("arg2:" + arg2);

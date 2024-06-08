@@ -3,6 +3,7 @@ package com.github.leleact.jtest.spring.tx.service;
 import com.github.leleact.jtest.spring.tx.bean.dto.T1;
 import com.github.leleact.jtest.spring.tx.bean.mapper.T1Mapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import jakarta.annotation.Resource;
 
@@ -18,9 +19,8 @@ public class InnterTransaction {
         throw new RuntimeException();
     }
 
-
+    @Transactional
     public void intert(T1 t1) {
         intertInnter(t1);
     }
-
 }

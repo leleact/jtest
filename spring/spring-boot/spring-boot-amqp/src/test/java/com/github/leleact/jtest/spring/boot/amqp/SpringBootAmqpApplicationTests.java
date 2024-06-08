@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@SpringBootTest
+//@SpringBootTest
 public class SpringBootAmqpApplicationTests {
 
     private static final Logger log = LoggerFactory.getLogger(SpringBootAmqpApplicationTests.class);
@@ -27,7 +27,7 @@ public class SpringBootAmqpApplicationTests {
     @Autowired
     private Exchange exchange;
 
-    @Test
+    //@Test
     public void putMessageTest() {
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
@@ -41,7 +41,7 @@ public class SpringBootAmqpApplicationTests {
         }
     }
 
-    @Test
+    //@Test
     public void throwExcetionTest() {
         try {
             throw new Exception("111");

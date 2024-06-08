@@ -1,11 +1,12 @@
 package com.github.leleact.jtest.spring.aop;
 
-import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Service;
+
+import jakarta.annotation.PostConstruct;
 
 @Slf4j
 @Service
@@ -13,7 +14,7 @@ public class Executor implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;
 
-    public String execute1(String arg1, int arg2) {
+    public String execute1(String arg1, Integer arg2) {
         String str = arg1 + "," + arg2;
         log.debug("str:[" + str + "]");
         return str;

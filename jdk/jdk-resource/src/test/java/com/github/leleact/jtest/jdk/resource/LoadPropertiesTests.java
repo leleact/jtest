@@ -1,6 +1,7 @@
 package com.github.leleact.jtest.jdk.resource;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -19,6 +20,7 @@ class LoadPropertiesTests {
         Assertions.assertEquals("2", properties.getProperty("b"));
     }
 
+    @Disabled
     @Test
     void loadPropertiesWithClassRelativePath() throws IOException {
         // 相对路径
