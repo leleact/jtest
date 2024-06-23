@@ -8,8 +8,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 
+@DirtiesContext
 @ContextConfiguration(locations = "classpath:META-INF/spring/spring-context1.xml")
 public class Context2Tests extends BaseContextTests {
     @Autowired

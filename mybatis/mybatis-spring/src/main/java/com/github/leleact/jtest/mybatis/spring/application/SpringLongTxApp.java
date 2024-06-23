@@ -24,7 +24,7 @@ public class SpringLongTxApp {
             threadPoolExecutor.execute(() -> service.syncSequence("a", 1));
         }
         log.info("aaa");
-        threadPoolExecutor.awaitTermination(1, TimeUnit.HOURS);
+        threadPoolExecutor.awaitTermination(1, TimeUnit.MINUTES);
         log.info("bbb");
         ((ConfigurableApplicationContext) context).close();
     }
