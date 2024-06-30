@@ -13,4 +13,6 @@ public class T1 {
     private String f1;
 
     private String f2;
+
+    private String f3;
 }

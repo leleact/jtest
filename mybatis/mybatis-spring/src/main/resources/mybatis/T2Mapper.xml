@@ -4,9 +4,10 @@
   <resultMap id="BaseResultMap" type="com.github.leleact.jtest.mybatis.spring.db.entity.T2">
     <id column="F1" jdbcType="VARCHAR" property="f1" />
     <result column="F2" jdbcType="VARCHAR" property="f2" />
+    <result column="F3" jdbcType="VARCHAR" property="f3" />
   </resultMap>
   <sql id="Base_Column_List">
-    F1, F2
+    F1, F2, F3
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -25,8 +26,8 @@
     where F1 = #{f1,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.github.leleact.jtest.mybatis.spring.db.entity.T1">
-    insert into T2 (F1, F2)
-    values (#{f1,jdbcType=VARCHAR}, #{f2,jdbcType=VARCHAR})
+    insert into T2 (F1, F2, F3)
+    values (#{f1,jdbcType=VARCHAR}, #{f2,jdbcType=VARCHAR}, #{f3,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.github.leleact.jtest.mybatis.spring.db.entity.T1">
     insert into T2
@@ -72,6 +73,7 @@
     (
       f1 varchar(32),
       f2 varchar(32),
+      f3 varchar(32),
       primary key (f1)
     );
   </update>

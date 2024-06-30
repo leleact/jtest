@@ -3,6 +3,8 @@ package com.github.leleact.jtest.mybatis.spring.db.mapper;
 import com.github.leleact.jtest.mybatis.spring.db.entity.T1;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * T1 Mapper
  *
@@ -24,6 +26,8 @@ public interface T1Mapper {
     int updateByPrimaryKeySelective(T1 record);
 
     int updateByPrimaryKey(T1 record);
+
+    int batchUpdate(List<T1> list);
 
     T1 selectByF2(String f2);
 
