@@ -1,7 +1,6 @@
 package com.github.leleact.jtest.spring.ioc.bean.postProcessor;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanPostProcessor;
@@ -9,8 +8,8 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 /**
  * Created by Lele on 2017/6/30.
  */
+@Slf4j
 public class BeanPostProcessor2 implements BeanPostProcessor {
-    private static Logger log = LoggerFactory.getLogger(BeanPostProcessor2.class);
 
     @Autowired
     private BeanPostProcessor1 beanPostProcessor1;

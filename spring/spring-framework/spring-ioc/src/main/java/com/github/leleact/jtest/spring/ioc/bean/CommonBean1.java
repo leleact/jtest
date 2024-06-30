@@ -1,23 +1,20 @@
 package com.github.leleact.jtest.spring.ioc.bean;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
-
+@Slf4j
 @Component
 public class CommonBean1 implements InitializingBean, DisposableBean {
-
-    private static Logger log = LoggerFactory.getLogger(CommonBean1.class);
 
     private String id;
 
     private int num;
 
     public CommonBean1() {
-        log.debug("执行构造函数");
+        log.debug("invoke constructor");
     }
 
     public CommonBean1(String id, int num) {
