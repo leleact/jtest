@@ -16,12 +16,19 @@
     <module>log4j2-async</module>
     <module>log4j2-performance</module>
     <module>log4j2-template</module>
+    <module>log4j2-test</module>
   </modules>
 
   <dependencies>
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-slf4j2-impl</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.lmax</groupId>
+      <artifactId>disruptor</artifactId>
+      <version>${disruptor.version}</version>
     </dependency>
 
     <dependency>

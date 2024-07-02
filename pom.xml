@@ -71,8 +71,9 @@
     <spring.cloud.ribbon>2.2.10.RELEASE</spring.cloud.ribbon>
     <!-- spring end -->
 
-    <!-- log start -->
+    <!-- log begin -->
     <log4j.version>2.21.1</log4j.version>
+    <disruptor.version>3.4.4</disruptor.version>
     <!-- log end -->
 
     <!-- mybatis, mysql, transaction, datasource: begin-->
