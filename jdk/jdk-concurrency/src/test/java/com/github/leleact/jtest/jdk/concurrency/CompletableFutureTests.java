@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.*;
+import java.util.function.Supplier;
 
 /**
  * completable future tests
@@ -44,6 +45,48 @@ public class CompletableFutureTests {
             Assertions.assertEquals(1, r);
         });
         future.join();
+    }
+
+    @Test
+    public void throwCompleteTest() {
+        CompletableFuture.supplyAsync((Supplier<Integer>) () -> {
+            throw new RuntimeException("excepted exception");
+        }, executor).whenComplete((r, t) -> {
+            if (t != null) {
+                log.error(t.getMessage(), t);
+                Assertions.assertEquals("excepted exception", t.getMessage());
+            } else {
+                log.info("result: {}", r);
+            }
+        });
+    }
+
+    @Test
+    public void threadFullCompleteTest() {
+        final Executor executor = new ThreadPoolExecutor(1,
+            1,
+            60L,
+            TimeUnit.SECONDS,
+            new SynchronousQueue<>(),
+            Executors.defaultThreadFactory(),
+            new ThreadPoolExecutor.CallerRunsPolicy());
+        for (int i = 0; i < 10; i++) {
+            CompletableFuture.supplyAsync(() -> {
+                try {
+                    Thread.sleep(1000L);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                return 0;
+            }, executor).whenComplete((r, t) -> {
+                if (t != null) {
+                    log.error(t.getMessage(), t);
+                } else {
+                    log.info("result: {}", r);
+                    Assertions.assertEquals(0, r);
+                }
+            });
+        }
     }
 
     @Test
