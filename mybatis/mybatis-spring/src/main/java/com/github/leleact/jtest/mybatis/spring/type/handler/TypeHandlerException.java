@@ -1,5 +1,7 @@
 package com.github.leleact.jtest.mybatis.spring.type.handler;
 
+import java.io.Serial;
+
 /**
  * type handler exception.
  *
@@ -7,6 +9,9 @@ package com.github.leleact.jtest.mybatis.spring.type.handler;
  * @since 2024-08-07
  */
 public class TypeHandlerException extends RuntimeException {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     public TypeHandlerException(String message) {
         super(message);

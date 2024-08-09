@@ -1,9 +1,9 @@
 package com.github.leleact.jtest.mybatis.spring.db.entity;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.Data;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * T1 entity
@@ -15,7 +15,7 @@ import java.util.List;
 public class TFuncJson {
     private Long tid;
 
-    private List<JsonPojo> data;
+    private JsonNode data;
 
     private Date createTime;
 

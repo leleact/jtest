@@ -45,6 +45,11 @@
     <appender-ref ref="ROLLING"/>
   </logger>
 
+  <logger name="org.springframework" level="debug" additivity="false">
+    <appender-ref ref="CONSOLE"/>
+    <appender-ref ref="ROLLING"/>
+  </logger>
+
   <root level="info" additivity="false">
     <appender-ref ref="CONSOLE"/>
     <appender-ref ref="ROLLING"/>
