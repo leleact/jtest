@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="300" strict="true" xmlns="http://logging.apache.org/log4j/2.0/config"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://logging.apache.org/log4j/2.0/config
+           https://raw.githubusercontent.com/apache/logging-log4j2/master/log4j-core/src/main/resources/Log4j-config.xsd">
+
+  <Properties>
+    <Property name="baseDir">target/logs</Property>
+    <Property name="filename">app</Property>
+    <Property name="rollingFileName">${filename}.log</Property>
+  </Properties>
+
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout
+        pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{-%5p}{FATAL=red blink, ERROR=red, WARN=yellow bold, INFO=green, DEBUG=green bold, TRACE=blue} %style{%pid}{magenta} [%15.15t] %style{%-40.40C{1.}}{cyan} %style{[%-20.40file:%4.4line]}{green} : %m%n%xEx"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <AsyncRoot level="info" includeLocation="true">
+      <AppenderRef ref="Console"/>
+    </AsyncRoot>
+
+    <AsyncLogger name="com.github.leleact.jtest" level="trace" additivity="false" includeLocation="true">
+      <AppenderRef ref="Console"/>
+    </AsyncLogger>
+
+    <AsyncLogger name="druid.sql" level="debug" additivity="false" includeLocation="true">
+      <AppenderRef ref="Console"/>
+    </AsyncLogger>
+
+    <AsyncLogger name="org.apache.shardingsphere" level="trace" additivity="false" includeLocation="true">
+      <AppenderRef ref="Console"/>
+    </AsyncLogger>
+
+    <AsyncLogger name="org.h2" level="trace" additivity="false" includeLocation="true">
+      <AppenderRef ref="Console"/>
+    </AsyncLogger>
+  </Loggers>
+</Configuration>
