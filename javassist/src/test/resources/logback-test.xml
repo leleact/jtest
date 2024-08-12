@@ -1,6 +1,9 @@
 <configuration scan="true" scanPeriod="15 minutes">
+  <define name="hostname"
+          class="ch.qos.logback.core.property.CanonicalHostNamePropertyDefiner"/>
+
   <property name="CONSOLE_LOG_PATTERN"
-            value="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) %magenta(${PID}) [%15.15t] %cyan(%-40.40C{1}) %green([%-20.40F:%4.4L]) : %m%n%xEx"/>
+            value="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) %magenta(${hostname}) [%15.15t] %cyan(%-40.40C{1}) %green([%-20.40F:%4.4L]) : %m%n%xEx"/>
 
   <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
     <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
@@ -11,11 +14,16 @@
     </encoder>
   </appender>
 
-  <logger name="com.github.leleact.jtest" level="debug" additivity="false">
+  <appender name="ASYNC_CONSOLE" class="ch.qos.logback.classic.AsyncAppender">
     <appender-ref ref="CONSOLE"/>
-  </logger>
+    <includeCallerData>true</includeCallerData>
+  </appender>
 
   <root level="info" additivity="false">
-    <appender-ref ref="CONSOLE"/>
+    <appender-ref ref="ASYNC_CONSOLE"/>
   </root>
+
+  <logger name="com.github.leleact.jtest" level="debug" additivity="false">
+    <appender-ref ref="ASYNC_CONSOLE"/>
+  </logger>
 </configuration>

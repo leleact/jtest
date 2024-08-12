@@ -1,11 +1,10 @@
 package com.github.leleact.jtest.javassist;
 
 import javassist.*;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -15,12 +14,12 @@ import java.lang.reflect.InvocationTargetException;
  * @author leleact
  * @since 2022-03-13
  */
+@Slf4j
 public class ModifyClazzTests {
-    public static class Pojo {
-        private static final Logger log = LoggerFactory.getLogger(Pojo.class);
-
-        public Integer f1(String string) {
-            log.info("input string is : {}", string);
+    @Slf4j
+    public static class EnhancePojo {
+        public Integer f1(String parameter) {
+            log.info("input parameter is : {}", parameter);
             return 1;
         }
     }
@@ -28,15 +27,16 @@ public class ModifyClazzTests {
     @Disabled
     @Test
     public void modifyMethodTest() throws NotFoundException, CannotCompileException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        // junit parse ModifyClazzTests will load EnhancePojo, so when run test Exception will occur
         ClassPool pool = ClassPool.getDefault();
-        CtClass cc = pool.get("com.github.leleact.jtest.javassist.ModifyClazzTests$Pojo");
+        //pool.insertClassPath(new ClassClassPath(EnhancePojo.class));
+        CtClass cc = pool.get("com.github.leleact.jtest.javassist.ModifyClazzTests$EnhancePojo");
 
         CtMethod enhanceF1 = cc.getDeclaredMethod("f1");
         enhanceF1.insertBefore("log.info(\"before modify method\");");
         enhanceF1.insertAfter("log.info(\"after modify method\");");
 
-
-        Pojo pojo = (Pojo) cc.toClass(ModifyClazzTests.class).getConstructor().newInstance();
+        EnhancePojo pojo = (EnhancePojo) cc.toClass(ModifyClazzTests.class).getConstructor().newInstance();
         Assertions.assertEquals(pojo.f1("hello"), 1);
     }
 }
