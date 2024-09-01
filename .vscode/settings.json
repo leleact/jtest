@@ -7,5 +7,6 @@
         "javax",
         "java",
         "#"
-    ]
+    ],
+    "java.format.settings.url": "https://github.com/redhat-developer/vscode-java/blob/master/formatters/eclipse-formatter.xml"
 }

@@ -45,7 +45,9 @@ public class NettyServerApplication {
                  @Override
                  public void initChannel(SocketChannel ch) {
                      ch.pipeline()
-                       .addLast(new RequestDecoder(), new ResponseDataEncoder(), new ProcessingHandler(),
+                       .addLast(new RequestDecoder(),
+                           new ResponseDataEncoder(),
+                           new ProcessingHandler(),
                            new LoggingHandler(LogLevel.TRACE));
                  }
              })
