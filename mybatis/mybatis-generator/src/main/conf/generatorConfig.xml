@@ -41,7 +41,7 @@
       <property name="enableSubPackages" value="true" />
     </javaClientGenerator>
 
-    <table schema="" tableName="user_info" selectByExampleQueryId="false"
+    <table schema="" tableName="t_deadlock_test" selectByExampleQueryId="false"
       enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
       enableCountByExample="false">
     </table>

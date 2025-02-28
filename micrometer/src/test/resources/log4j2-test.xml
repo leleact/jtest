@@ -22,7 +22,7 @@
       </PatternLayout>
       <Policies>
         <TimeBasedTriggeringPolicy/>
-        <SizeBasedTriggeringPolicy size="1 GB"/>
+        <SizeBasedTriggeringPolicy size="250 MB"/>
       </Policies>
       <DefaultRolloverStrategy>
         <Delete basePath="${baseDir}" maxDepth="3">
@@ -39,6 +39,11 @@
     </AsyncRoot>
 
     <AsyncLogger name="com.github.leleact.jtest" level="trace" additivity="false" includeLocation="true">
+      <AppenderRef ref="Console"/>
+      <AppenderRef ref="RollingFile"/>
+    </AsyncLogger>
+
+    <AsyncLogger name="io.micrometer" level="info" additivity="false" includeLocation="true">
       <AppenderRef ref="Console"/>
       <AppenderRef ref="RollingFile"/>
     </AsyncLogger>

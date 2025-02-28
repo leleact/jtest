@@ -23,7 +23,7 @@
       <Policies>
         <!-- interval 多久执行一次备份，单位为 RollingRandomAccessFile的属性filePattern中%d{yyyy-MM-dd}的最小时间单位，此处是天-->
         <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
-        <SizeBasedTriggeringPolicy size="250 MB"/>
+        <SizeBasedTriggeringPolicy size="1 GB"/>
       </Policies>
       <!-- 默认的备份策略：max="7"表示最多只保留7份日志，fileIndex属性是在拥有多个备份日志的时候，命令是以递增的数为文件名，max值时值大的文件是最新的内容，min值时值大的是最久的内容-->
       <DefaultRolloverStrategy fileIndex="max" max="1000">

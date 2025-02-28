@@ -24,7 +24,7 @@
       </PatternLayout>
       <Policies>
         <TimeBasedTriggeringPolicy/>
-        <SizeBasedTriggeringPolicy size="250 MB"/>
+        <SizeBasedTriggeringPolicy size="1 GB"/>
       </Policies>
       <DefaultRolloverStrategy>
         <Delete basePath="${baseDir}" maxDepth="3">

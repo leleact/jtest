@@ -18,7 +18,7 @@
     <file>${BASE_DIR}/${LOG_NAME}.log</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
       <fileNamePattern>${BASE_DIR}/backup/%d{yyyy-MM, aux}/${LOG_NAME}-%d{yyyy-MM-dd-HH-mm-ss}.%i.log.gz</fileNamePattern>
-      <maxFileSize>100MB</maxFileSize>
+      <maxFileSize>1GB</maxFileSize>
       <maxHistory>30</maxHistory>
       <totalSizeCap>10GB</totalSizeCap>
     </rollingPolicy>

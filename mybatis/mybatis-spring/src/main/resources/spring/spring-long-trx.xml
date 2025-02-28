@@ -67,7 +67,7 @@
   <!-- 自定义扩展增强的 stat filter-->
   <bean id="stat-filter" class="com.alibaba.druid.filter.stat.MergeStatFilter">
     <!-- SQL 慢查询的时长 -->
-    <property name="slowSqlMillis" value="200"/>
+    <property name="slowSqlMillis" value="3000"/>
     <property name="logSlowSql" value="true"/>
     <property name="mergeSql" value="true"/>
     <!--    <property name="maxSampleCountPerMergeSql" value="10"/>-->

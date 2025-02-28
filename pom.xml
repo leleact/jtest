@@ -24,6 +24,7 @@
     <module>lombok</module>
     <module>mapstruct</module>
     <module>maven</module>
+    <module>micrometer</module>
     <module>mockito</module>
     <module>mybatis</module>
     <module>netty</module>

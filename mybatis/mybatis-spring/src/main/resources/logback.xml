@@ -20,8 +20,8 @@
     <file>${BASE_DIR}/${LOG_NAME}.log</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
       <fileNamePattern>${BASE_DIR}/backup/%d{yyyy-MM, aux}/${LOG_NAME}-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
-      <maxFileSize>100MB</maxFileSize>
-      <maxHistory>60</maxHistory>
+      <maxFileSize>1GB</maxFileSize>
+      <maxHistory>30</maxHistory>
       <totalSizeCap>10GB</totalSizeCap>
     </rollingPolicy>
     <encoder>
@@ -35,17 +35,17 @@
     <appender-ref ref="ROLLING"/>
   </logger>
 
-  <logger name="org.springframework.jdbc" level="trace" additivity="false">
+  <logger name="org.springframework.jdbc" level="error" additivity="false">
     <appender-ref ref="CONSOLE"/>
     <appender-ref ref="ROLLING"/>
   </logger>
 
-  <logger name="org.springframework.transaction" level="trace" additivity="false">
+  <logger name="org.springframework.transaction" level="error" additivity="false">
     <appender-ref ref="CONSOLE"/>
     <appender-ref ref="ROLLING"/>
   </logger>
 
-  <logger name="org.springframework" level="debug" additivity="false">
+  <logger name="org.springframework" level="error" additivity="false">
     <appender-ref ref="CONSOLE"/>
     <appender-ref ref="ROLLING"/>
   </logger>
