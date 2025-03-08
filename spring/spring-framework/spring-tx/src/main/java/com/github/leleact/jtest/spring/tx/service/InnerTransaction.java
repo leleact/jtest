@@ -1,26 +1,26 @@
 package com.github.leleact.jtest.spring.tx.service;
 
+import jakarta.annotation.Resource;
+
 import com.github.leleact.jtest.spring.tx.bean.dto.T1;
 import com.github.leleact.jtest.spring.tx.bean.mapper.T1Mapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import jakarta.annotation.Resource;
-
 @Service
-public class InnterTransaction {
+public class InnerTransaction {
 
     @Resource
     private T1Mapper t1Mapper;
 
     //@Transactional
-    public void intertInnter(T1 t1) {
+    public void insertInner(T1 t1) {
         t1Mapper.insert(t1);
         throw new RuntimeException();
     }
 
     @Transactional
-    public void intert(T1 t1) {
-        intertInnter(t1);
+    public void insert(T1 t1) {
+        insertInner(t1);
     }
 }

@@ -2,7 +2,7 @@ package com.github.leleact.jtest.spring.tx.test;
 
 import com.github.leleact.jtest.spring.tx.bean.dto.T1;
 import com.github.leleact.jtest.spring.tx.bean.mapper.T1Mapper;
-import com.github.leleact.jtest.spring.tx.service.S;
+import com.github.leleact.jtest.spring.tx.service.TrxService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
@@ -14,7 +14,7 @@ import java.util.UUID;
 public class RollBackTests {
 
     @Resource
-    private S s;
+    private TrxService trxService;
 
     @Resource
     private T1Mapper t1Mapper;
@@ -26,7 +26,7 @@ public class RollBackTests {
             T1 t1 = new T1();
             t1.setF1(id);
             t1.setF2("2");
-            s.intert(t1);
+            trxService.insert(t1);
         } catch (RuntimeException e) {
 
         }
@@ -41,7 +41,7 @@ public class RollBackTests {
             T1 t1 = new T1();
             t1.setF1(id);
             t1.setF2("2");
-            s.intert1(t1);
+            trxService.insertWithRollbackException(t1);
         } catch (RuntimeException e) {
 
         }
@@ -56,7 +56,7 @@ public class RollBackTests {
             T1 t1 = new T1();
             t1.setF1(id);
             t1.setF2("2");
-            s.intert2(t1);
+            trxService.insertWithNoRollbackException(t1);
         } catch (RuntimeException e) {
 
         }

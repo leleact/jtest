@@ -44,7 +44,7 @@
 
   <aop:config>
     <aop:pointcut id="allServices"
-                  expression="execution(* com.github.leleact.jtest.spring.tx.service.InnterTransaction.intertInnter(..))"/>
+                  expression="execution(* com.github.leleact.jtest.spring.tx.service.InnerTransaction.insertInner(..))"/>
     <aop:advisor advice-ref="txAdvice" pointcut-ref="allServices"/>
   </aop:config>
 
