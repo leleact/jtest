@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
+import java.util.UUID;
+
 @SpringJUnitConfig(locations = {"classpath:spring/spring-test-datasource.xml"})
 public class InnerMethodTransactionTest {
 
@@ -34,15 +36,17 @@ public class InnerMethodTransactionTest {
 
     @Test
     public void directInvokeTransactionAnnotationMethodTest() {
+        String key = UUID.randomUUID().toString().replace("-", "");
+        String value = UUID.randomUUID().toString().replace("-", "");
         try {
             T1 t1 = new T1();
-            t1.setF1("3");
-            t1.setF2("4");
+            t1.setF1(key);
+            t1.setF2(value);
             innerTransaction.insertInner(t1);
         } catch (RuntimeException e) {
 
         }
-        T1 t = t1Mapper.selectByPrimaryKey("3");
-        Assertions.assertNull(t);
+        T1 t = t1Mapper.selectByPrimaryKey(key);
+        Assertions.assertEquals(value, t.getF2());
     }
 }
