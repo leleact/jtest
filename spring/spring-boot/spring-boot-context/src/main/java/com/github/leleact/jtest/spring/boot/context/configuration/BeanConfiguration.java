@@ -21,7 +21,7 @@ public class BeanConfiguration implements ApplicationContextAware  {
     }
 
     // Bean named P created by p1() will override bean created by p()
-    @Bean("p")
+    @Bean("p1")
     public Person p1() {
         return new Person();
     }
