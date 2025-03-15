@@ -37,6 +37,6 @@ public class ModifyClazzTests {
         enhanceF1.insertAfter("log.info(\"after modify method\");");
 
         EnhancePojo pojo = (EnhancePojo) cc.toClass(ModifyClazzTests.class).getConstructor().newInstance();
-        Assertions.assertEquals(pojo.f1("hello"), 1);
+        Assertions.assertEquals(1,pojo.f1("hello"));
     }
 }
