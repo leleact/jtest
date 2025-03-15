@@ -2,12 +2,13 @@ package com.github.leleact.jtest.spring.boot.test;
 
 import com.github.leleact.jtest.spring.boot.test.service.MyDependency1Service;
 import com.github.leleact.jtest.spring.boot.test.service.MyService;
-import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
+
+import jakarta.annotation.Resource;
 
 /**
  * spring boot test
@@ -20,7 +21,7 @@ public class SpringTestApplicationTests {
     @Resource
     private MyService myService;
 
-    @MockBean
+    @MockitoBean
     private MyDependency1Service myDependency1Service;
 
     @Test
