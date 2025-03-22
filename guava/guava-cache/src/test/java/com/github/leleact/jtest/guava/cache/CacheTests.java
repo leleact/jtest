@@ -1,5 +1,6 @@
 package com.github.leleact.jtest.guava.cache;
 
+import com.github.leleact.jtest.guava.cache.pojo.Employee;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
@@ -10,32 +11,22 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
-class CacheTests {
+public class CacheTests {
 
-    private static class Employee {
-        private int id;
-        private String name;
-
-        public Employee(int id, String name) {
-            this.id = id;
-            this.name = name;
-        }
-
-        public int getId() {
-            return id;
-        }
-
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
+    @Test
+    public void createCacheTest() throws ExecutionException, InterruptedException {
+        LoadingCache<Integer, Employee> empCache = CacheBuilder.newBuilder()
+                                                               .maximumSize(100)
+                                                               .expireAfterWrite(10, TimeUnit.MINUTES)
+                                                               .build(new CacheLoader<>() {
+                                                                   @Override
+                                                                   public Employee load(Integer id) {
+                                                                       return getEmployeeById(id);
+                                                                   }
+                                                               });
+        log.info(empCache.get(1).getName());
+        Thread.sleep(3000);
+        log.info(empCache.get(1).getName());
     }
 
     private static Employee getEmployeeById(int id) {
@@ -49,22 +40,5 @@ class CacheTests {
         } else {
             return emp2;
         }
-    }
-
-    @Test
-    void createCacheTest() throws ExecutionException, InterruptedException {
-
-        LoadingCache<Integer, Employee> empCache = CacheBuilder.newBuilder().maximumSize(100).expireAfterWrite(10, TimeUnit.MINUTES).build(new CacheLoader<>() {
-            @Override
-            public Employee load(Integer id) {
-                return getEmployeeById(id);
-            }
-        });
-
-        log.info(empCache.get(1).getName());
-
-        Thread.sleep(3000);
-
-        log.info(empCache.get(1).getName());
     }
 }
