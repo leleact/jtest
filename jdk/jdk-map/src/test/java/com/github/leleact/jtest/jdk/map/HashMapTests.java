@@ -14,4 +14,14 @@ public class HashMapTests {
         String value = map.get(null);
         Assertions.assertNull(value);
     }
+
+    @Test
+    public void getDefaultTest() {
+        Map<String, String> m = new HashMap<>();
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> {
+            m.computeIfAbsent("key", k -> {
+                throw new UnsupportedOperationException("Not supported yet.");
+            });
+        });
+    }
 }
