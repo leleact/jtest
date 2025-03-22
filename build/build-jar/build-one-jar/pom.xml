@@ -22,7 +22,7 @@
     <plugins>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>3.1.0</version>
+        <version>${maven.assembly.plugin.version}</version>
         <configuration>
           <descriptorRefs>
             <descriptorRef>jar-with-dependencies</descriptorRef>
@@ -46,5 +46,4 @@
       </plugin>
     </plugins>
   </build>
-
 </project>
