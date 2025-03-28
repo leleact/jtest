@@ -15,7 +15,7 @@
     <mariaDB4j.version>3.1.0</mariaDB4j.version>
     <mariadb.client.version>3.4.1</mariadb.client.version>
     <jaxb.version>2.3.1</jaxb.version>
-    <snakeyaml.version>1.33</snakeyaml.version>
+    <snakeyaml.version>2.0</snakeyaml.version>
     <activation.api.version>1.2.0</activation.api.version>
   </properties>
 
