@@ -87,7 +87,7 @@
     <mybatis.version>3.5.16</mybatis.version>
     <mysql.connector.version>9.2.0</mysql.connector.version>
     <druid.version>1.2.24</druid.version>
-    <shardingsphere.version>5.4.1</shardingsphere.version>
+    <shardingsphere.version>5.5.2</shardingsphere.version>
     <!-- mybatis, mysql, transaction, datasource: end-->
 
     <!-- dubbo: begin -->
