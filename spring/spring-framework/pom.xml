@@ -17,6 +17,7 @@
     <module>spring-aop</module>
     <module>spring-context</module>
     <module>spring-ioc</module>
+    <module>spring-ioc-bean-post</module>
     <module>spring-jdbc</module>
     <module>spring-mvc</module>
     <module>spring-oxm</module>
