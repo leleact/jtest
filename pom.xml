@@ -11,7 +11,7 @@
   <modules>
     <module>algorithm</module>
     <module>apache</module>
-    <module>build</module>
+    <module>build-example</module>
     <module>build-tools</module>
     <module>crypto</module>
     <module>ddd-template</module>
