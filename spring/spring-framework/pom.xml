@@ -30,6 +30,7 @@
     <module>spring-test-mysql</module>
     <module>spring-tx</module>
     <module>spring-web</module>
+    <module>spring-webflux</module>
   </modules>
 
   <dependencies>

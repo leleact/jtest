@@ -25,17 +25,12 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <executions>
           <execution>
-            <id>log4j-plugin-processor</id>
-            <goals>
-              <goal>compile</goal>
-            </goals>
-            <phase>process-classes</phase>
+            <id>default-compile</id>
             <configuration>
-              <proc>only</proc>
-              <annotationProcessors>
-                <annotationProcessor>org.apache.logging.log4j.core.config.plugins.processor.PluginProcessor
-                </annotationProcessor>
-              </annotationProcessors>
+              <compilerArgs combine.children="append">
+                <arg>-Alog4j.graalvm.groupId=${project.groupId}</arg>
+                <arg>-Alog4j.graalvm.artifactId=${project.artifactId}</arg>
+              </compilerArgs>
             </configuration>
           </execution>
         </executions>
