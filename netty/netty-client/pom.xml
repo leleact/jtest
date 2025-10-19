@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>nettty-client</artifactId>
+  <artifactId>netty-client</artifactId>
 
   <dependencies>
     <dependency>
