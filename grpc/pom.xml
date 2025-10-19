@@ -16,11 +16,8 @@
   </modules>
 
   <properties>
-    <grpc.version>1.58.0</grpc.version>
-    <protobuf.version>3.24.4</protobuf.version>
-    <tomcat.annotations.api.version>6.0.53</tomcat.annotations.api.version>
-    <os.maven.plugin.version>1.7.1</os.maven.plugin.version>
-    <protobuf.maven.plugin.version>0.6.1</protobuf.maven.plugin.version>
+    <grpc.version>1.76.0</grpc.version>
+    <protobuf.version>4.33.0</protobuf.version>
   </properties>
 
   <dependencies>
@@ -48,46 +45,38 @@
     </dependency>
 
     <dependency>
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java</artifactId>
+      <version>${protobuf.version}</version>
+    </dependency>
+
+    <dependency>
       <groupId>io.grpc</groupId>
       <artifactId>grpc-stub</artifactId>
       <version>${grpc.version}</version>
     </dependency>
-
-    <dependency> <!-- necessary for Java 9+ -->
-      <groupId>org.apache.tomcat</groupId>
-      <artifactId>annotations-api</artifactId>
-      <version>${tomcat.annotations.api.version}</version>
-      <scope>provided</scope>
-    </dependency>
   </dependencies>
 
   <build>
-    <extensions>
-      <extension>
-        <groupId>kr.motd.maven</groupId>
-        <artifactId>os-maven-plugin</artifactId>
-        <version>${os.maven.plugin.version}</version>
-      </extension>
-    </extensions>
-
     <pluginManagement>
       <plugins>
         <plugin>
-          <groupId>org.xolstice.maven.plugins</groupId>
+          <groupId>io.github.ascopes</groupId>
           <artifactId>protobuf-maven-plugin</artifactId>
-          <version>${protobuf.maven.plugin.version}</version>
           <configuration>
-            <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}
-            </protocArtifact>
-            <pluginId>grpc-java</pluginId>
-            <pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc.version}:exe:${os.detected.classifier}</pluginArtifact>
-            <useArgumentFile>true</useArgumentFile>
+            <protocVersion>${protobuf.version}</protocVersion>
+            <binaryMavenPlugins>
+              <binaryMavenPlugin>
+                <groupId>io.grpc</groupId>
+                <artifactId>protoc-gen-grpc-java</artifactId>
+                <version>${grpc.version}</version>
+              </binaryMavenPlugin>
+            </binaryMavenPlugins>
           </configuration>
           <executions>
             <execution>
               <goals>
-                <goal>compile</goal>
-                <goal>compile-custom</goal>
+                <goal>generate</goal>
               </goals>
             </execution>
           </executions>
