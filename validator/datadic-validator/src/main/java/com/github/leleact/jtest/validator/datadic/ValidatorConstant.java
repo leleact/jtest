@@ -6,7 +6,7 @@ package com.github.leleact.jtest.validator.datadic;
  * @author leleact
  * @since 1.0
  */
-public class ValidataConstant {
+public class ValidatorConstant {
 
     public static final int MIN = 2;
 

@@ -47,8 +47,8 @@
     <maven.compiler.target>21</maven.compiler.target>
 
     <!-- plugin begin -->
-    <maven.compiler.plugin.version>3.14.0</maven.compiler.plugin.version>
-    <maven.war.plugin.version>3.4.0</maven.war.plugin.version>
+    <maven.compiler.plugin.version>3.14.1</maven.compiler.plugin.version>
+    <maven.war.plugin.version>3.5.0</maven.war.plugin.version>
     <maven.source.plugin.version>3.3.1</maven.source.plugin.version>
     <maven.surefire.plugin.version>3.3.0</maven.surefire.plugin.version>
     <maven.checkstyle.plugin.version>3.4.0</maven.checkstyle.plugin.version>
@@ -99,6 +99,9 @@
     <guava.version>33.4.0-jre</guava.version>
     <org.mapstruct.version>1.6.3</org.mapstruct.version>
     <zookeeper.version>3.9.3</zookeeper.version>
+    <vertx.version>4.5.22</vertx.version>
+    <jakarta.el.version>6.0.1</jakarta.el.version>
+    <glassfish.expressly.version>6.0.0</glassfish.expressly.version>
 
     <!-- apache commons: begin-->
     <apache.commons.io.version>2.16.1</apache.commons.io.version>

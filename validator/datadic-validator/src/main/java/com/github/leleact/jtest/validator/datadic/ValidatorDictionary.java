@@ -6,7 +6,7 @@ package com.github.leleact.jtest.validator.datadic;
  * @author leleact
  * @since 1.0
  */
-public enum ValidateDic {
+public enum ValidatorDictionary {
 
     NAME {
         @Override

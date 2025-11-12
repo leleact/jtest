@@ -11,10 +11,6 @@
 
   <artifactId>vertx</artifactId>
 
-  <properties>
-    <vertx-version>4.5.22</vertx-version>
-  </properties>
-
   <dependencies>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -36,13 +32,13 @@
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-core</artifactId>
-      <version>${vertx-version}</version>
+      <version>${vertx.version}</version>
     </dependency>
 
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-web</artifactId>
-      <version>${vertx-version}</version>
+      <version>${vertx.version}</version>
     </dependency>
   </dependencies>
 
@@ -62,13 +58,13 @@
             <annotationProcessorPath>
               <groupId>io.vertx</groupId>
               <artifactId>vertx-codegen</artifactId>
-              <version>${vertx-version}</version>
+              <version>${vertx.version}</version>
               <classifier>processor</classifier>
             </annotationProcessorPath>
             <annotationProcessorPath>
               <groupId>io.vertx</groupId>
               <artifactId>vertx-service-proxy</artifactId>
-              <version>${vertx-version}</version>
+              <version>${vertx.version}</version>
             </annotationProcessorPath>
           </annotationProcessorPaths>
         </configuration>

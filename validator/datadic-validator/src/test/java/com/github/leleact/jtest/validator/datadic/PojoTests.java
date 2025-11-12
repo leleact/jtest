@@ -16,13 +16,12 @@ import java.util.Set;
  * @since 1.0
  */
 @Slf4j
-class PojoTests {
+public class PojoTests {
 
     @Test
-    void validatorTest() {
+    public void validatorTest() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
-
 
         Pojo p = new Pojo();
         p.setName("a");
