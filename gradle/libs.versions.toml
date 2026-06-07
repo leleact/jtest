@@ -1,0 +1,159 @@
+# Single source of truth for every dependency, plugin and tooling version
+# used across all jtest subprojects. Modules MUST NOT declare their own
+# version numbers; they consume aliases defined here via the `libs.*`
+# accessor in their build scripts.
+
+[versions]
+# Languages and JDK
+java = "21"
+
+# Plugins
+spring-boot = "3.5.6"
+spring-dependency-management = "1.1.7"
+protobuf-plugin = "0.9.5"
+shadow = "8.3.6"
+
+# BOMs / platforms
+spring-cloud = "2025.0.0"
+spring-statemachine = "4.0.1"
+log4j = "2.25.1"
+netty = "4.1.115.Final"
+
+# Spring extras
+spring-cloud-ribbon = "2.2.10.RELEASE"
+
+# Persistence / data
+mybatis = "3.5.19"
+mybatis-spring = "3.0.5"
+mybatis-spring-boot = "3.0.5"
+mybatis-generator = "1.4.2"
+pagehelper = "2.1.0"
+druid = "1.2.27"
+shardingsphere = "5.5.2"
+mysql-connector = "9.2.0"
+mariadb-client = "3.4.1"
+mariadb4j = "3.1.0"
+
+# Networking / RPC
+dubbo = "3.3.5"
+dubbo-zookeeper-curator5 = "3.3.2"
+grpc = "1.76.0"
+protobuf = "4.33.0"
+vertx = "4.5.22"
+apache-httpclient = "4.5.14"
+
+# Service mesh
+java-chassis-deps = "2.8.15"
+
+# Logging
+disruptor = "4.0.0"
+
+# Tooling / utility
+lombok = "1.18.34"
+mapstruct = "1.6.3"
+guava = "33.4.0-jre"
+xstream = "1.4.20"
+fastjson = "1.2.83"
+javassist = "3.30.2-GA"
+bouncycastle = "1.80"
+jakarta-el = "6.0.1"
+glassfish-expressly = "6.0.0"
+jakarta-jaxb-api = "2.3.1"
+jaxb-impl = "2.3.1"
+javax-activation = "1.2.0"
+rxjava = "3.1.8"
+
+# Apache commons
+commons-io = "2.16.1"
+commons-beanutils = "1.9.4"
+
+# Findbugs annotations
+findbugs-jsr305 = "3.0.2"
+findbugs-annotations = "3.0.1"
+
+# Servlet (legacy javax)
+legacy-servlet-api = "2.5"
+
+# Test platform. Aligned with what spring-boot 3.5.6 pins so modules that
+# inherit the Spring Boot BOM and modules that don't both end up on the
+# same Jupiter / Platform versions.
+junit5 = "5.12.2"
+junit-platform = "1.12.2"
+
+[libraries]
+# --- Platforms (BOMs) imported via `platform(libs.bom.*)` ---
+bom-spring-boot = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
+bom-spring-cloud = { module = "org.springframework.cloud:spring-cloud-dependencies", version.ref = "spring-cloud" }
+bom-spring-statemachine = { module = "org.springframework.statemachine:spring-statemachine-bom", version.ref = "spring-statemachine" }
+bom-log4j = { module = "org.apache.logging.log4j:log4j-bom", version.ref = "log4j" }
+bom-netty = { module = "io.netty:netty-bom", version.ref = "netty" }
+bom-dubbo = { module = "org.apache.dubbo:dubbo-bom", version.ref = "dubbo" }
+bom-java-chassis = { module = "org.apache.servicecomb:java-chassis-dependencies", version.ref = "java-chassis-deps" }
+bom-junit = { module = "org.junit:junit-bom", version.ref = "junit5" }
+
+# --- Spring extras ---
+spring-cloud-starter-netflix-ribbon = { module = "org.springframework.cloud:spring-cloud-starter-netflix-ribbon", version.ref = "spring-cloud-ribbon" }
+
+# --- Persistence ---
+mybatis = { module = "org.mybatis:mybatis", version.ref = "mybatis" }
+mybatis-spring = { module = "org.mybatis:mybatis-spring", version.ref = "mybatis-spring" }
+mybatis-spring-boot-starter = { module = "org.mybatis.spring.boot:mybatis-spring-boot-starter", version.ref = "mybatis-spring-boot" }
+mybatis-generator-core = { module = "org.mybatis.generator:mybatis-generator-core", version.ref = "mybatis-generator" }
+pagehelper-spring-boot-starter = { module = "com.github.pagehelper:pagehelper-spring-boot-starter", version.ref = "pagehelper" }
+druid = { module = "com.alibaba:druid", version.ref = "druid" }
+shardingsphere-jdbc = { module = "org.apache.shardingsphere:shardingsphere-jdbc", version.ref = "shardingsphere" }
+mysql-connector-j = { module = "com.mysql:mysql-connector-j", version.ref = "mysql-connector" }
+mariadb-client = { module = "org.mariadb.jdbc:mariadb-java-client", version.ref = "mariadb-client" }
+mariadb4j = { module = "ch.vorburger.mariaDB4j:mariaDB4j", version.ref = "mariadb4j" }
+
+# --- RPC / Networking ---
+dubbo = { module = "org.apache.dubbo:dubbo" }
+dubbo-spring-boot-starter = { module = "org.apache.dubbo:dubbo-spring-boot-starter" }
+dubbo-zookeeper-curator5 = { module = "org.apache.dubbo:dubbo-dependencies-zookeeper-curator5", version.ref = "dubbo-zookeeper-curator5" }
+grpc-netty-shaded = { module = "io.grpc:grpc-netty-shaded", version.ref = "grpc" }
+grpc-protobuf = { module = "io.grpc:grpc-protobuf", version.ref = "grpc" }
+grpc-stub = { module = "io.grpc:grpc-stub", version.ref = "grpc" }
+grpc-services = { module = "io.grpc:grpc-services", version.ref = "grpc" }
+protobuf-java = { module = "com.google.protobuf:protobuf-java", version.ref = "protobuf" }
+vertx-core = { module = "io.vertx:vertx-core", version.ref = "vertx" }
+vertx-web = { module = "io.vertx:vertx-web", version.ref = "vertx" }
+apache-httpclient = { module = "org.apache.httpcomponents:httpclient", version.ref = "apache-httpclient" }
+apache-httpmime = { module = "org.apache.httpcomponents:httpmime", version.ref = "apache-httpclient" }
+legacy-servlet-api = { module = "javax.servlet:servlet-api", version.ref = "legacy-servlet-api" }
+
+# --- Logging ---
+disruptor = { module = "com.lmax:disruptor", version.ref = "disruptor" }
+
+# --- Util ---
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+mapstruct = { module = "org.mapstruct:mapstruct", version.ref = "mapstruct" }
+mapstruct-processor = { module = "org.mapstruct:mapstruct-processor", version.ref = "mapstruct" }
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
+xstream = { module = "com.thoughtworks.xstream:xstream", version.ref = "xstream" }
+fastjson = { module = "com.alibaba:fastjson", version.ref = "fastjson" }
+javassist = { module = "org.javassist:javassist", version.ref = "javassist" }
+bouncycastle = { module = "org.bouncycastle:bcprov-jdk18on", version.ref = "bouncycastle" }
+rxjava = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava" }
+
+# --- Findbugs ---
+findbugs-jsr305 = { module = "com.google.code.findbugs:jsr305", version.ref = "findbugs-jsr305" }
+findbugs-annotations = { module = "com.google.code.findbugs:annotations", version.ref = "findbugs-annotations" }
+
+# --- JAXB / Activation (for shardingsphere on JDK 21) ---
+jakarta-el-api = { module = "jakarta.el:jakarta.el-api", version.ref = "jakarta-el" }
+glassfish-expressly = { module = "org.glassfish.expressly:expressly", version.ref = "glassfish-expressly" }
+jaxb-api = { module = "javax.xml.bind:jaxb-api", version.ref = "jakarta-jaxb-api" }
+jaxb-impl = { module = "com.sun.xml.bind:jaxb-impl", version.ref = "jaxb-impl" }
+javax-activation-api = { module = "javax.activation:javax.activation-api", version.ref = "javax-activation" }
+
+# --- Apache commons ---
+commons-io = { module = "commons-io:commons-io", version.ref = "commons-io" }
+commons-beanutils = { module = "commons-beanutils:commons-beanutils", version.ref = "commons-beanutils" }
+
+# --- Lombok subprojects expect provided scope; convention plugin wires this ---
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+spring-dep-mgmt = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management" }
+protobuf = { id = "com.google.protobuf", version.ref = "protobuf-plugin" }
+shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }

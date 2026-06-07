@@ -1,0 +1,23 @@
+// Auto-generated from pom.xml by scripts/generate_gradle.py
+// Do not edit by hand.
+
+plugins {
+    id("jtest.spring-boot-conventions")
+}
+
+description = "dubbo-compatibility-provider"
+
+dependencies {
+    api(platform(libs.bom.dubbo))
+    "implementation"(libs.dubbo)
+    "implementation"(platform(libs.dubbo.zookeeper.curator5))
+    "compileOnly"(libs.lombok)
+    "testImplementation"(libs.lombok)
+    "implementation"("org.springframework.boot:spring-boot-starter")
+    "testImplementation"("org.springframework.boot:spring-boot-starter-test")
+    "implementation"(libs.dubbo.spring.boot.starter)
+    "implementation"("org.apache.curator:curator-framework")
+    "implementation"("org.apache.curator:curator-recipes")
+    "implementation"(project(":dubbo:dubbo-compatibility:dubbo-compatibility-api"))
+}
+
