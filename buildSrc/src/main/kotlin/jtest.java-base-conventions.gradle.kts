@@ -59,6 +59,13 @@ tasks.withType<Test>().configureEach {
     }
     systemProperty("java.net.preferIPv4Stack", "true")
     timeout.set(Duration.ofMinutes(10))
+
+    // Many demo modules ship test sources whose only @Test methods are
+    // intentionally @Disabled (they need an external broker/registry to
+    // run). Gradle 9 turned "test sources present but nothing discovered"
+    // into a hard failure; opt back out of that so those modules still
+    // build cleanly on CI.
+    failOnNoDiscoveredTests = false
 }
 
 tasks.named<Jar>("jar") {
