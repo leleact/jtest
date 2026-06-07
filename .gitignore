@@ -27,6 +27,13 @@ hs_err_pid*
 .classpath
 .project
 .settings
+# Eclipse / VSCode Java (JDT.LS) compile output
+bin/
+*.factorypath
+
+# AI tool workspaces
+.claude/
+.opencode/
 
 #Intellij
 .idea/
