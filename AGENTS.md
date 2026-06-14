@@ -137,3 +137,6 @@ Before handing work back, confirm:
 4. New modules are wired into `settings.gradle.kts`.
 5. Editor-config conventions are respected (encoding, indentation,
    final newline).
+6. **Locally verify before pushing to CI:** run `./gradlew :<each-affected-module>:build`
+   and fix all errors. Only push once the change passes locally — do not rely on CI
+   for first-pass validation.
